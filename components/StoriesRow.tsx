@@ -30,18 +30,9 @@ export default function StoriesRow({ users, onStoryClick }: StoriesRowProps) {
             className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
           >
             <div className="relative w-16 h-16 md:w-[72px] md:h-[72px]">
-              {user.hasStory && (
-                <Image
-                  src="/story-ring.png"
-                  alt=""
-                  fill
-                  className="object-contain"
-                  sizes="72px"
-                />
-              )}
               <div
                 className={`absolute inset-0 flex items-center justify-center ${
-                  user.hasStory ? "p-[6px]" : "p-0"
+                  user.hasStory ? "p-[3px]" : "p-0"
                 }`}
               >
                 <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] group-hover:scale-105 transition-transform">
@@ -55,7 +46,16 @@ export default function StoriesRow({ users, onStoryClick }: StoriesRowProps) {
                 </div>
               </div>
               {user.hasStory && (
-                <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                <Image
+                  src="/story-ring.png"
+                  alt=""
+                  fill
+                  className="object-contain z-10 pointer-events-none"
+                  sizes="72px"
+                />
+              )}
+              {user.hasStory && (
+                <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm z-20">
                   <Image src="/gumi-icon.png" alt="" width={12} height={12} />
                 </div>
               )}

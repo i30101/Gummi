@@ -96,14 +96,14 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
             <div className="flex flex-col items-center pt-12 pb-6 px-6">
               {/* Avatar with story ring */}
               <div className="relative w-24 h-24 mb-4">
-                {user.hasStory && (
-                  <Image src="/story-ring.png" alt="" fill className="object-contain" sizes="96px" />
-                )}
-                <div className={`absolute inset-0 flex items-center justify-center ${user.hasStory ? "p-[7px]" : "p-0"}`}>
+                <div className={`absolute inset-0 flex items-center justify-center ${user.hasStory ? "p-[4px]" : "p-0"}`}>
                   <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
                     <Image src={user.avatar} alt={user.name} fill className="object-cover" sizes="96px" />
                   </div>
                 </div>
+                {user.hasStory && (
+                  <Image src="/story-ring.png" alt="" fill className="object-contain z-10 pointer-events-none" sizes="96px" />
+                )}
               </div>
 
               <h2
