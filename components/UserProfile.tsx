@@ -52,6 +52,21 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
   const userGumis = user ? getUserGumis(user.id) : [];
   const highlights = user ? getUserHighlights(user.id) : [];
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
+  const [aiSummary, setAiSummary] = useState<string | null>(null);
+
+  useEffect(() => {
+    setAiSummary(null);
+    if (!user || userGumis.length === 0) return;
+    fetch("/api/ai/profile", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userName: user.name, productTitles: userGumis.map((p) => p.title) }),
+    })
+      .then((r) => r.json())
+      .then((d) => setAiSummary(d.summary ?? null))
+      .catch(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]);
 
   // Reset highlight when user changes
   useEffect(() => {
@@ -113,9 +128,14 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
                 {user.name}
               </h2>
               <p className="text-sm text-[var(--text-tertiary)] mb-3">@{user.username}</p>
-              <p className="text-sm text-[var(--text-secondary)] text-center max-w-xs mb-6">
+              <p className="text-sm text-[var(--text-secondary)] text-center max-w-xs mb-3">
                 {user.bio}
               </p>
+              {aiSummary && (
+                <p className="text-xs text-[var(--accent)] text-center max-w-xs mb-4 italic">
+                  ✦ {aiSummary}
+                </p>
+              )}
 
               {/* Stats — Gumi count is the star metric */}
               <div className="flex gap-8 mb-6">

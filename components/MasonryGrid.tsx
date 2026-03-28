@@ -10,6 +10,7 @@ type MasonryGridProps = {
   onProductClick: (product: Product) => void;
   onFriendClick?: (user: MockUser) => void;
   onGumi?: (product: Product) => void;
+  aiReasons?: Record<string, string>;
 };
 
 export default function MasonryGrid({
@@ -18,6 +19,7 @@ export default function MasonryGrid({
   onProductClick,
   onFriendClick,
   onGumi,
+  aiReasons,
 }: MasonryGridProps) {
   return (
     <div className="masonry px-4 md:px-6 lg:px-8">
@@ -29,6 +31,7 @@ export default function MasonryGrid({
           onClick={onProductClick}
           onFriendClick={onFriendClick}
           onGumi={onGumi}
+          aiReason={aiReasons?.[product.id]}
         />
       ))}
       {isLoading &&

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchProducts } from "@/lib/shopify-catalog";
+import { expandSearchQuery } from "@/lib/lava";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -11,6 +12,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ products: [], nextCursor: null, hasMore: false });
   }
 
-  const result = await searchProducts({ query: q, cursor, limit });
+  const expandedQuery = await expandSearchQuery(q);
+  const result = await searchProducts({ query: expandedQuery, cursor, limit });
   return NextResponse.json(result);
 }

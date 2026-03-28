@@ -13,9 +13,10 @@ type ProductCardProps = {
   onClick: (product: Product) => void;
   onFriendClick?: (user: MockUser) => void;
   onGumi?: (product: Product) => void;
+  aiReason?: string;
 };
 
-export default function ProductCard({ product, index, onClick, onFriendClick, onGumi }: ProductCardProps) {
+export default function ProductCard({ product, index, onClick, onFriendClick, onGumi, aiReason }: ProductCardProps) {
   const [isGumied, setIsGumied] = useState(product.isGumied ?? false);
   const [gumiCount, setGumiCount] = useState(product.gumis);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -113,6 +114,11 @@ export default function ProductCard({ product, index, onClick, onFriendClick, on
           >
             {product.title}
           </h3>
+          {aiReason && (
+            <p className="text-[10px] text-[var(--accent)] mb-1 italic line-clamp-1">
+              ✦ {aiReason}
+            </p>
+          )}
           <div className="flex items-center justify-between">
             <p className="text-sm font-medium text-[var(--text-primary)]">
               {formatPriceRange(product.price.min, product.price.max, product.price.currency)}

@@ -24,6 +24,7 @@ export default function Home() {
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
+  const [aiReasons, setAiReasons] = useState<Record<string, string>>({});
 
   // UI state
   const [feedMode, setFeedMode] = useState<FeedMode>("gallery");
@@ -144,6 +145,17 @@ export default function Home() {
       setProducts(data.products);
       setCursor(data.nextCursor);
       setHasMore(data.hasMore);
+
+      // Fetch AI reasons in the background — non-blocking
+      setAiReasons({});
+      fetch("/api/ai/reasons", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ products: data.products.map((p) => ({ id: p.id, title: p.title, brand: p.brand, gumiedByFriends: p.gumiedByFriends })) }),
+      })
+        .then((r) => r.json())
+        .then((reasons) => setAiReasons(reasons))
+        .catch(() => {});
     } catch {
       setHasMore(false);
     } finally {
@@ -256,6 +268,7 @@ export default function Home() {
             onProductClick={handleProductClick}
             onFriendClick={handleFriendClick}
             onGumi={handleGumi}
+            aiReasons={aiReasons}
           />
 
           {hasMore && <div ref={sentinelRef} className="h-4" />}
