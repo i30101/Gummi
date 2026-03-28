@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F2F0EC;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-tertiary: #9B9B9B;
+  --accent: #C45D3E;
+  --accent-hover: #A84E33;
+  --card-bg: #FFFFFF;
+  --border: #E8E6E1;
+  --overlay: rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-dm-sans), "Helvetica Neue", Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Masonry grid */
+.masonry {
+  columns: 5;
+  column-gap: 16px;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1439px) {
+  .masonry {
+    columns: 4;
+    column-gap: 14px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .masonry {
+    columns: 3;
+    column-gap: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .masonry {
+    columns: 2;
+    column-gap: 10px;
+  }
+  .masonry-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* Shimmer animation for skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    #E8E6E1 37%,
+    var(--bg-secondary) 63%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Category pills scrollbar hide */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
