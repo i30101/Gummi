@@ -10,7 +10,7 @@ import { formatPriceRange, formatCount } from "@/lib/utils";
 type StoryViewerProps = {
   users: MockUser[];
   initialUserIndex: number;
-  onClose: () => void;
+  onClose: (viewedUserIndex?: number) => void;
   onProductClick?: (product: Product) => void;
 };
 
@@ -58,7 +58,7 @@ export default function StoryViewer({
   // Escape to close
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") onClose(userIndex);
       if (e.key === "ArrowRight") goNext();
       if (e.key === "ArrowLeft") goPrev();
     };
@@ -96,7 +96,7 @@ export default function StoryViewer({
       setStoryIndex(0);
       setProgress(0);
     } else {
-      onClose();
+      onClose(userIndex);
     }
   }, [storyIndex, userStories.length, userIndex, users.length, onClose]);
 
@@ -157,14 +157,14 @@ export default function StoryViewer({
     const dy = e.changedTouches[0].clientY - touchStartY.current;
     // Swipe down to close
     if (dy > 100 && Math.abs(dx) < 50) {
-      onClose();
+      onClose(userIndex);
     }
   };
 
   const handleViewProduct = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (currentStory && onProductClick) {
-      onClose();
+      onClose(userIndex);
       setTimeout(() => onProductClick(currentStory), 100);
     }
   };
@@ -234,7 +234,7 @@ export default function StoryViewer({
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onClose();
+            onClose(userIndex);
           }}
           className="w-8 h-8 flex items-center justify-center"
           aria-label="Close stories"
@@ -274,7 +274,7 @@ export default function StoryViewer({
       <div className="absolute bottom-0 left-0 right-0 z-30 p-5 pb-8">
         {/* Gumi purchase badge */}
         <div className="flex items-center gap-1.5 mb-3">
-          <Image src="/gumi-icon.png" alt="" width={16} height={16} />
+          <Image src="/gumi-icon.png" alt="" width={16} height={27} />
           <span className="text-white/70 text-xs">
             {currentUser.name.split(" ")[0]} bought this
           </span>
@@ -294,7 +294,7 @@ export default function StoryViewer({
             {formatPriceRange(currentStory.price.min, currentStory.price.max)}
           </span>
           <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-2 py-0.5">
-            <Image src="/gumi-icon.png" alt="" width={12} height={12} />
+            <Image src="/gumi-icon.png" alt="" width={12} height={21} />
             <span className="text-white text-xs">{formatCount(currentStory.gumis)} bought</span>
           </div>
         </div>

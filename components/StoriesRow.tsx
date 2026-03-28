@@ -7,9 +7,10 @@ import { MockUser } from "@/types";
 type StoriesRowProps = {
   users: MockUser[];
   onStoryClick: (user: MockUser, index: number) => void;
+  viewedUserIds: Set<string>;
 };
 
-export default function StoriesRow({ users, onStoryClick }: StoriesRowProps) {
+export default function StoriesRow({ users, onStoryClick, viewedUserIds }: StoriesRowProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -23,48 +24,55 @@ export default function StoriesRow({ users, onStoryClick }: StoriesRowProps) {
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto hide-scrollbar px-4 md:px-6 lg:px-8 pb-4 pt-1"
       >
-        {users.map((user, index) => (
-          <button
-            key={user.id}
-            onClick={() => onStoryClick(user, index)}
-            className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
-          >
-            <div className="relative w-16 h-16 md:w-[72px] md:h-[72px]">
-              <div
-                className={`absolute inset-0 flex items-center justify-center ${
-                  user.hasStory ? "p-[3px]" : "p-0"
-                }`}
-              >
-                <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] group-hover:scale-105 transition-transform">
+        {users.map((user, index) => {
+          const isViewed = viewedUserIds.has(user.id);
+          return (
+            <button
+              key={user.id}
+              onClick={() => onStoryClick(user, index)}
+              className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
+            >
+              <div className="relative w-16 h-16 md:w-[72px] md:h-[72px] group-hover:scale-105 transition-transform">
+                <div
+                  className={`absolute inset-0 flex items-center justify-center ${
+                    user.hasStory ? "p-[3px]" : "p-0"
+                  }`}
+                >
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
+                    <Image
+                      src={user.avatar}
+                      alt={user.name}
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
+                  </div>
+                </div>
+                {user.hasStory && (
                   <Image
-                    src={user.avatar}
-                    alt={user.name}
+                    src="/story-ring.png"
+                    alt=""
                     fill
-                    className="object-cover"
-                    sizes="64px"
+                    className={`object-contain z-10 pointer-events-none transition-all ${
+                      isViewed ? "grayscale" : ""
+                    }`}
+                    sizes="72px"
                   />
-                </div>
+                )}
+                {user.hasStory && !isViewed && (
+                  <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm z-20">
+                    <Image src="/gumi-icon.png" alt="" width={12} height={21} />
+                  </div>
+                )}
               </div>
-              {user.hasStory && (
-                <Image
-                  src="/story-ring.png"
-                  alt=""
-                  fill
-                  className="object-contain z-10 pointer-events-none"
-                  sizes="72px"
-                />
-              )}
-              {user.hasStory && (
-                <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 bg-transparent flex items-center justify-center z-20">
-                  <Image src="/gumi-icon.png" alt="" width={12} height={12} />
-                </div>
-              )}
-            </div>
-            <span className="text-[11px] text-[var(--text-secondary)] truncate w-16 text-center">
-              {user.username}
-            </span>
-          </button>
-        ))}
+              <span className={`text-[11px] truncate w-16 text-center ${
+                isViewed ? "text-[var(--text-tertiary)]" : "text-[var(--text-secondary)]"
+              }`}>
+                {user.username}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

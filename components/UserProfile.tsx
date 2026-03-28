@@ -121,7 +121,7 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
               <div className="flex gap-8 mb-6">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center gap-1.5">
-                    <Image src="/gumi-icon.png" alt="" width={18} height={18} />
+                    <Image src="/gumi-icon.png" alt="" width={18} height={31} />
                     <span className="text-xl font-bold text-[var(--accent)]">
                       {formatCount(user.gumiCount)}
                     </span>
@@ -217,7 +217,7 @@ export default function UserProfile({ user, onClose }: UserProfileProps) {
                     />
                     {/* Gumi badge overlay */}
                     <div className="absolute bottom-1 left-1 flex items-center gap-0.5 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                      <Image src="/gumi-icon.png" alt="" width={10} height={10} />
+                      <Image src="/gumi-icon.png" alt="" width={10} height={17} />
                       <span className="text-white text-[9px] font-medium">
                         {formatCount(product.gumis)}
                       </span>

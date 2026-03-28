@@ -71,11 +71,11 @@ export default function TopNav({
             src="/gumi-icon.png"
             alt="Gumi"
             width={28}
-            height={28}
+            height={48}
             className="drop-shadow-sm"
           />
           <h1
-            className="text-2xl tracking-tight text-[var(--text-primary)]"
+            className="text-3xl tracking-tight text-[var(--text-primary)]"
             style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
           >
             Gumi
@@ -162,7 +162,7 @@ export default function TopNav({
             <Image src={CURRENT_USER.avatar} alt="You" fill className="object-cover" sizes="28px" />
           </div>
           <div className="flex items-center gap-0.5">
-            <Image src="/gumi-icon.png" alt="" width={12} height={12} />
+            <Image src="/gumi-icon.png" alt="" width={12} height={21} />
             <span className="text-xs font-semibold text-[var(--text-primary)]">{CURRENT_USER.gumiCount}</span>
           </div>
         </button>

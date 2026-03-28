@@ -22,9 +22,9 @@ export default function GumiBadge({
   variant = "light",
 }: GumiBadgeProps) {
   const sizeMap = {
-    sm: { icon: 16, container: "w-7 h-7", text: "text-[10px]" },
-    md: { icon: 20, container: "w-9 h-9", text: "text-xs" },
-    lg: { icon: 28, container: "w-12 h-12", text: "text-sm" },
+    sm: { iconW: 16, iconH: 27, container: "w-7 h-7", text: "text-[10px]" },
+    md: { iconW: 20, iconH: 34, container: "w-9 h-9", text: "text-xs" },
+    lg: { iconW: 28, iconH: 48, container: "w-12 h-12", text: "text-sm" },
   };
 
   const s = sizeMap[size];
@@ -48,8 +48,8 @@ export default function GumiBadge({
         <Image
           src="/gumi-icon.png"
           alt="Gumi"
-          width={s.icon}
-          height={s.icon}
+          width={s.iconW}
+          height={s.iconH}
           className={`transition-all ${
             isGumied ? "opacity-100 drop-shadow-[0_0_4px_rgba(196,93,62,0.5)]" : "opacity-50 grayscale"
           }`}

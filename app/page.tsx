@@ -36,6 +36,7 @@ export default function Home() {
   // Story viewer state
   const [storyViewerOpen, setStoryViewerOpen] = useState(false);
   const [storyInitialIndex, setStoryInitialIndex] = useState(0);
+  const [viewedStoryUsers, setViewedStoryUsers] = useState<Set<string>>(new Set());
 
   // Algorithm modal
   const [algorithmOpen, setAlgorithmOpen] = useState(false);
@@ -60,10 +61,11 @@ export default function Home() {
     setSelectedUser(user);
   }, []);
 
-  // Handle story click — open story viewer
-  const handleStoryClick = useCallback((_user: MockUser, index: number) => {
+  // Handle story click — open story viewer and mark as viewed
+  const handleStoryClick = useCallback((user: MockUser, index: number) => {
     setStoryInitialIndex(index);
     setStoryViewerOpen(true);
+    setViewedStoryUsers((prev) => new Set(prev).add(user.id));
   }, []);
 
   // Fetch products
@@ -216,7 +218,7 @@ export default function Home() {
         <div style={{ paddingTop: `${navHeight}px` }}>
           {/* Stories row — recent friend purchases */}
           {!activeSearch && (
-            <StoriesRow users={storyUsers} onStoryClick={handleStoryClick} />
+            <StoriesRow users={storyUsers} onStoryClick={handleStoryClick} viewedUserIds={viewedStoryUsers} />
           )}
 
           {activeSearch && (
@@ -318,7 +320,18 @@ export default function Home() {
           <StoryViewer
             users={storyUsers}
             initialUserIndex={storyInitialIndex}
-            onClose={() => setStoryViewerOpen(false)}
+            onClose={(viewedUserIndex?: number) => {
+              setStoryViewerOpen(false);
+              if (viewedUserIndex !== undefined) {
+                setViewedStoryUsers((prev) => {
+                  const next = new Set(prev);
+                  for (let i = storyInitialIndex; i <= viewedUserIndex; i++) {
+                    if (storyUsers[i]) next.add(storyUsers[i].id);
+                  }
+                  return next;
+                });
+              }
+            }}
             onProductClick={handleProductClick}
           />
         )}

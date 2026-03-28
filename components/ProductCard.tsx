@@ -95,7 +95,7 @@ export default function ProductCard({ product, index, onClick, onFriendClick, on
           {/* Gumi count badge — bottom-left of image */}
           <div className="absolute bottom-3 left-3 z-10">
             <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full pl-1.5 pr-2.5 py-1">
-              <Image src="/gumi-icon.png" alt="Gumi" width={18} height={18} />
+              <Image src="/gumi-icon.png" alt="Gumi" width={18} height={31} />
               <span className="text-white text-xs font-medium">{formatCount(gumiCount)}</span>
               <span className="text-white/60 text-[10px]">bought</span>
             </div>
@@ -147,7 +147,7 @@ export default function ProductCard({ product, index, onClick, onFriendClick, on
                     src="/gumi-icon.png"
                     alt="Gumi"
                     width={14}
-                    height={14}
+                    height={24}
                     className={`transition-all ${isGumied ? "opacity-100" : "opacity-40 grayscale"}`}
                   />
                 </motion.div>

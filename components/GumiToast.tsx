@@ -24,7 +24,7 @@ export default function GumiToast({ visible, productTitle }: GumiToastProps) {
             animate={{ rotate: 0, scale: 1 }}
             transition={{ delay: 0.1, type: "spring", stiffness: 300 }}
           >
-            <Image src="/gumi-icon.png" alt="Gumi" width={28} height={28} className="drop-shadow-lg" />
+            <Image src="/gumi-icon.png" alt="Gumi" width={28} height={48} className="drop-shadow-lg" />
           </motion.div>
           <div>
             <p className="text-sm font-semibold">Purchase posted!</p>

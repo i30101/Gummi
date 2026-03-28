@@ -163,7 +163,7 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
               {/* Gumi count — purchase social proof */}
               <div className="flex items-center gap-4 mb-6 pb-6 border-b border-[var(--border)]">
                 <div className="flex items-center gap-2 bg-[var(--accent)]/5 rounded-full px-4 py-2">
-                  <Image src="/gumi-icon.png" alt="Gumi" width={22} height={22} />
+                  <Image src="/gumi-icon.png" alt="Gumi" width={22} height={38} />
                   <span className="text-base font-semibold text-[var(--accent)]">
                     {formatCount(product.gumis)}
                   </span>
@@ -253,7 +253,7 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                       src="/gumi-icon.png"
                       alt="Gumi"
                       width={18}
-                      height={18}
+                      height={31}
                       className={isGumied ? "" : "grayscale opacity-50"}
                     />
                   </motion.div>

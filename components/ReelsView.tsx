@@ -183,7 +183,7 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
                     src="/gumi-icon.png"
                     alt="Gumi"
                     width={28}
-                    height={28}
+                    height={48}
                     className={`transition-all ${isGumied ? "drop-shadow-[0_0_8px_rgba(196,93,62,0.6)]" : "grayscale opacity-70"}`}
                   />
                 </motion.div>

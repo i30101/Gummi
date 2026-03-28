@@ -94,7 +94,7 @@ export default function AlgorithmModal({ isOpen, onClose }: AlgorithmModalProps)
               {/* Header */}
               <motion.div variants={fadeUp} className="text-center mb-12">
                 <div className="flex items-center justify-center gap-2 mb-4">
-                  <Image src="/gumi-icon.png" alt="" width={32} height={32} />
+                  <Image src="/gumi-icon.png" alt="" width={32} height={55} />
                 </div>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--text-tertiary)] font-medium mb-2">
                   The Algorithm
