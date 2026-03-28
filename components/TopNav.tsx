@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
-import CategoryPills from "./CategoryPills";
 import { Category, FeedMode } from "@/types";
 import { CURRENT_USER } from "@/lib/mock-users";
 
@@ -170,15 +169,6 @@ export default function TopNav({
           </div>
         </button>
       </div>
-
-      {/* Category pills — only show in gallery mode */}
-      {feedMode === "gallery" && (
-        <CategoryPills
-          categories={categories}
-          activeCategory={activeCategory}
-          onSelect={onCategorySelect}
-        />
-      )}
     </nav>
   );
 }

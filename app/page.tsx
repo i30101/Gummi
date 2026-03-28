@@ -10,6 +10,7 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { useInfiniteQueue } from "@/hooks/useInfiniteQueue";
 import Sidebar from "@/components/Sidebar";
 import StoriesRow from "@/components/StoriesRow";
+import CategoryPills from "@/components/CategoryPills";
 import StoryViewer from "@/components/StoryViewer";
 import MasonryGrid from "@/components/MasonryGrid";
 import ReelsView from "@/components/ReelsView";
@@ -149,8 +150,19 @@ export default function Home() {
           <div className="w-full">
             {/* Stories row — recent friend purchases */}
             {!activeSearch && (
-              <div className="pt-4">
+              <div className="px-4 md:px-6 lg:px-8">
                 <StoriesRow users={storyUsers} onStoryClick={handleStoryClick} viewedUserIds={viewedStoryUsers} />
+              </div>
+            )}
+
+            {/* Category pills */}
+            {!activeSearch && (
+              <div className="px-4 md:px-6 lg:px-8">
+                <CategoryPills
+                  categories={CATEGORIES}
+                  activeCategory={activeCategory}
+                  onSelect={handleCategorySelect}
+                />
               </div>
             )}
 

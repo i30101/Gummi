@@ -19,7 +19,7 @@ export default function CategoryPills({
   return (
     <div
       ref={scrollRef}
-      className="flex gap-2 overflow-x-auto hide-scrollbar px-4 md:px-6 lg:px-8 py-2"
+      className="flex gap-2 overflow-x-auto hide-scrollbar py-2"
     >
       {categories.map((category) => {
         const isActive = category.id === activeCategory;
