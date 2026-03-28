@@ -14,12 +14,7 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="border-b border-[var(--border)]/50 bg-[var(--bg-primary)]">
-      <div className="px-4 md:px-6 lg:px-8 pt-3 pb-1">
-        <p className="text-[10px] uppercase tracking-[0.15em] text-[var(--text-tertiary)] font-medium">
-          Recent Gumis from friends
-        </p>
-      </div>
+    <div className="bg-[var(--bg-primary)]">
       <div
         ref={scrollRef}
         className="flex gap-4 overflow-x-auto hide-scrollbar px-4 md:px-6 lg:px-8 pb-4 pt-1"

@@ -7,7 +7,7 @@ import { CATEGORIES } from "@/lib/mock-data";
 import { getStoryUsers } from "@/lib/mock-users";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
-import TopNav from "@/components/TopNav";
+import Sidebar from "@/components/Sidebar";
 import StoriesRow from "@/components/StoriesRow";
 import StoryViewer from "@/components/StoryViewer";
 import MasonryGrid from "@/components/MasonryGrid";
@@ -196,111 +196,117 @@ export default function Home() {
     setSelectedUser(user);
   };
 
-  const navHeight = feedMode === "gallery" ? 120 : 0;
-
   return (
-    <main className="min-h-screen bg-[var(--bg-primary)]">
-      {feedMode !== "reels" && (
-        <TopNav
-          searchValue={searchValue}
-          onSearchChange={setSearchValue}
-          onSearchSubmit={handleSearchSubmit}
-          categories={CATEGORIES}
-          activeCategory={activeCategory}
-          onCategorySelect={handleCategorySelect}
-          feedMode={feedMode}
-          onFeedModeChange={handleFeedModeChange}
-          onAlgorithmClick={() => setAlgorithmOpen(true)}
-        />
-      )}
+    <main className="flex min-h-screen bg-[var(--bg-primary)]">
+      {/* Sidebar */}
+      <Sidebar
+        feedMode={feedMode}
+        onFeedModeChange={handleFeedModeChange}
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+        onSearchSubmit={handleSearchSubmit}
+        categories={CATEGORIES}
+        activeCategory={activeCategory}
+        onCategorySelect={handleCategorySelect}
+        onAlgorithmClick={() => setAlgorithmOpen(true)}
+      />
 
-      {feedMode === "gallery" && (
-        <div style={{ paddingTop: `${navHeight}px` }}>
-          {/* Stories row — recent friend purchases */}
-          {!activeSearch && (
-            <StoriesRow users={storyUsers} onStoryClick={handleStoryClick} viewedUserIds={viewedStoryUsers} />
-          )}
+      {/* Main content area */}
+      <div className="flex-1 w-full">
+        {feedMode === "gallery" && (
+          <div className="w-full">
+            {/* Stories row — recent friend purchases */}
+            {!activeSearch && (
+              <div className="pt-4">
+                <StoriesRow users={storyUsers} onStoryClick={handleStoryClick} viewedUserIds={viewedStoryUsers} />
+              </div>
+            )}
 
-          {activeSearch && (
-            <div className="px-4 md:px-6 lg:px-8 py-4">
-              <p className="text-sm text-[var(--text-secondary)]">
-                {products.length > 0
-                  ? `Results for "${activeSearch}"`
-                  : initialLoading
-                    ? `Searching for "${activeSearch}"...`
-                    : `No results for "${activeSearch}"`}
-              </p>
-              {products.length === 0 && !initialLoading && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  <span className="text-xs text-[var(--text-tertiary)]">Try:</span>
-                  {["fashion", "home decor", "skincare", "kitchen", "art"].map((s) => (
-                    <button
-                      key={s}
-                      onClick={() => {
-                        setSearchValue(s);
-                        setActiveSearch(s);
-                      }}
-                      className="px-3 py-1 bg-[var(--bg-secondary)] rounded-full text-xs text-[var(--text-secondary)] hover:bg-[var(--border)] transition-colors"
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              )}
+            {/* Search results header */}
+            {activeSearch && (
+              <div className="px-4 md:px-6 lg:px-8 py-4 b border-border-[var(--border)]">
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {products.length > 0
+                    ? `Results for "${activeSearch}"`
+                    : initialLoading
+                      ? `Searching for "${activeSearch}"...`
+                      : `No results for "${activeSearch}"`}
+                </p>
+                {products.length === 0 && !initialLoading && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    <span className="text-xs text-[var(--text-tertiary)]">Try:</span>
+                    {["fashion", "home decor", "skincare", "kitchen", "art"].map((s) => (
+                      <button
+                        key={s}
+                        onClick={() => {
+                          setSearchValue(s);
+                          setActiveSearch(s);
+                        }}
+                        className="px-3 py-1 bg-[var(--bg-secondary)] rounded-full text-xs text-[var(--text-secondary)] hover:bg-[var(--border)] transition-colors"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Masonry grid */}
+            <div className="px-4 md:px-6 lg:px-8 py-6">
+              <MasonryGrid
+                products={products}
+                isLoading={isLoading || initialLoading}
+                onProductClick={handleProductClick}
+                onFriendClick={handleFriendClick}
+                onGumi={handleGumi}
+              />
+
+              {hasMore && <div ref={sentinelRef} className="h-4" />}
             </div>
-          )}
+          </div>
+        )}
 
-          <MasonryGrid
-            products={products}
-            isLoading={isLoading || initialLoading}
-            onProductClick={handleProductClick}
-            onFriendClick={handleFriendClick}
-            onGumi={handleGumi}
-          />
-
-          {hasMore && <div ref={sentinelRef} className="h-4" />}
-        </div>
-      )}
-
-      {feedMode === "reels" && products.length > 0 && (
-        <>
-          <ReelsView
-            products={products}
-            onLoadMore={handleLoadMore}
-            hasMore={hasMore}
-            onProductClick={handleProductClick}
-          />
-          <button
-            onClick={() => handleFeedModeChange("gallery")}
-            className="fixed top-6 left-4 z-50 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
-            aria-label="Back to gallery"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </button>
-          <div className="fixed top-6 right-4 z-50 flex items-center bg-black/30 backdrop-blur-sm rounded-full p-1">
+        {feedMode === "reels" && products.length > 0 && (
+          <div className="w-full">
+            <ReelsView
+              products={products}
+              onLoadMore={handleLoadMore}
+              hasMore={hasMore}
+              onProductClick={handleProductClick}
+            />
             <button
               onClick={() => handleFeedModeChange("gallery")}
-              className="p-2 rounded-full hover:bg-white/10 transition-all"
-              aria-label="Gallery view"
+              className="fixed top-6 left-4 z-50 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
+              aria-label="Back to gallery"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
-            <button className="p-2 rounded-full bg-white/20" aria-label="Reels view (active)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                <rect x="6" y="3" width="12" height="18" rx="2" />
-                <line x1="12" y1="18" x2="12" y2="18" strokeLinecap="round" strokeWidth="3" />
-              </svg>
-            </button>
+            <div className="fixed top-6 right-4 z-50 flex items-center bg-black/30 backdrop-blur-sm rounded-full p-1">
+              <button
+                onClick={() => handleFeedModeChange("gallery")}
+                className="p-2 rounded-full hover:bg-white/10 transition-all"
+                aria-label="Gallery view"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                </svg>
+              </button>
+              <button className="p-2 rounded-full bg-white/20" aria-label="Reels view (active)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <rect x="6" y="3" width="12" height="18" rx="2" />
+                  <line x1="12" y1="18" x2="12" y2="18" strokeLinecap="round" strokeWidth="3" />
+                </svg>
+              </button>
+            </div>
           </div>
-        </>
-      )}
+        )}
+      </div>
 
       <ProductModal
         product={selectedProduct}
