@@ -6,6 +6,8 @@ import { Category, FeedMode } from "@/types";
 import { CURRENT_USER } from "@/lib/mock-users";
 import { getUnreadCount } from "@/lib/mock-conversations";
 import SearchBar from "./SearchBar";
+import GumiBear from "./GumiBear/GumiBear";
+import { useGumiBear } from "@/lib/gumi-bear-context";
 
 type SidebarProps = {
   feedMode: FeedMode;
@@ -46,6 +48,7 @@ export default function Sidebar({
 }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const unreadCount = getUnreadCount();
+  const { state: bearState } = useGumiBear();
 
   return (
     <>
@@ -91,13 +94,13 @@ export default function Sidebar({
             <Image
               src="/gumi-icon.png"
               alt="Gumi"
-              width={32}
-              height={32}
+              width={28}
+              height={48}
               className="drop-shadow-sm"
             />
             <h1
-              className="text-2xl tracking-tight text-[var(--text-primary)]"
-              style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
+              className="tracking-tight text-[var(--text-primary)]"
+              style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700, fontSize: "48px", lineHeight: "48px" }}
             >
               Gumi
             </h1>
@@ -198,8 +201,8 @@ export default function Sidebar({
 
           {/* User profile button */}
           <button onClick={onProfileClick} className="w-full flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors text-left">
-            <div className="relative w-8 h-8 rounded-full overflow-hidden bg-[var(--bg-secondary)] flex-shrink-0">
-              <Image src={CURRENT_USER.avatar} alt="You" fill className="object-cover" sizes="32px" />
+            <div className="relative w-8 h-8 rounded-full overflow-hidden bg-[var(--bg-secondary)] flex-shrink-0 flex items-center justify-center">
+              <GumiBear config={bearState.config} size={28} />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-[var(--text-primary)] truncate">{CURRENT_USER.name}</p>

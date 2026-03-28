@@ -17,6 +17,7 @@ import EditProfileModal from "./EditProfileModal";
 import SettingsPanel from "./SettingsPanel";
 import UserListModal from "./UserListModal";
 import SuggestedFollowers from "./SuggestedFollowers";
+import GumiBearCustomizer from "../GumiBear/GumiBearCustomizer";
 
 type MyProfileProps = {
   isOpen: boolean;
@@ -35,6 +36,7 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
   const [selectedCollection, setSelectedCollection] = useState<Collection | null>(null);
   const [highlightViewerIndex, setHighlightViewerIndex] = useState<number | null>(null);
   const [removedSavedIds, setRemovedSavedIds] = useState<Set<string>>(new Set());
+  const [customizerOpen, setCustomizerOpen] = useState(false);
 
   // Profile data
   const [profile, setProfile] = useState(getCurrentUserProfile());
@@ -75,7 +77,9 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
     if (!isOpen) return;
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        if (highlightViewerIndex !== null) {
+        if (customizerOpen) {
+          setCustomizerOpen(false);
+        } else if (highlightViewerIndex !== null) {
           setHighlightViewerIndex(null);
         } else if (settingsOpen) {
           setSettingsOpen(false);
@@ -92,7 +96,7 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [isOpen, onClose, highlightViewerIndex, settingsOpen, editModalOpen, userListType, selectedCollection]);
+  }, [isOpen, onClose, customizerOpen, highlightViewerIndex, settingsOpen, editModalOpen, userListType, selectedCollection]);
 
   // Reset state when closing
   useEffect(() => {
@@ -143,6 +147,7 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
               onSettingsClick={() => setSettingsOpen(true)}
               onFollowersClick={() => setUserListType("followers")}
               onFollowingClick={() => setUserListType("following")}
+              onCustomizeClick={() => setCustomizerOpen(true)}
             />
 
             <ProfileHighlights
@@ -221,6 +226,13 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
             onClose={() => setUserListType(null)}
             onUserClick={onUserClick}
           />
+
+          {/* Gumi Bear Customizer */}
+          <AnimatePresence>
+            {customizerOpen && (
+              <GumiBearCustomizer onClose={() => setCustomizerOpen(false)} />
+            )}
+          </AnimatePresence>
 
           {/* Highlight story viewer */}
           <AnimatePresence>

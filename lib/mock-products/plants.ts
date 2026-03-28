@@ -7,20 +7,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Fiddle Leaf Fig Tree",
     brand: "Bloomscape",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80",
       alt: "Tall fiddle leaf fig tree in a modern living room setting",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Tall fiddle leaf fig tree in a modern living room setting",
       },
       {
-        url: "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Close-up of fiddle leaf fig's large glossy leaves",
       },
       {
-        url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Fiddle leaf fig in decorative ceramic planter by window",
       },
     ],
@@ -45,16 +45,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Monstera Deliciosa",
     brand: "The Sill",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=600&q=80",
       alt: "Lush monstera deliciosa with fenestrated leaves",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
         alt: "Lush monstera deliciosa with fenestrated leaves",
       },
       {
-        url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Monstera plant styled on a wooden plant stand",
       },
     ],
@@ -79,20 +79,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Trailing Golden Pothos",
     brand: "Rooted",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80",
       alt: "Golden pothos with cascading variegated vines",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Golden pothos with cascading variegated vines",
       },
       {
-        url: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Pothos trailing from a hanging macrame planter",
       },
       {
-        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Close-up of pothos heart-shaped leaves with golden marbling",
       },
     ],
@@ -117,16 +117,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Sansevieria Zeylanica",
     brand: "Plants.com",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?w=600&q=80",
       alt: "Tall snake plant with striking dark green banded leaves",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?w=1200&q=80",
         alt: "Tall snake plant with striking dark green banded leaves",
       },
       {
-        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Snake plant in minimalist white ceramic pot",
       },
     ],
@@ -151,12 +151,12 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Dried Eucalyptus Bundle",
     brand: "Terrain",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1510627498534-cf7e9002facc?w=600&q=80",
       alt: "Dried eucalyptus bundle with silvery blue-green leaves",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1510627498534-cf7e9002facc?w=1200&q=80",
         alt: "Dried eucalyptus bundle with silvery blue-green leaves",
       },
       {
@@ -164,7 +164,7 @@ export const PLANTS_PRODUCTS: Product[] = [
         alt: "Eucalyptus stems arranged in a terracotta vase",
       },
       {
-        url: "https://images.unsplash.com/photo-1491147334573-44cbb4602074?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Dried eucalyptus hanging in a sunlit bathroom",
       },
     ],
@@ -198,7 +198,7 @@ export const PLANTS_PRODUCTS: Product[] = [
         alt: "Handmade matte ceramic planter in warm sand glaze",
       },
       {
-        url: "https://images.unsplash.com/photo-1491147334573-44cbb4602074?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "East Fork planter with drainage hole detail",
       },
     ],
@@ -223,20 +223,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Self-Watering Ceramic Pot",
     brand: "JOMO Studio",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1491147334573-44cbb4602074?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Modern self-watering ceramic pot in matte white",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1491147334573-44cbb4602074?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Modern self-watering ceramic pot in matte white",
       },
       {
-        url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Cross-section showing self-watering reservoir system",
       },
       {
-        url: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1593482892290-f54927ae1bb6?w=1200&q=80",
         alt: "Self-watering pot with thriving plant on windowsill",
       },
     ],
@@ -261,16 +261,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Glass Propagation Station",
     brand: "Areaware",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80",
       alt: "Minimalist glass propagation station with plant cuttings",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Minimalist glass propagation station with plant cuttings",
       },
       {
-        url: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
         alt: "Close-up of roots growing in glass propagation tubes",
       },
     ],
@@ -295,20 +295,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Italian Herb Garden Kit",
     brand: "Planted Detroit",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80",
       alt: "Kitchen herb garden kit with basil, rosemary, and thyme seedlings",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&q=80",
         alt: "Kitchen herb garden kit with basil, rosemary, and thyme seedlings",
       },
       {
-        url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1510627498534-cf7e9002facc?w=1200&q=80",
         alt: "Herb garden on sunny kitchen windowsill",
       },
       {
-        url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Fresh herbs being snipped for cooking",
       },
     ],
@@ -333,16 +333,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Desert Terrarium Kit",
     brand: "Plant Circle",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Glass terrarium with succulents, sand layers, and decorative stones",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Glass terrarium with succulents, sand layers, and decorative stones",
       },
       {
-        url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Hands assembling a desert terrarium with tweezers",
       },
     ],
@@ -367,20 +367,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Japanese Juniper Bonsai Starter",
     brand: "Greenery Unlimited",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&q=80",
       alt: "Young juniper bonsai in traditional ceramic training pot",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=1200&q=80",
         alt: "Young juniper bonsai in traditional ceramic training pot",
       },
       {
-        url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Bonsai tool kit with pruning shears and wire",
       },
       {
-        url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
         alt: "Bonsai displayed on wooden stand near window",
       },
     ],
@@ -406,16 +406,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Macrame Plant Hanger",
     brand: "Terrain",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Hand-knotted macrame plant hanger holding a trailing plant",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Hand-knotted macrame plant hanger holding a trailing plant",
       },
       {
-        url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Three macrame hangers at staggered heights by window",
       },
     ],
@@ -440,20 +440,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Brass Plant Mister",
     brand: "Haws",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Polished brass plant mister with fine spray nozzle",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1509587584298-0f3b3a3a1797?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Polished brass plant mister with fine spray nozzle",
       },
       {
-        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Brass mister being used on fern leaves",
       },
       {
-        url: "https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Haws brass mister displayed among potted plants",
       },
     ],
@@ -478,16 +478,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Premium Garden Tool Set",
     brand: "Sophie Conran",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80",
       alt: "Elegant garden tool set with ergonomic beech handles",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&q=80",
         alt: "Elegant garden tool set with ergonomic beech handles",
       },
       {
-        url: "https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Garden tools laid out on potting bench with soil",
       },
     ],
@@ -513,20 +513,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Organic Seed Starter Kit",
     brand: "Planted Detroit",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80",
       alt: "Seed starter tray with sprouting seedlings under grow light",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&q=80",
         alt: "Seed starter tray with sprouting seedlings under grow light",
       },
       {
-        url: "https://images.unsplash.com/photo-1457530378978-8bac673b8062?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1510627498534-cf7e9002facc?w=1200&q=80",
         alt: "Biodegradable seed pods ready for planting",
       },
       {
-        url: "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Young seedlings being transplanted to garden bed",
       },
     ],
@@ -552,20 +552,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Live Succulent Arrangement",
     brand: "Lively Root",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1457530378978-8bac673b8062?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Curated succulent arrangement in a low concrete bowl",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1457530378978-8bac673b8062?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Curated succulent arrangement in a low concrete bowl",
       },
       {
-        url: "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Overhead view of colorful succulent rosettes",
       },
       {
-        url: "https://images.unsplash.com/photo-1524247108137-732e0f642303?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Succulent arrangement on coffee table in bright room",
       },
     ],
@@ -590,16 +590,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "White Orchid in Ceramic Pot",
     brand: "Urban Stems",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=600&q=80",
       alt: "Elegant white phalaenopsis orchid in glazed ceramic pot",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1512428813834-c702c7702b78?w=1200&q=80",
         alt: "Elegant white phalaenopsis orchid in glazed ceramic pot",
       },
       {
-        url: "https://images.unsplash.com/photo-1524247108137-732e0f642303?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Orchid blooms in soft window light",
       },
     ],
@@ -624,20 +624,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Geometric Air Plant Display",
     brand: "Areaware",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1524247108137-732e0f642303?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80",
       alt: "Tillandsia air plants in brass geometric display frames",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1524247108137-732e0f642303?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Tillandsia air plants in brass geometric display frames",
       },
       {
-        url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Air plant display on floating shelf with books",
       },
       {
-        url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Close-up of tillandsia in brass himmeli frame",
       },
     ],
@@ -662,16 +662,16 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Heritage Copper Watering Can",
     brand: "Haws",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=600&q=80",
       alt: "Handmade copper watering can with brass rose attachment",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Handmade copper watering can with brass rose attachment",
       },
       {
-        url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&q=80",
         alt: "Copper watering can on garden potting bench",
       },
     ],
@@ -697,20 +697,20 @@ export const PLANTS_PRODUCTS: Product[] = [
     title: "Mid-Century Plant Stand",
     brand: "Greenery Unlimited",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&q=80",
       alt: "Walnut mid-century plant stand with tapered legs",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=1200&q=80",
         alt: "Walnut mid-century plant stand with tapered legs",
       },
       {
-        url: "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=1200&q=80",
         alt: "Plant stand holding a large monstera in living room corner",
       },
       {
-        url: "https://images.unsplash.com/photo-1463320726281-696a485928c7?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?w=1200&q=80",
         alt: "Detail of walnut wood grain and brass-tipped legs",
       },
     ],

@@ -76,8 +76,8 @@ export default function TopNav({
             className="drop-shadow-sm"
           />
           <h1
-            className="text-3xl tracking-tight text-[var(--text-primary)]"
-            style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
+            className="tracking-tight text-[var(--text-primary)]"
+            style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700, fontSize: "48px", lineHeight: "48px" }}
           >
             Gumi
           </h1>

@@ -11,6 +11,8 @@ export const MOCK_USERS: MockUser[] = [
     followers: 12400,
     following: 891,
     hasStory: true,
+    gumiHue: 270, // lavender
+    gumiOutfit: { headwear: "hat-flower" },
   },
   {
     id: "user-2",
@@ -22,6 +24,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 8900,
     following: 445,
     hasStory: true,
+    gumiHue: 0, // cherry (default red)
   },
   {
     id: "user-3",
@@ -33,6 +36,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 23100,
     following: 632,
     hasStory: true,
+    gumiHue: 140, // emerald
   },
   {
     id: "user-4",
@@ -44,6 +48,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 5600,
     following: 312,
     hasStory: false,
+    gumiHue: 0, // cherry (default red)
   },
   {
     id: "user-5",
@@ -55,6 +60,8 @@ export const MOCK_USERS: MockUser[] = [
     followers: 15800,
     following: 528,
     hasStory: true,
+    gumiHue: 50, // golden honey
+    gumiOutfit: { accessory: "acc-glasses" },
   },
   {
     id: "user-6",
@@ -66,6 +73,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 11200,
     following: 401,
     hasStory: true,
+    gumiHue: 0, // cherry (default red)
   },
   {
     id: "user-7",
@@ -77,6 +85,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 7300,
     following: 267,
     hasStory: false,
+    gumiHue: 0, // cherry (default red)
   },
   {
     id: "user-8",
@@ -88,6 +97,8 @@ export const MOCK_USERS: MockUser[] = [
     followers: 34500,
     following: 789,
     hasStory: true,
+    gumiHue: 290, // purple haze
+    gumiOutfit: { headwear: "hat-crown" },
   },
   {
     id: "user-9",
@@ -99,6 +110,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 4200,
     following: 198,
     hasStory: false,
+    gumiHue: 200, // ocean
   },
   {
     id: "user-10",
@@ -110,6 +122,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 19800,
     following: 567,
     hasStory: true,
+    gumiHue: 0, // cherry (default red)
   },
   {
     id: "user-11",
@@ -121,6 +134,8 @@ export const MOCK_USERS: MockUser[] = [
     followers: 9100,
     following: 345,
     hasStory: true,
+    gumiHue: 160, // mint
+    gumiOutfit: { clothing: "clothing-hoodie" },
   },
   {
     id: "user-12",
@@ -132,6 +147,7 @@ export const MOCK_USERS: MockUser[] = [
     followers: 27600,
     following: 412,
     hasStory: true,
+    gumiHue: 0, // cherry (default red)
   },
 ];
 
@@ -146,6 +162,7 @@ export const CURRENT_USER: MockUser = {
   followers: 2400,
   following: 156,
   hasStory: false,
+  gumiHue: 0,
 };
 
 // Get random friends who Gumied a product

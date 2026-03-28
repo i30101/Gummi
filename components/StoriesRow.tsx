@@ -3,6 +3,8 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { MockUser } from "@/types";
+import TintedImage from "./GumiBear/TintedImage";
+import GumiBear from "./GumiBear/GumiBear";
 
 type StoriesRowProps = {
   users: MockUser[];
@@ -102,38 +104,49 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
             <button
               key={user.id}
               onClick={() => onStoryClick(user, index)}
-              className="flex flex-col items-center gap-1.5 flex-shrink-0 group"
+              className="flex flex-col items-center gap-1.5 flex-shrink-0 group/story"
             >
-              <div className="relative w-20 h-20 md:w-24 md:h-24">
+              <div className="relative w-20 h-20 md:w-24 md:h-24 group-hover/story:scale-105 transition-transform">
                 <div
                   className={`absolute inset-0 flex items-center justify-center ${
                     user.hasStory ? "p-[3px]" : "p-0"
                   }`}
                 >
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
-                    <Image
-                      src={user.avatar}
-                      alt={user.name}
-                      fill
-                      className="object-cover"
-                      sizes="80px"
-                    />
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] flex items-center justify-center">
+                    {(user.gumiOutfit || user.gumiHue !== 0) ? (
+                      <GumiBear
+                        config={{
+                          hue: user.gumiHue,
+                          clothing: user.gumiOutfit?.clothing || null,
+                          accessory: user.gumiOutfit?.accessory || null,
+                          headwear: user.gumiOutfit?.headwear || null,
+                        }}
+                        size={64}
+                      />
+                    ) : (
+                      <Image
+                        src={user.avatar}
+                        alt={user.name}
+                        fill
+                        className="object-cover"
+                        sizes="80px"
+                      />
+                    )}
                   </div>
                 </div>
                 {user.hasStory && (
-                  <Image
+                  <TintedImage
                     src="/story-ring.png"
-                    alt=""
+                    hue={user.gumiHue}
                     fill
                     className={`object-contain z-10 pointer-events-none transition-all ${
                       isViewed ? "grayscale" : ""
                     }`}
-                    sizes="96px"
                   />
                 )}
                 {user.hasStory && !isViewed && (
                   <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 flex items-center justify-center z-20">
-                    <Image src="/gumi-icon.png" alt="" width={12} height={21} />
+                    <TintedImage src="/gumi-icon.png" hue={user.gumiHue} width={12} height={21} />
                   </div>
                 )}
               </div>

@@ -14,7 +14,7 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     images: [
       { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Bottega Veneta woven leather clutch" },
       { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Clutch detail shot" },
-      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Clutch detail shot" }
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Clutch detail shot" }
     ],
     price: { min: 195000, max: 250000, currency: "USD" },
     rating: { average: 4.8, count: 412 },
@@ -35,8 +35,8 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
       alt: "Polene half-moon structured bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Polene half-moon structured bag" },
-      { url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80", alt: "Bag interior and strap detail" }
+      { url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80", alt: "Polene half-moon structured bag" },
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Bag interior and strap detail" }
     ],
     price: { min: 29000, max: 35000, currency: "USD" },
     rating: { average: 4.7, count: 1823 },
@@ -53,12 +53,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Puzzle Edge Small Bag",
     brand: "Loewe",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80",
       alt: "Loewe Puzzle bag in tan leather",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Loewe Puzzle bag in tan leather" },
-      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Puzzle bag worn crossbody" }
+      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Loewe Puzzle bag in tan leather" },
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Puzzle bag worn crossbody" }
     ],
     price: { min: 295000, max: 335000, currency: "USD" },
     rating: { average: 4.9, count: 678 },
@@ -75,13 +75,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Demi-Lune Crossbody",
     brand: "A.P.C.",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&q=80",
       alt: "A.P.C. crescent crossbody bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "A.P.C. crescent crossbody bag" },
-      { url: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80", alt: "Crossbody bag styling" },
-      { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Crossbody bag styling" }
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "A.P.C. crescent crossbody bag" },
+      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Crossbody bag styling" },
+      { url: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80", alt: "Crossbody bag styling" }
     ],
     price: { min: 39500, max: 45000, currency: "USD" },
     rating: { average: 4.5, count: 934 },
@@ -98,12 +98,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Crescent Nylon Crossbody",
     brand: "Baggu",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
       alt: "Baggu nylon crescent bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80", alt: "Baggu nylon crescent bag" },
-      { url: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=1200&q=80", alt: "Crescent bag in use" }
+      { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Baggu nylon crescent bag" },
+      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Crescent bag in use" }
     ],
     price: { min: 3400, max: 4800, currency: "USD" },
     rating: { average: 4.6, count: 4872 },
@@ -120,12 +120,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Mini Bucket Bag",
     brand: "Mansur Gavriel",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80",
       alt: "Mansur Gavriel mini bucket bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Mansur Gavriel mini bucket bag" },
-      { url: "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=1200&q=80", alt: "Bucket bag interior" }
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Mansur Gavriel mini bucket bag" },
+      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Bucket bag interior" }
     ],
     price: { min: 49500, max: 59500, currency: "USD" },
     rating: { average: 4.7, count: 1456 },
@@ -142,13 +142,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Belt Bag Medium",
     brand: "Celine",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=600&q=80",
       alt: "Celine belt bag in taupe",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Celine belt bag in taupe" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Belt bag closure detail" },
-      { url: "https://images.unsplash.com/photo-1575032617751-6ddec2089882?w=1200&q=80", alt: "Belt bag closure detail" }
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Celine belt bag in taupe" },
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Belt bag closure detail" },
+      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Belt bag closure detail" }
     ],
     price: { min: 220000, max: 280000, currency: "USD" },
     rating: { average: 4.8, count: 523 },
@@ -165,12 +165,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Woven Raffia Tote",
     brand: "Loewe",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=600&q=80",
       alt: "Loewe woven raffia basket tote",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Loewe woven raffia basket tote" },
-      { url: "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=1200&q=80", alt: "Tote interior and handle" }
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Loewe woven raffia basket tote" },
+      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Tote interior and handle" }
     ],
     price: { min: 350000, max: 450000, currency: "USD" },
     rating: { average: 4.9, count: 287 },
@@ -187,12 +187,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "System Crossbody",
     brand: "Cuyana",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80",
       alt: "Cuyana structured crossbody bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Cuyana structured crossbody bag" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Crossbody bag on shoulder" }
+      { url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80", alt: "Cuyana structured crossbody bag" },
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Crossbody bag on shoulder" }
     ],
     price: { min: 22800, max: 27800, currency: "USD" },
     rating: { average: 4.5, count: 2103 },
@@ -209,13 +209,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Leather Zip Briefcase",
     brand: "Lotuff",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
       alt: "Lotuff leather briefcase",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=1200&q=80", alt: "Lotuff leather briefcase" },
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Briefcase interior organization" },
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Briefcase handle detail" }
+      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Lotuff leather briefcase" },
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Briefcase interior organization" },
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Briefcase handle detail" }
     ],
     price: { min: 85000, max: 110000, currency: "USD" },
     rating: { average: 4.8, count: 189 },
@@ -234,12 +234,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Wiley Polarized Sunglasses",
     brand: "Raen",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80",
       alt: "Raen Wiley sunglasses on marble",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80", alt: "Raen Wiley sunglasses on marble" },
-      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Sunglasses profile view" }
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Raen Wiley sunglasses on marble" },
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Sunglasses profile view" }
     ],
     price: { min: 15500, max: 18500, currency: "USD" },
     rating: { average: 4.6, count: 1287 },
@@ -256,12 +256,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Oliver Sun Round Frames",
     brand: "Oliver Peoples",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=600&q=80",
       alt: "Oliver Peoples round sunglasses",
     },
     images: [
       { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Oliver Peoples round sunglasses" },
-      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Sunglasses front view" }
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Sunglasses front view" }
     ],
     price: { min: 41000, max: 48000, currency: "USD" },
     rating: { average: 4.7, count: 456 },
@@ -278,13 +278,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Caliente Cat-Eye",
     brand: "Le Specs",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&q=80",
       alt: "Le Specs cat-eye sunglasses",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Le Specs cat-eye sunglasses" },
-      { url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80", alt: "Sunglasses styling" },
-      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Sunglasses styling" }
+      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Le Specs cat-eye sunglasses" },
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Sunglasses styling" },
+      { url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80", alt: "Sunglasses styling" }
     ],
     price: { min: 6900, max: 7900, currency: "USD" },
     rating: { average: 4.4, count: 3241 },
@@ -303,12 +303,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Signatur Slim Steel Mesh",
     brand: "Skagen",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80",
       alt: "Skagen minimalist watch with mesh band",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=1200&q=80", alt: "Skagen minimalist watch with mesh band" },
-      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Watch on wrist" }
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Skagen minimalist watch with mesh band" },
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Watch on wrist" }
     ],
     price: { min: 12500, max: 16500, currency: "USD" },
     rating: { average: 4.5, count: 2678 },
@@ -325,12 +325,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Automatic Field Watch",
     brand: "Acne Studios",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=600&q=80",
       alt: "Acne Studios field watch with leather strap",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Acne Studios field watch with leather strap" },
-      { url: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80", alt: "Watch dial closeup" }
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Acne Studios field watch with leather strap" },
+      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Watch dial closeup" }
     ],
     price: { min: 45000, max: 55000, currency: "USD" },
     rating: { average: 4.6, count: 312 },
@@ -347,13 +347,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Chronograph Diver",
     brand: "Skagen",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
       alt: "Skagen diver chronograph watch",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=1200&q=80", alt: "Skagen diver chronograph watch" },
-      { url: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=1200&q=80", alt: "Watch bracelet detail" },
-      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Watch bracelet detail" }
+      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Skagen diver chronograph watch" },
+      { url: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80", alt: "Watch bracelet detail" },
+      { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Watch bracelet detail" }
     ],
     price: { min: 19500, max: 24500, currency: "USD" },
     rating: { average: 4.4, count: 892 },
@@ -372,12 +372,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Note Sleeve Wallet",
     brand: "Bellroy",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=600&q=80",
       alt: "Bellroy slim leather wallet",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=1200&q=80", alt: "Bellroy slim leather wallet" },
-      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Wallet card slots detail" }
+      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Bellroy slim leather wallet" },
+      { url: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=1200&q=80", alt: "Wallet card slots detail" }
     ],
     price: { min: 8900, max: 10900, currency: "USD" },
     rating: { average: 4.7, count: 4521 },
@@ -394,12 +394,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Zip Card Case",
     brand: "A.P.C.",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80",
       alt: "A.P.C. leather zip card case",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "A.P.C. leather zip card case" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Card case open view" }
+      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "A.P.C. leather zip card case" },
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Card case open view" }
     ],
     price: { min: 14500, max: 17500, currency: "USD" },
     rating: { average: 4.5, count: 867 },
@@ -416,13 +416,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Passport Folio",
     brand: "Cuyana",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1548532928-b34e3be62fc6?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
       alt: "Cuyana leather passport holder",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1548532928-b34e3be62fc6?w=1200&q=80", alt: "Cuyana leather passport holder" },
-      { url: "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=1200&q=80", alt: "Passport folio interior" },
-      { url: "https://images.unsplash.com/photo-1548532928-b34e3be62fc6?w=1200&q=80", alt: "Passport folio interior" }
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Cuyana leather passport holder" },
+      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Passport folio interior" },
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Passport folio interior" }
     ],
     price: { min: 9500, max: 11500, currency: "USD" },
     rating: { average: 4.6, count: 1234 },
@@ -441,12 +441,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Anagram Jacquard Scarf",
     brand: "Loewe",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
       alt: "Loewe wool and cashmere scarf",
     },
     images: [
       { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Loewe wool and cashmere scarf" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Scarf draped detail" }
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Scarf draped detail" }
     ],
     price: { min: 55000, max: 75000, currency: "USD" },
     rating: { average: 4.8, count: 345 },
@@ -463,12 +463,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Ribbed Cashmere Beanie",
     brand: "Acne Studios",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1575032617751-6ddec2089882?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
       alt: "Acne Studios cashmere beanie",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1575032617751-6ddec2089882?w=1200&q=80", alt: "Acne Studios cashmere beanie" },
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Beanie worn styling" }
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Acne Studios cashmere beanie" },
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Beanie worn styling" }
     ],
     price: { min: 17000, max: 21000, currency: "USD" },
     rating: { average: 4.7, count: 2156 },
@@ -485,13 +485,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Wide Brim Wool Fedora",
     brand: "A.P.C.",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80",
       alt: "A.P.C. wide brim fedora hat",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=1200&q=80", alt: "A.P.C. wide brim fedora hat" },
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "A.P.C. wide brim fedora hat" },
       { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Fedora worn styling" },
-      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Fedora worn styling" }
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Fedora worn styling" }
     ],
     price: { min: 18500, max: 22500, currency: "USD" },
     rating: { average: 4.3, count: 423 },
@@ -508,12 +508,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Lightweight Cashmere Wrap",
     brand: "Cuyana",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=600&q=80",
       alt: "Cuyana lightweight cashmere travel wrap",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=1200&q=80", alt: "Cuyana lightweight cashmere travel wrap" },
-      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Wrap draped over shoulders" }
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Cuyana lightweight cashmere travel wrap" },
+      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Wrap draped over shoulders" }
     ],
     price: { min: 15500, max: 19500, currency: "USD" },
     rating: { average: 4.6, count: 1876 },
@@ -532,12 +532,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Classic Leather Belt",
     brand: "A.P.C.",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1548532928-b34e3be62fc6?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=600&q=80",
       alt: "A.P.C. classic leather belt",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1548532928-b34e3be62fc6?w=1200&q=80", alt: "A.P.C. classic leather belt" },
-      { url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80", alt: "Belt buckle detail" }
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "A.P.C. classic leather belt" },
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Belt buckle detail" }
     ],
     price: { min: 14500, max: 18500, currency: "USD" },
     rating: { average: 4.5, count: 1567 },
@@ -554,13 +554,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Woven Leather Belt",
     brand: "Bottega Veneta",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&q=80",
       alt: "Bottega Veneta Intrecciato belt",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=1200&q=80", alt: "Bottega Veneta Intrecciato belt" },
-      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Belt woven detail closeup" },
-      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Belt woven detail closeup" }
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Bottega Veneta Intrecciato belt" },
+      { url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80", alt: "Belt woven detail closeup" },
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Belt woven detail closeup" }
     ],
     price: { min: 55000, max: 72000, currency: "USD" },
     rating: { average: 4.8, count: 678 },
@@ -579,12 +579,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Silk Hair Clip Set",
     brand: "Lelet NY",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80",
       alt: "Set of silk-wrapped hair clips",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Set of silk-wrapped hair clips" },
-      { url: "https://images.unsplash.com/photo-1577803645773-f96470509666?w=1200&q=80", alt: "Hair clips styling" }
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Set of silk-wrapped hair clips" },
+      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Hair clips styling" }
     ],
     price: { min: 6800, max: 8800, currency: "USD" },
     rating: { average: 4.4, count: 923 },
@@ -601,12 +601,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Acetate Claw Clip",
     brand: "Machete",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
       alt: "Machete large acetate claw clip",
     },
     images: [
       { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Machete large acetate claw clip" },
-      { url: "https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=1200&q=80", alt: "Claw clip in hair" }
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Claw clip in hair" }
     ],
     price: { min: 3800, max: 4800, currency: "USD" },
     rating: { average: 4.5, count: 3456 },
@@ -625,13 +625,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Classic Straw Market Tote",
     brand: "Cuyana",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1618354691438-25bc04584c23?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80",
       alt: "Woven straw tote bag",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1618354691438-25bc04584c23?w=1200&q=80", alt: "Woven straw tote bag" },
-      { url: "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=1200&q=80", alt: "Straw tote with contents" },
-      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Straw tote with contents" }
+      { url: "https://images.unsplash.com/photo-1509695507497-903c140c43b0?w=1200&q=80", alt: "Woven straw tote bag" },
+      { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Straw tote with contents" },
+      { url: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=1200&q=80", alt: "Straw tote with contents" }
     ],
     price: { min: 12000, max: 15000, currency: "USD" },
     rating: { average: 4.5, count: 1678 },
@@ -648,12 +648,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Standard Baggu Reusable Tote",
     brand: "Baggu",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=600&q=80",
       alt: "Baggu colorful reusable nylon tote",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Baggu colorful reusable nylon tote" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Baggu tote folded" }
+      { url: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=1200&q=80", alt: "Baggu colorful reusable nylon tote" },
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Baggu tote folded" }
     ],
     price: { min: 1400, max: 1400, currency: "USD" },
     rating: { average: 4.7, count: 4987 },
@@ -670,12 +670,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Leather-Trimmed Canvas Tote",
     brand: "Lotuff",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80",
       alt: "Lotuff canvas and leather tote",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Lotuff canvas and leather tote" },
-      { url: "https://images.unsplash.com/photo-1523779105320-d1cd346ff52b?w=1200&q=80", alt: "Tote carried on shoulder" }
+      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Lotuff canvas and leather tote" },
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Tote carried on shoulder" }
     ],
     price: { min: 42000, max: 52000, currency: "USD" },
     rating: { average: 4.7, count: 234 },
@@ -694,13 +694,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Tech Kit Organizer",
     brand: "Bellroy",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&q=80",
       alt: "Bellroy tech organizer pouch",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80", alt: "Bellroy tech organizer pouch" },
-      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Tech kit contents" },
-      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Tech kit contents" }
+      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Bellroy tech organizer pouch" },
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Tech kit contents" },
+      { url: "https://images.unsplash.com/photo-1559563458-527698bf5295?w=1200&q=80", alt: "Tech kit contents" }
     ],
     price: { min: 5900, max: 7900, currency: "USD" },
     rating: { average: 4.6, count: 2345 },
@@ -717,12 +717,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Leather AirPods Case",
     brand: "Bellroy",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=600&q=80",
       alt: "Bellroy leather AirPods Pro case",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Bellroy leather AirPods Pro case" },
-      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "AirPods case open" }
+      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Bellroy leather AirPods Pro case" },
+      { url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80", alt: "AirPods case open" }
     ],
     price: { min: 3500, max: 4500, currency: "USD" },
     rating: { average: 4.4, count: 1789 },
@@ -741,12 +741,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Mini Jodie Hobo",
     brand: "Bottega Veneta",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80",
       alt: "Bottega Veneta Mini Jodie in green",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1606522754091-a3bbf9ad4cb3?w=1200&q=80", alt: "Bottega Veneta Mini Jodie in green" },
-      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Jodie bag knotted handle detail" }
+      { url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80", alt: "Bottega Veneta Mini Jodie in green" },
+      { url: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=80", alt: "Jodie bag knotted handle detail" }
     ],
     price: { min: 280000, max: 320000, currency: "USD" },
     rating: { average: 4.9, count: 567 },
@@ -763,13 +763,13 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Numero Un Nano",
     brand: "Polene",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=600&q=80",
       alt: "Polene Numero Un nano bag in chalk",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=1200&q=80", alt: "Polene Numero Un nano bag in chalk" },
-      { url: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1200&q=80", alt: "Nano bag crossbody styling" },
-      { url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80", alt: "Nano bag crossbody styling" }
+      { url: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=1200&q=80", alt: "Polene Numero Un nano bag in chalk" },
+      { url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=1200&q=80", alt: "Nano bag crossbody styling" },
+      { url: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=1200&q=80", alt: "Nano bag crossbody styling" }
     ],
     price: { min: 25000, max: 30000, currency: "USD" },
     rating: { average: 4.7, count: 2345 },
@@ -786,12 +786,12 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     title: "Aviator Titanium Sunglasses",
     brand: "Oliver Peoples",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&q=80",
       alt: "Oliver Peoples aviator sunglasses",
     },
     images: [
-      { url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=1200&q=80", alt: "Oliver Peoples aviator sunglasses" },
-      { url: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=1200&q=80", alt: "Aviators worn outdoors" }
+      { url: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=1200&q=80", alt: "Oliver Peoples aviator sunglasses" },
+      { url: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=1200&q=80", alt: "Aviators worn outdoors" }
     ],
     price: { min: 45000, max: 52000, currency: "USD" },
     rating: { average: 4.8, count: 389 },

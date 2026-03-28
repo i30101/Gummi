@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { getUserHighlights, HighlightCollection } from "@/lib/current-user-data";
+import { useGumiBear } from "@/lib/gumi-bear-context";
+import TintedImage from "../GumiBear/TintedImage";
 
 type ProfileHighlightsProps = {
   userId: string;
@@ -9,6 +11,7 @@ type ProfileHighlightsProps = {
 };
 
 export default function ProfileHighlights({ userId, onHighlightClick }: ProfileHighlightsProps) {
+  const { state } = useGumiBear();
   const highlights = getUserHighlights(userId);
 
   if (highlights.length === 0) return null;
@@ -41,13 +44,12 @@ export default function ProfileHighlights({ userId, onHighlightClick }: ProfileH
                   )}
                 </div>
               </div>
-              {/* Story ring overlay */}
-              <Image
+              {/* Story ring overlay — tinted by bear color */}
+              <TintedImage
                 src="/story-ring.png"
-                alt=""
+                hue={state.config.hue}
                 fill
                 className="object-contain z-10 pointer-events-none"
-                sizes="72px"
               />
             </div>
             <span className="text-[11px] text-[var(--text-secondary)] font-medium truncate w-16 text-center">

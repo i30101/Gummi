@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { CurrentUserProfile } from "@/types";
 import { formatCount } from "@/lib/utils";
+import GumiBear from "../GumiBear/GumiBear";
+import { useGumiBear } from "@/lib/gumi-bear-context";
 
 type ProfileHeaderProps = {
   profile: CurrentUserProfile;
@@ -10,6 +12,7 @@ type ProfileHeaderProps = {
   onSettingsClick: () => void;
   onFollowersClick: () => void;
   onFollowingClick: () => void;
+  onCustomizeClick: () => void;
 };
 
 export default function ProfileHeader({
@@ -18,29 +21,25 @@ export default function ProfileHeader({
   onSettingsClick,
   onFollowersClick,
   onFollowingClick,
+  onCustomizeClick,
 }: ProfileHeaderProps) {
+  const { state } = useGumiBear();
+
   return (
     <div className="flex flex-col items-center pt-14 pb-6 px-6">
-      {/* Avatar with edit indicator */}
+      {/* Gumi Bear avatar */}
       <div className="relative w-24 h-24 mb-4">
-        <div className="w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
-          <Image
-            src={profile.avatar}
-            alt={profile.name}
-            fill
-            className="object-cover"
-            sizes="96px"
-          />
+        <div className="w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] flex items-center justify-center">
+          <GumiBear config={state.config} size={80} />
         </div>
-        {/* Camera edit indicator */}
+        {/* Customize button */}
         <button
-          onClick={onEditClick}
+          onClick={onCustomizeClick}
           className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-[var(--accent)] flex items-center justify-center shadow-md border-2 border-[var(--card-bg)]"
-          aria-label="Edit photo"
+          aria-label="Customize bear"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-            <circle cx="12" cy="13" r="4" />
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
           </svg>
         </button>
       </div>

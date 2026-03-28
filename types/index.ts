@@ -3,6 +3,14 @@ export type ProductImage = {
   alt: string;
 };
 
+// Re-export gumi bear types
+export type {
+  GumiBearConfig,
+  GumiBearState,
+  GumiBearItem,
+  GumiBearItemCategory,
+} from "./gumi-bear";
+
 export type MockUser = {
   id: string;
   name: string;
@@ -13,6 +21,12 @@ export type MockUser = {
   followers: number;
   following: number;
   hasStory: boolean; // whether they have an active story ring
+  gumiHue: number; // 0-360 hue shift for their gumi bear color
+  gumiOutfit?: {
+    clothing?: string;
+    accessory?: string;
+    headwear?: string;
+  };
 };
 
 export type Product = {

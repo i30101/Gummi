@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { GumiBearProvider } from "@/lib/gumi-bear-context";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -28,7 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <GumiBearProvider>{children}</GumiBearProvider>
+      </body>
     </html>
   );
 }

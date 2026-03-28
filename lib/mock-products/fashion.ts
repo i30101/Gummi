@@ -7,12 +7,12 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Cashmere Crew Neck Sweater",
     brand: "Naadam",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80",
       alt: "Soft cashmere crew neck sweater in oatmeal draped over chair",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
         alt: "Soft cashmere crew neck sweater in oatmeal draped over chair",
       },
       {
@@ -20,7 +20,7 @@ export const FASHION_PRODUCTS: Product[] = [
         alt: "Close-up texture of cashmere knit fabric",
       },
       {
-        url: "https://images.unsplash.com/photo-1616150638538-ffb0679a3fc4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=1200&q=80",
         alt: "Cashmere sweater folded neatly on white surface",
       },
     ],
@@ -45,16 +45,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Oversized Double-Breasted Blazer",
     brand: "The Row",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
       alt: "Oversized tailored blazer in charcoal wool",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&q=80",
         alt: "Oversized tailored blazer in charcoal wool",
       },
       {
-        url: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80",
         alt: "Blazer detail showing lapel and buttons",
       },
     ],
@@ -80,20 +80,20 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "AGOLDE '90s Pinch Waist Jean",
     brand: "AGOLDE",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
       alt: "High-waisted straight leg denim in medium wash",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=1200&q=80",
         alt: "High-waisted straight leg denim in medium wash",
       },
       {
-        url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=1200&q=80",
         alt: "Denim detail showing wash and stitching",
       },
       {
-        url: "https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=1200&q=80",
         alt: "Full length view of relaxed straight leg jean",
       },
     ],
@@ -119,16 +119,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Silk Midi Slip Dress",
     brand: "Reformation",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80",
       alt: "Flowing silk slip dress in champagne",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=80",
         alt: "Flowing silk slip dress in champagne",
       },
       {
-        url: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=1200&q=80",
         alt: "Silk dress detail showing bias cut drape",
       },
     ],
@@ -153,20 +153,20 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Classic Cotton Crew Tee",
     brand: "Lady White Co.",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1584670747417-594a9412fba5?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
       alt: "Clean white cotton crew neck t-shirt",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1584670747417-594a9412fba5?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
         alt: "Clean white cotton crew neck t-shirt",
       },
       {
-        url: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80",
         alt: "Side view showing relaxed tee silhouette",
       },
       {
-        url: "https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=1200&q=80",
         alt: "Cotton tee fabric texture close-up",
       },
     ],
@@ -191,16 +191,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Silk Satin Camisole",
     brand: "Staud",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&q=80",
       alt: "Delicate silk satin camisole in blush pink",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=1200&q=80",
         alt: "Delicate silk satin camisole in blush pink",
       },
       {
-        url: "https://images.unsplash.com/photo-1622519407650-3df9883f76a5?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=80",
         alt: "Close-up of silk satin fabric sheen",
       },
     ],
@@ -225,16 +225,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Wool Tailored Trousers",
     brand: "Theory",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
       alt: "Tailored wool trousers in navy with pressed crease",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80",
         alt: "Tailored wool trousers in navy with pressed crease",
       },
       {
-        url: "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=1200&q=80",
         alt: "Full length trouser on model walking",
       },
     ],
@@ -260,16 +260,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Recycled Cashmere Cardigan",
     brand: "Everlane",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=600&q=80",
       alt: "Oversized cashmere cardigan in heather grey",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=1200&q=80",
         alt: "Oversized cashmere cardigan in heather grey",
       },
       {
-        url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
         alt: "Cardigan draped open showing relaxed silhouette",
       },
     ],
@@ -295,16 +295,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Structured Wool Overcoat",
     brand: "Toteme",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=80",
       alt: "Structured wool overcoat in camel",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1200&q=80",
         alt: "Structured wool overcoat in camel",
       },
       {
-        url: "https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=1200&q=80",
         alt: "Overcoat rear view showing tailored seams",
       },
     ],
@@ -330,16 +330,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Pleated Wide-Leg Trousers",
     brand: "COS",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80",
       alt: "Pleated wide-leg trousers in black",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=1200&q=80",
         alt: "Pleated wide-leg trousers in black",
       },
       {
-        url: "https://images.unsplash.com/photo-1562572159-4efc207f5aff?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=1200&q=80",
         alt: "Trouser detail showing pleats at waist",
       },
     ],
@@ -364,16 +364,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Linen Button-Down Shirt",
     brand: "Club Monaco",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
       alt: "Relaxed linen button-down in white",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&q=80",
         alt: "Relaxed linen button-down in white",
       },
       {
-        url: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&q=80",
         alt: "Linen shirt fabric texture and drape",
       },
     ],
@@ -398,16 +398,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Stretch Rib Knit Dress",
     brand: "Skims",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=600&q=80",
       alt: "Fitted ribbed knit midi dress in taupe",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1582552938357-32b906df40cb?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=1200&q=80",
         alt: "Fitted ribbed knit midi dress in taupe",
       },
       {
-        url: "https://images.unsplash.com/photo-1588099768531-a72d4a198538?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=1200&q=80",
         alt: "Ribbed knit dress showing body-hugging fit",
       },
     ],
@@ -433,16 +433,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Merino Wool Knit Vest",
     brand: "COS",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
       alt: "Chunky merino wool knit vest in cream",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1604176354204-9268737828e4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=1200&q=80",
         alt: "Chunky merino wool knit vest in cream",
       },
       {
-        url: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
         alt: "Vest layered over white button-down",
       },
     ],
@@ -467,16 +467,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Satin Wrap Midi Skirt",
     brand: "&Other Stories",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=600&q=80",
       alt: "Satin wrap midi skirt in olive green",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=1200&q=80",
         alt: "Satin wrap midi skirt in olive green",
       },
       {
-        url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=1200&q=80",
         alt: "Skirt detail showing wrap tie and drape",
       },
     ],
@@ -501,16 +501,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Cashmere Lounge Set",
     brand: "Jenni Kayne",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1616150638538-ffb0679a3fc4?w=600&q=80",
       alt: "Cashmere lounge set in soft caramel",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1616150638538-ffb0679a3fc4?w=1200&q=80",
         alt: "Cashmere lounge set in soft caramel",
       },
       {
-        url: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=1200&q=80",
         alt: "Close-up of cashmere lounge pants with elastic waist",
       },
     ],
@@ -536,16 +536,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Lightweight Cashmere Wrap",
     brand: "The Row",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=600&q=80",
       alt: "Oversized cashmere wrap scarf in ivory",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=1200&q=80",
         alt: "Oversized cashmere wrap scarf in ivory",
       },
       {
-        url: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
         alt: "Cashmere wrap draped elegantly over shoulders",
       },
     ],
@@ -570,16 +570,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Organic Cotton Poplin Shirt",
     brand: "Everlane",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80",
       alt: "Crisp organic cotton poplin shirt in light blue",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=1200&q=80",
         alt: "Crisp organic cotton poplin shirt in light blue",
       },
       {
-        url: "https://images.unsplash.com/photo-1616150638538-ffb0679a3fc4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&q=80",
         alt: "Shirt detail showing collar and placket",
       },
     ],
@@ -604,16 +604,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Sculpt Bodysuit",
     brand: "Skims",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&q=80",
       alt: "Seamless sculpting bodysuit in sienna",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=1200&q=80",
         alt: "Seamless sculpting bodysuit in sienna",
       },
       {
-        url: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=1200&q=80",
         alt: "Bodysuit showing smooth sculpting compression",
       },
     ],
@@ -639,16 +639,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Wool-Cashmere Wrap Dress",
     brand: "Vince",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&q=80",
       alt: "Elegant wool-cashmere wrap dress in burgundy",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=1200&q=80",
         alt: "Elegant wool-cashmere wrap dress in burgundy",
       },
       {
-        url: "https://images.unsplash.com/photo-1590548784585-643d2b9f2925?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=1200&q=80",
         alt: "Wrap dress detail showing tie waist and drape",
       },
     ],
@@ -674,16 +674,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Quilted Liner Vest",
     brand: "Aritzia",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=600&q=80",
       alt: "Lightweight quilted vest in forest green",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=1200&q=80",
         alt: "Lightweight quilted vest in forest green",
       },
       {
-        url: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1200&q=80",
         alt: "Vest styled with layering pieces",
       },
     ],
@@ -709,16 +709,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Ribbed Cotton Tank",
     brand: "Madewell",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80",
       alt: "Classic ribbed cotton tank top in black",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80",
         alt: "Classic ribbed cotton tank top in black",
       },
       {
-        url: "https://images.unsplash.com/photo-1621184455862-c163dfb30e0f?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
         alt: "Ribbed tank in multiple colors",
       },
     ],
@@ -743,16 +743,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Cropped Wool Jacket",
     brand: "Sezane",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?w=600&q=80",
       alt: "Cropped boucle wool jacket in powder blue",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?w=1200&q=80",
         alt: "Cropped boucle wool jacket in powder blue",
       },
       {
-        url: "https://images.unsplash.com/photo-1614676471928-2ed0ad1061a4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1200&q=80",
         alt: "Jacket detail showing boucle texture and gold buttons",
       },
     ],
@@ -778,16 +778,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Stretch Ponte Legging",
     brand: "Eileen Fisher",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80",
       alt: "High-waisted stretch ponte legging in black",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=1200&q=80",
         alt: "High-waisted stretch ponte legging in black",
       },
       {
-        url: "https://images.unsplash.com/photo-1622519407650-3df9883f76a5?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=1200&q=80",
         alt: "Legging on model showing sculpted fit",
       },
     ],
@@ -813,16 +813,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Aime Leon Dore Uniform Hoodie",
     brand: "Aime Leon Dore",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80",
       alt: "Heavyweight fleece hoodie in forest green",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
         alt: "Heavyweight fleece hoodie in forest green",
       },
       {
-        url: "https://images.unsplash.com/photo-1609709295948-17d77cb2a69b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
         alt: "Hoodie detail showing embroidered logo",
       },
     ],
@@ -848,16 +848,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Silk Charmeuse Blouse",
     brand: "Vince",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
       alt: "Draped silk charmeuse blouse in ivory",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=80",
         alt: "Draped silk charmeuse blouse in ivory",
       },
       {
-        url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=1200&q=80",
         alt: "Silk fabric detail showing lustrous sheen",
       },
     ],
@@ -882,16 +882,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Elevated Sweatpant",
     brand: "Aime Leon Dore",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=600&q=80",
       alt: "Tapered fleece sweatpant in heather grey",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=1200&q=80",
         alt: "Tapered fleece sweatpant in heather grey",
       },
       {
-        url: "https://images.unsplash.com/photo-1588099768531-a72d4a198538?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
         alt: "Sweatpant detail showing tapered leg and cuff",
       },
     ],
@@ -917,16 +917,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Cotton Poplin Midi Dress",
     brand: "Sezane",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&q=80",
       alt: "Tiered cotton midi dress in sage green",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=1200&q=80",
         alt: "Tiered cotton midi dress in sage green",
       },
       {
-        url: "https://images.unsplash.com/photo-1562572159-4efc207f5aff?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=1200&q=80",
         alt: "Dress detail showing tiered skirt movement",
       },
     ],
@@ -952,16 +952,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Tailored Bermuda Short",
     brand: "Theory",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
       alt: "Tailored Bermuda shorts in sand linen blend",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=1200&q=80",
         alt: "Tailored Bermuda shorts in sand linen blend",
       },
       {
-        url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80",
         alt: "Bermuda short detail showing pressed crease",
       },
     ],
@@ -987,16 +987,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Alpaca Blend Turtleneck",
     brand: "Toteme",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80",
       alt: "Oversized alpaca turtleneck in charcoal",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&q=80",
         alt: "Oversized alpaca turtleneck in charcoal",
       },
       {
-        url: "https://images.unsplash.com/photo-1594938328870-9623159c8c99?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1200&q=80",
         alt: "Turtleneck texture close-up showing soft fuzzy knit",
       },
     ],
@@ -1022,16 +1022,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Drapey Satin Jogger",
     brand: "Aritzia",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80",
       alt: "Satin finish jogger pants in champagne",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1200&q=80",
         alt: "Satin finish jogger pants in champagne",
       },
       {
-        url: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1509942774463-acf339cf87d5?w=1200&q=80",
         alt: "Jogger fabric detail showing satin sheen",
       },
     ],
@@ -1057,16 +1057,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Organic Cotton Canvas Tote",
     brand: "Madewell",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&q=80",
       alt: "Heavyweight canvas tote bag in natural",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1544816155-12df9643f363?w=1200&q=80",
         alt: "Heavyweight canvas tote bag in natural",
       },
       {
-        url: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=1200&q=80",
         alt: "Tote bag styled with outfit showing capacity",
       },
     ],
@@ -1091,16 +1091,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Fluid Crepe Wide-Leg Pant",
     brand: "Eileen Fisher",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80",
       alt: "Flowing crepe wide-leg pants in black",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1200&q=80",
         alt: "Flowing crepe wide-leg pants in black",
       },
       {
-        url: "https://images.unsplash.com/photo-1539185441755-769473a23570?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=1200&q=80",
         alt: "Wide-leg pant showing fluid drape in movement",
       },
     ],
@@ -1126,16 +1126,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Twisted Seam Midi Skirt",
     brand: "Toteme",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=600&q=80",
       alt: "Architectural midi skirt in sand cotton",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562137369-1a1a0bc66744?w=1200&q=80",
         alt: "Architectural midi skirt in sand cotton",
       },
       {
-        url: "https://images.unsplash.com/photo-1588117305388-c2631a279f82?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=1200&q=80",
         alt: "Skirt detail showing twisted seam construction",
       },
     ],
@@ -1161,16 +1161,16 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Pima Cotton Relaxed Tee",
     brand: "Everlane",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=600&q=80",
       alt: "Relaxed Pima cotton tee in washed black",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1562157873-818bc0726f68?w=1200&q=80",
         alt: "Relaxed Pima cotton tee in washed black",
       },
       {
-        url: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1200&q=80",
         alt: "Tee detail showing fabric weight and drape",
       },
     ],
@@ -1195,20 +1195,20 @@ export const FASHION_PRODUCTS: Product[] = [
     title: "Wool Flannel Pleated Trouser",
     brand: "The Row",
     primaryImage: {
-      url: "https://images.unsplash.com/photo-1603344204980-4edb0ea63148?w=600&q=80",
+      url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80",
       alt: "High-waisted pleated wool flannel trousers in grey",
     },
     images: [
       {
-        url: "https://images.unsplash.com/photo-1603344204980-4edb0ea63148?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=1200&q=80",
         alt: "High-waisted pleated wool flannel trousers in grey",
       },
       {
-        url: "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=1200&q=80",
         alt: "Trouser detail showing single-pleat construction",
       },
       {
-        url: "https://images.unsplash.com/photo-1588099768531-a72d4a198538?w=1200&q=80",
+        url: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=1200&q=80",
         alt: "Full-length view of wide-leg trouser silhouette",
       },
     ],
