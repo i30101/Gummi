@@ -104,9 +104,9 @@ function transformProduct(sp: ShopifyProduct): Product {
     topFeatures: sp.topFeatures || [],
     description: sp.description || sp.uniqueSellingPoint || undefined,
     // Random-ish social metrics seeded from ID
-    likes: Math.abs(hashCode(sp.id)) % 50000 + 100,
+    gumis: Math.abs(hashCode(sp.id)) % 50000 + 100,
     shares: Math.abs(hashCode(sp.id + "s")) % 5000 + 10,
-    likedByFriends: [],
+    gumiedByFriends: [],
   };
 }
 

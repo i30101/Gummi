@@ -3,25 +3,34 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Product } from "@/types";
+import { Product, MockUser } from "@/types";
 import { formatPriceRange, formatCount } from "@/lib/utils";
+import { getUserById } from "@/lib/mock-users";
 
 type ProductCardProps = {
   product: Product;
   index: number;
   onClick: (product: Product) => void;
+  onFriendClick?: (user: MockUser) => void;
+  onGumi?: (product: Product) => void;
 };
 
-export default function ProductCard({ product, index, onClick }: ProductCardProps) {
-  const [isLiked, setIsLiked] = useState(product.isLiked ?? false);
-  const [likeCount, setLikeCount] = useState(product.likes);
+export default function ProductCard({ product, index, onClick, onFriendClick, onGumi }: ProductCardProps) {
+  const [isGumied, setIsGumied] = useState(product.isGumied ?? false);
+  const [gumiCount, setGumiCount] = useState(product.gumis);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const handleLike = (e: React.MouseEvent) => {
+  const handleGumi = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsLiked(!isLiked);
-    setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+    if (isGumied) {
+      setIsGumied(false);
+      setGumiCount((prev) => prev - 1);
+    } else {
+      setIsGumied(true);
+      setGumiCount((prev) => prev + 1);
+      onGumi?.(product);
+    }
   };
 
   const handleShare = (e: React.MouseEvent) => {
@@ -31,7 +40,11 @@ export default function ProductCard({ product, index, onClick }: ProductCardProp
     }
   };
 
-  // Calculate a deterministic aspect ratio for the image placeholder
+  const gumiFriends = (product.gumiedByFriends || [])
+    .map((id) => getUserById(id))
+    .filter(Boolean)
+    .slice(0, 3);
+
   const aspectRatio = product.aspectRatio || 1.2;
 
   return (
@@ -43,7 +56,7 @@ export default function ProductCard({ product, index, onClick }: ProductCardProp
       onClick={() => onClick(product)}
     >
       <div className="rounded-xl overflow-hidden bg-[var(--card-bg)] shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow duration-200 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
-        {/* Image container */}
+        {/* Image */}
         <div className="relative overflow-hidden" style={{ aspectRatio: `1 / ${aspectRatio}` }}>
           {!imageError ? (
             <Image
@@ -60,54 +73,33 @@ export default function ProductCard({ product, index, onClick }: ProductCardProp
             />
           ) : null}
 
-          {/* Placeholder while loading or on error */}
           {(!imageLoaded || imageError) && (
             <div className="absolute inset-0 bg-[var(--bg-secondary)]" />
           )}
 
-          {/* Heart button — fades in on hover */}
-          <button
-            onClick={handleLike}
-            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:scale-110 active:scale-95 z-10"
-            aria-label={isLiked ? "Unlike" : "Like"}
-          >
-            <motion.svg
-              animate={isLiked ? { scale: [1, 1.3, 1] } : { scale: 1 }}
-              transition={{ duration: 0.3 }}
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill={isLiked ? "#C45D3E" : "none"}
-              stroke={isLiked ? "#C45D3E" : "#1A1A1A"}
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          {/* Share button — hover */}
+          <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+            <button
+              onClick={handleShare}
+              className="w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center hover:scale-110 active:scale-95"
+              aria-label="Share"
             >
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-            </motion.svg>
-          </button>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                <polyline points="16 6 12 2 8 6" />
+                <line x1="12" y1="2" x2="12" y2="15" />
+              </svg>
+            </button>
+          </div>
 
-          {/* Share button — fades in on hover */}
-          <button
-            onClick={handleShare}
-            className="absolute top-3 right-14 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:scale-110 active:scale-95 z-10"
-            aria-label="Share"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1A1A1A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-              <polyline points="16 6 12 2 8 6" />
-              <line x1="12" y1="2" x2="12" y2="15" />
-            </svg>
-          </button>
+          {/* Gumi count badge — bottom-left of image */}
+          <div className="absolute bottom-3 left-3 z-10">
+            <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full pl-1.5 pr-2.5 py-1">
+              <Image src="/gumi-icon.png" alt="Gumi" width={18} height={18} />
+              <span className="text-white text-xs font-medium">{formatCount(gumiCount)}</span>
+              <span className="text-white/60 text-[10px]">bought</span>
+            </div>
+          </div>
         </div>
 
         {/* Card info */}
@@ -135,52 +127,63 @@ export default function ProductCard({ product, index, onClick }: ProductCardProp
             )}
           </div>
 
-          {/* Social metrics */}
-          <div className="flex items-center gap-3 mt-2 pt-2 border-t border-[var(--border)]">
-            <button
-              onClick={handleLike}
-              className="flex items-center gap-1 text-[11px] text-[var(--text-tertiary)] hover:text-[var(--accent)] transition-colors"
-            >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill={isLiked ? "var(--accent)" : "none"}
-                stroke={isLiked ? "var(--accent)" : "currentColor"}
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+          {/* Social row */}
+          <div className="flex items-center justify-between mt-2 pt-2 border-t border-[var(--border)]">
+            <div className="flex items-center gap-2">
+              {/* Gumi toggle — "I bought this" */}
+              <button
+                onClick={handleGumi}
+                className={`flex items-center gap-1 text-[11px] px-2 py-1 rounded-full transition-all ${
+                  isGumied
+                    ? "bg-[var(--accent)]/10 text-[var(--accent)]"
+                    : "hover:bg-[var(--bg-secondary)] text-[var(--text-tertiary)]"
+                }`}
               >
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-              </svg>
-              <span style={{ color: isLiked ? "var(--accent)" : undefined }}>
-                {formatCount(likeCount)}
-              </span>
-            </button>
-            <button
-              onClick={handleShare}
-              className="flex items-center gap-1 text-[11px] text-[var(--text-tertiary)] hover:text-[var(--text-secondary)] transition-colors"
-            >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                <polyline points="16 6 12 2 8 6" />
-                <line x1="12" y1="2" x2="12" y2="15" />
-              </svg>
-              {formatCount(product.shares)}
-            </button>
-            {product.likedByFriends && product.likedByFriends.length > 0 && (
-              <span className="text-[10px] text-[var(--text-tertiary)] ml-auto truncate max-w-[100px]">
-                {product.likedByFriends[0]} {product.likedByFriends.length > 1 && `+${product.likedByFriends.length - 1}`} liked
-              </span>
+                <motion.div
+                  animate={isGumied ? { scale: [1, 1.3, 1] } : {}}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src="/gumi-icon.png"
+                    alt="Gumi"
+                    width={14}
+                    height={14}
+                    className={`transition-all ${isGumied ? "opacity-100" : "opacity-40 grayscale"}`}
+                  />
+                </motion.div>
+                <span className="font-medium">
+                  {isGumied ? "Bought" : "I bought this"}
+                </span>
+              </button>
+            </div>
+
+            {/* Friend avatars who Gumied — clickable */}
+            {gumiFriends.length > 0 && (
+              <div className="flex items-center">
+                <div className="flex -space-x-1.5">
+                  {gumiFriends.map((friend) => (
+                    <button
+                      key={friend!.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onFriendClick?.(friend!);
+                      }}
+                      className="w-5 h-5 rounded-full overflow-hidden border-2 border-[var(--card-bg)] relative hover:scale-110 transition-transform"
+                    >
+                      <Image
+                        src={friend!.avatar}
+                        alt={friend!.name}
+                        fill
+                        className="object-cover"
+                        sizes="20px"
+                      />
+                    </button>
+                  ))}
+                </div>
+                <span className="text-[10px] text-[var(--text-tertiary)] ml-1.5">
+                  bought
+                </span>
+              </div>
             )}
           </div>
         </div>

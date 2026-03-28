@@ -3,6 +3,18 @@ export type ProductImage = {
   alt: string;
 };
 
+export type MockUser = {
+  id: string;
+  name: string;
+  username: string;
+  avatar: string; // Unsplash profile photo URL
+  bio: string;
+  gumiCount: number; // total products they've Gumied
+  followers: number;
+  following: number;
+  hasStory: boolean; // whether they have an active story ring
+};
+
 export type Product = {
   id: string;
   title: string;
@@ -21,13 +33,13 @@ export type Product = {
   buyUrl: string;
   topFeatures: string[];
   description?: string;
-  aspectRatio?: number; // height / width ratio for masonry layout
+  aspectRatio?: number;
 
-  // Social metrics
-  likes: number;
+  // Gumi social metrics
+  gumis: number; // total Gumi count (replaces likes)
   shares: number;
-  likedByFriends?: string[]; // friend names who liked this
-  isLiked?: boolean; // current user liked
+  gumiedByFriends?: string[]; // user IDs of friends who Gumied this
+  isGumied?: boolean; // current user Gumied this
 };
 
 export type Vendor = {

@@ -1,14 +1,18 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from "react";
-import { Product, FeedMode, FeedResponse } from "@/types";
+import { Product, FeedMode, FeedResponse, MockUser } from "@/types";
 import { CATEGORIES } from "@/lib/mock-data";
+import { getStoryUsers } from "@/lib/mock-users";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
 import TopNav from "@/components/TopNav";
+import StoriesRow from "@/components/StoriesRow";
 import MasonryGrid from "@/components/MasonryGrid";
 import ReelsView from "@/components/ReelsView";
 import ProductModal from "@/components/ProductModal";
+import UserProfile from "@/components/UserProfile";
+import GumiToast from "@/components/GumiToast";
 
 export default function Home() {
   // Feed state
@@ -24,11 +28,29 @@ export default function Home() {
   const [searchValue, setSearchValue] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [selectedUser, setSelectedUser] = useState<MockUser | null>(null);
+
+  // Gumi toast state
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastProductTitle, setToastProductTitle] = useState("");
 
   const debouncedSearch = useDebounce(searchValue, 300);
   const isLoadingRef = useRef(false);
+  const storyUsers = getStoryUsers();
 
-  // Fetch products from API
+  // Handle Gumi action — show confirmation toast
+  const handleGumi = useCallback((product: Product) => {
+    setToastProductTitle(product.title);
+    setToastVisible(true);
+    setTimeout(() => setToastVisible(false), 2500);
+  }, []);
+
+  // Handle friend avatar click — open profile
+  const handleFriendClick = useCallback((user: MockUser) => {
+    setSelectedUser(user);
+  }, []);
+
+  // Fetch products
   const fetchProducts = useCallback(
     async (reset: boolean = false) => {
       if (isLoadingRef.current) return;
@@ -70,7 +92,6 @@ export default function Home() {
     [cursor, activeCategory, activeSearch]
   );
 
-  // Initial load
   useEffect(() => {
     setProducts([]);
     setCursor(null);
@@ -78,7 +99,6 @@ export default function Home() {
     setInitialLoading(true);
     isLoadingRef.current = false;
 
-    // Use a microtask to avoid stale closure
     const timeout = setTimeout(() => {
       fetchProductsFresh();
     }, 0);
@@ -87,7 +107,6 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeCategory, activeSearch]);
 
-  // Fresh fetch (resets cursor)
   const fetchProductsFresh = async () => {
     if (isLoadingRef.current) return;
     isLoadingRef.current = true;
@@ -116,7 +135,6 @@ export default function Home() {
     }
   };
 
-  // Debounced search
   useEffect(() => {
     if (debouncedSearch !== activeSearch) {
       setActiveSearch(debouncedSearch);
@@ -124,19 +142,16 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch]);
 
-  // Load more for infinite scroll
   const handleLoadMore = useCallback(() => {
     if (!isLoadingRef.current && hasMore) {
       fetchProducts(false);
     }
   }, [fetchProducts, hasMore]);
 
-  // Infinite scroll sentinel
   const sentinelRef = useInfiniteScroll(handleLoadMore, {
     enabled: hasMore && !isLoading && feedMode === "gallery",
   });
 
-  // Category change
   const handleCategorySelect = (categoryId: string) => {
     setActiveCategory(categoryId);
     setSearchValue("");
@@ -144,31 +159,29 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Search submit
   const handleSearchSubmit = (value: string) => {
     setActiveSearch(value);
   };
 
-  // Product click
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
   };
 
-  // Feed mode change
   const handleFeedModeChange = (mode: FeedMode) => {
     setFeedMode(mode);
     if (mode === "gallery") {
-      // Restore scroll when switching back
       document.body.style.overflow = "";
     }
   };
 
-  // Compute nav height for padding
+  const handleUserClick = (user: MockUser) => {
+    setSelectedUser(user);
+  };
+
   const navHeight = feedMode === "gallery" ? 120 : 0;
 
   return (
     <main className="min-h-screen bg-[var(--bg-primary)]">
-      {/* Top Navigation — hide in reels mode */}
       {feedMode !== "reels" && (
         <TopNav
           searchValue={searchValue}
@@ -182,10 +195,13 @@ export default function Home() {
         />
       )}
 
-      {/* Gallery Feed */}
       {feedMode === "gallery" && (
         <div style={{ paddingTop: `${navHeight}px` }}>
-          {/* Search results header */}
+          {/* Stories row — recent friend purchases */}
+          {!activeSearch && (
+            <StoriesRow users={storyUsers} onUserClick={handleUserClick} />
+          )}
+
           {activeSearch && (
             <div className="px-4 md:px-6 lg:px-8 py-4">
               <p className="text-sm text-[var(--text-secondary)]">
@@ -215,19 +231,18 @@ export default function Home() {
             </div>
           )}
 
-          {/* Masonry Grid */}
           <MasonryGrid
             products={products}
             isLoading={isLoading || initialLoading}
             onProductClick={handleProductClick}
+            onFriendClick={handleFriendClick}
+            onGumi={handleGumi}
           />
 
-          {/* Infinite scroll sentinel */}
           {hasMore && <div ref={sentinelRef} className="h-4" />}
         </div>
       )}
 
-      {/* Reels Feed */}
       {feedMode === "reels" && products.length > 0 && (
         <>
           <ReelsView
@@ -236,7 +251,6 @@ export default function Home() {
             hasMore={hasMore}
             onProductClick={handleProductClick}
           />
-          {/* Floating back button */}
           <button
             onClick={() => handleFeedModeChange("gallery")}
             className="fixed top-6 left-4 z-50 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
@@ -246,7 +260,6 @@ export default function Home() {
               <polyline points="15 18 9 12 15 6" />
             </svg>
           </button>
-          {/* Floating mode toggle */}
           <div className="fixed top-6 right-4 z-50 flex items-center bg-black/30 backdrop-blur-sm rounded-full p-1">
             <button
               onClick={() => handleFeedModeChange("gallery")}
@@ -260,10 +273,7 @@ export default function Home() {
                 <rect x="14" y="14" width="7" height="7" />
               </svg>
             </button>
-            <button
-              className="p-2 rounded-full bg-white/20"
-              aria-label="Reels view (active)"
-            >
+            <button className="p-2 rounded-full bg-white/20" aria-label="Reels view (active)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                 <rect x="6" y="3" width="12" height="18" rx="2" />
                 <line x1="12" y1="18" x2="12" y2="18" strokeLinecap="round" strokeWidth="3" />
@@ -273,11 +283,20 @@ export default function Home() {
         </>
       )}
 
-      {/* Product Detail Modal */}
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
+        onGumi={handleGumi}
+        onFriendClick={handleFriendClick}
       />
+
+      <UserProfile
+        user={selectedUser}
+        onClose={() => setSelectedUser(null)}
+      />
+
+      {/* Purchase confirmation toast */}
+      <GumiToast visible={toastVisible} productTitle={toastProductTitle} />
     </main>
   );
 }

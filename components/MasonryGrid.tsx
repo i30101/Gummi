@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/types";
+import { Product, MockUser } from "@/types";
 import ProductCard from "./ProductCard";
 import SkeletonCard from "./SkeletonCard";
 
@@ -8,12 +8,16 @@ type MasonryGridProps = {
   products: Product[];
   isLoading: boolean;
   onProductClick: (product: Product) => void;
+  onFriendClick?: (user: MockUser) => void;
+  onGumi?: (product: Product) => void;
 };
 
 export default function MasonryGrid({
   products,
   isLoading,
   onProductClick,
+  onFriendClick,
+  onGumi,
 }: MasonryGridProps) {
   return (
     <div className="masonry px-4 md:px-6 lg:px-8">
@@ -23,6 +27,8 @@ export default function MasonryGrid({
           product={product}
           index={index}
           onClick={onProductClick}
+          onFriendClick={onFriendClick}
+          onGumi={onGumi}
         />
       ))}
       {isLoading &&

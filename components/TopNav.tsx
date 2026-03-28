@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import SearchBar from "./SearchBar";
 import CategoryPills from "./CategoryPills";
 import { Category, FeedMode } from "@/types";
+import { CURRENT_USER } from "@/lib/mock-users";
 
 type TopNavProps = {
   searchValue: string;
@@ -33,7 +35,6 @@ export default function TopNav({
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      // Show nav when scrolling up or near top
       if (currentY < 100 || currentY < lastScrollY.current) {
         setIsVisible(true);
       } else if (currentY > lastScrollY.current + 5) {
@@ -55,18 +56,29 @@ export default function TopNav({
     >
       {/* Main nav bar */}
       <div className="flex items-center gap-4 px-4 md:px-6 lg:px-8 py-3">
-        {/* Logo */}
-        <h1
-          className="text-2xl tracking-tight text-[var(--text-primary)] flex-shrink-0 cursor-pointer"
-          style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
+        {/* Logo: Gumi bear icon + text */}
+        <div
+          className="flex items-center gap-2 flex-shrink-0 cursor-pointer"
           onClick={() => {
             onCategorySelect("for-you");
             onSearchChange("");
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Gumi
-        </h1>
+          <Image
+            src="/gumi-icon.png"
+            alt="Gumi"
+            width={28}
+            height={28}
+            className="drop-shadow-sm"
+          />
+          <h1
+            className="text-2xl tracking-tight text-[var(--text-primary)]"
+            style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
+          >
+            Gumi
+          </h1>
+        </div>
 
         {/* Search */}
         <SearchBar
@@ -108,8 +120,8 @@ export default function TopNav({
                 ? "bg-white shadow-sm"
                 : "hover:bg-white/50"
             }`}
-            aria-label="Reels view"
-            title="Reels view"
+            aria-label="Feed view"
+            title="Feed view"
           >
             <svg
               width="16"
@@ -125,23 +137,18 @@ export default function TopNav({
           </button>
         </div>
 
-        {/* Heart / Saved icon (decorative) */}
+        {/* Profile with Gumi count */}
         <button
-          className="flex-shrink-0 w-10 h-10 rounded-full hover:bg-[var(--bg-secondary)] flex items-center justify-center transition-colors"
-          aria-label="Saved items"
+          className="flex-shrink-0 flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+          aria-label="Profile"
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="var(--text-primary)"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
+          <div className="relative w-7 h-7 rounded-full overflow-hidden bg-[var(--bg-secondary)]">
+            <Image src={CURRENT_USER.avatar} alt="You" fill className="object-cover" sizes="28px" />
+          </div>
+          <div className="flex items-center gap-0.5">
+            <Image src="/gumi-icon.png" alt="" width={12} height={12} />
+            <span className="text-xs font-semibold text-[var(--text-primary)]">{CURRENT_USER.gumiCount}</span>
+          </div>
         </button>
       </div>
 
