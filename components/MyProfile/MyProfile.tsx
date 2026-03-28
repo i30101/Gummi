@@ -16,6 +16,7 @@ import ProfileWishlist from "./ProfileWishlist";
 import EditProfileModal from "./EditProfileModal";
 import SettingsPanel from "./SettingsPanel";
 import UserListModal from "./UserListModal";
+import SuggestedFollowers from "./SuggestedFollowers";
 
 type MyProfileProps = {
   isOpen: boolean;
@@ -148,6 +149,8 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
               userId={profile.id}
               onHighlightClick={(highlight, index) => setHighlightViewerIndex(index)}
             />
+
+            <SuggestedFollowers onUserClick={onUserClick} />
 
             <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />
 
