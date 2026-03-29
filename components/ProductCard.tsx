@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Product, MockUser } from "@/types";
 import { formatPriceRange, formatCount } from "@/lib/utils";
 import { getUserById } from "@/lib/mock-users";
@@ -12,19 +12,8 @@ type ProductCardProps = {
   index: number;
   onClick: (product: Product) => void;
   onFriendClick?: (user: MockUser) => void;
-  onGummi?: (product: Product) => void;
   matchScore?: number; // recommendation match % (65–98)
 };
-
-// Sparkle burst positions for gummy click
-const sparklePositions = [
-  { x: -12, y: -14 },
-  { x: 14, y: -10 },
-  { x: -8, y: 12 },
-  { x: 10, y: 14 },
-  { x: -16, y: 2 },
-  { x: 16, y: -4 },
-];
 
 /**
  * Compute the visual treatment for recommended products.
@@ -53,28 +42,10 @@ export default function ProductCard({
   index,
   onClick,
   onFriendClick,
-  onGummi,
   matchScore,
 }: ProductCardProps) {
-  const [isGummied, setIsGummied] = useState(product.isGummied ?? false);
-  const [gummiCount, setGummiCount] = useState(product.gummis);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [showSparkle, setShowSparkle] = useState(false);
-
-  const handleGummi = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (isGummied) {
-      setIsGummied(false);
-      setGummiCount((prev) => prev - 1);
-    } else {
-      setIsGummied(true);
-      setGummiCount((prev) => prev + 1);
-      setShowSparkle(true);
-      setTimeout(() => setShowSparkle(false), 600);
-      onGummi?.(product);
-    }
-  };
 
   const handleShare = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -185,7 +156,7 @@ export default function ProductCard({
             <div className="absolute bottom-3 left-3 z-10">
               <div className="flex items-center gap-1 bg-black/40 backdrop-blur-sm rounded-full pl-1.5 pr-2.5 py-1">
                 <Image src="/gummi-icon.png" alt="Gummi" width={18} height={31} />
-                <span className="text-white text-xs font-medium">{formatCount(gummiCount)}</span>
+                <span className="text-white text-xs font-medium">{formatCount(product.gummis)}</span>
                 <span className="text-white/60 text-[10px]">bought</span>
               </div>
             </div>
@@ -237,52 +208,6 @@ export default function ProductCard({
                 </span>
               </div>
             )}
-
-            {/* Social row — gummy toggle with squish + sparkle */}
-            <div className="flex items-center mt-2 pt-2 border-t border-(--border)">
-              <button
-                onClick={handleGummi}
-                className={`relative flex items-center gap-1 text-[11px] px-2 py-1 rounded-full transition-all ${
-                  isGummied
-                    ? "bg-(--accent)/10 text-(--accent)"
-                    : "hover:bg-(--bg-secondary) text-(--text-tertiary)"
-                }`}
-              >
-                {/* Sparkle burst */}
-                <AnimatePresence>
-                  {showSparkle &&
-                    sparklePositions.map((pos, i) => (
-                      <motion.div
-                        key={i}
-                        className="absolute left-3 top-1/2 w-1.5 h-1.5 rounded-full"
-                        style={{ backgroundColor: "var(--accent)" }}
-                        initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                        animate={{ x: pos.x, y: pos.y, opacity: 0, scale: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                      />
-                    ))}
-                </AnimatePresence>
-
-                {/* Gummy icon — jelly squish on hover */}
-                <motion.div
-                  whileHover={{ scaleX: 1.2, scaleY: 0.82 }}
-                  animate={isGummied ? { scale: [1, 1.4, 1] } : {}}
-                  transition={{ duration: 0.3, type: "spring", stiffness: 400 }}
-                >
-                  <Image
-                    src="/gummi-icon.png"
-                    alt="Gummi"
-                    width={14}
-                    height={24}
-                    className={`transition-all ${isGummied ? "opacity-100" : "opacity-40 grayscale"}`}
-                  />
-                </motion.div>
-                <span className="font-medium">
-                  {isGummied ? "Bought" : "I bought this"}
-                </span>
-              </button>
-            </div>
           </div>
         </div>
 
