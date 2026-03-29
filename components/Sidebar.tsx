@@ -101,7 +101,7 @@ export default function Sidebar({
               alt="Gummi"
               width={28}
               height={48}
-              className="drop-shadow-sm"
+              className="drop-shadow-sm ml-4"
             />
             <h1
               className="tracking-tight text-(--text-primary)"

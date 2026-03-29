@@ -18,8 +18,7 @@ import GummiToast from "@/components/GummiToast";
 import AlgorithmModal from "@/components/AlgorithmModal";
 import MyProfile from "@/components/MyProfile/MyProfile";
 import ChatBot from "@/components/ChatBot";
-import GamesHub from "@/components/GamesHub";
-import MessagesHub from "@/components/MessagesHub";
+import ProductModal from "@/components/ProductModal";
 import { useRecommendations } from "@/hooks/useRecommendations";
 
 export default function Home() {
@@ -116,26 +115,16 @@ export default function Home() {
   };
 
   const handleProductClick = useCallback((product: Product) => {
-    recordInteraction(product.id, "click");
-    if (feedMode === "gallery") {
-      router.push(`/product/${encodeURIComponent(product.id)}`);
-    } else {
-      setSelectedProduct(product);
-    }
-  }, [feedMode, router, recordInteraction]);
-
-  const handleFeedModeChange = (mode: FeedMode) => {
-    setFeedMode(mode);
-    if (mode === "gallery") {
-      document.body.style.overflow = "";
-    }
-  };
+    // Navigate to product detail page
+    router.push(`/product/${encodeURIComponent(product.id)}`);
+  }, [router]);
 
   return (
     <main className="flex min-h-screen bg-(--bg-primary)">
       {/* Sidebar */}
       <Sidebar
         searchValue={searchValue}
+        onSearchChange={setSearchValue}
         onSearchSubmit={handleSearchSubmit}
         categories={CATEGORIES}
         activeCategory={activeCategory}
@@ -234,13 +223,18 @@ export default function Home() {
                 onGummi={handleGummi}
                 prefetchSentinelIndex={prefetchSentinelIndex}
                 prefetchSentinelRef={prefetchSentinelRef}
-                recommendationScores={recommendationScores}
               />
 
             <div ref={loadSentinelRef} className="h-4" />
           </div>
         </div>
       </div>
+
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        onGummi={handleGummi}
+      />
 
       <UserProfile
         user={selectedUser}
@@ -249,7 +243,6 @@ export default function Home() {
           setFollowedUsers((prev) => new Set([...prev, userId]));
         }}
         onMessage={() => {
-          setAppSection("messages");
           setSelectedUser(null);
         }}
         isFollowing={(userId) => followedUsers.has(userId)}
