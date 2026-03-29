@@ -104,7 +104,7 @@ export default function ProductPage() {
         onCategorySelect={setActiveCategory}
         activeSection="feed"
         onHomeClick={() => router.push("/")}
-        onExploreClick={() => router.push("/")}
+        onExploreClick={() => router.push("/explore")}
         onGamesClick={() => router.push("/games")}
         onMessagesClick={() => router.push("/messages")}
         onLikesClick={() => router.push("/likes")}

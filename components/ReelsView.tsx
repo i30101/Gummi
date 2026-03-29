@@ -193,7 +193,7 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
             </div>
 
             {/* Right action bar */}
-            <div className="absolute right-4 bottom-44 flex flex-col items-center gap-6 z-20">
+            <div className="absolute right-4 bottom-60 flex flex-col items-center gap-6 z-20">
               {/* Gummi = "I bought this" */}
               <button onClick={toggleGummi} className="flex flex-col items-center gap-1">
                 <motion.div

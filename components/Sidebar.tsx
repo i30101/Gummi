@@ -216,7 +216,7 @@ export default function Sidebar({
           )}
 
           {/* User profile button */}
-          <button onClick={onProfileClick} className="w-full flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-(--bg-secondary) transition-colors text-left">
+          <button onClick={() => router.push("/user")} className="w-full flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-(--bg-secondary) transition-colors text-left">
             <div className="relative w-8 h-8 rounded-full overflow-hidden bg-(--bg-secondary) shrink-0 flex items-center justify-center">
               <GummiBear config={bearState.config} size={28} />
             </div>

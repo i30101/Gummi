@@ -34,7 +34,7 @@ export default function GummyBearChat({
     <div className="relative w-full h-full flex flex-col">
       {/* Background with field */}
       <div
-        className="absolute inset-0 rounded-lg overflow-hidden"
+        className="absolute inset-0 overflow-hidden"
         style={{
           backgroundImage:
             "linear-gradient(to bottom, #E3F2FD 0%, #E8F5E9 70%, #C8E6C9 100%)",
