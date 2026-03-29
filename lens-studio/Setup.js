@@ -20,7 +20,9 @@
  *   - Wires all script inputs together
  */
 
-var startEvent = script.createEvent("OnStartEvent");
+print("=== Setup.js loaded ===");
+
+var startEvent = script.createEvent("OnAwakeEvent");
 startEvent.bind(function () {
 
   print("=== Gummi Bear Setup Starting ===");

@@ -40,20 +40,20 @@ This guide covers everything needed: credentials, the 2D lens (quickest path), a
 
 This is the full showstopper build. Budget ~4 hours.
 
-### Step 1: Get a 3D Gummi Bear Model
+### Step 1: Get the 3D Gummi Bear Model
 
-**Fastest path (AI-generated, ~10 min):**
-1. Go to [meshy.ai](https://meshy.ai) — free tier works
-2. Text-to-3D prompt: `"cute cartoon gummy bear, round body, stubby arms and legs, shiny translucent candy material, no accessories, T-pose"`
-3. Download as `.glb` (GLTF binary)
+The model is already in the repo: **`GummyBear_V2.fbx`** (root of the project).
 
-**Free download alternative:**
-- Search [sketchfab.com/models?features=downloadable&q=gummy+bear](https://sketchfab.com/models?features=downloadable&q=gummy+bear) — filter by free + downloadable + GLB
+Extracted FBX properties:
+| Property | Value |
+|----------|-------|
+| File | `GummyBear_V2.fbx` — Kaydara FBX Binary 7.4, from Blender |
+| Mesh object | `Mesh` (single one-piece body mesh) |
+| Materials | `Material` (body, hue-shiftable) + `Material.001` (eyes/details) |
+| Base color | `#F90000` — R=0.978, G=0.0, B=0.0 (pure red) |
+| Skeleton | `Armature` with full bone hierarchy (rigged — animations work!) |
 
-**Model requirements:**
-- Single mesh body (or body + separate outfit attachment points)
-- Base color: cherry red `#C45D3E` — this is the "source of truth" color we hue-shift from
-- Poly count: under 10k for mobile AR performance
+All hue shifts in `BearConfig.js` are calibrated to this `#F90000` base.
 
 ### Step 2: Create Lens Studio Project
 
@@ -69,10 +69,11 @@ This is the full showstopper build. Budget ~4 hours.
 1. Drag the `.glb` file into the **Resources** panel
 2. Lens Studio auto-creates a mesh, material, and render component
 3. In the **Scene Hierarchy**, rename the root object to `BearRoot`
-4. Create this child structure under `BearRoot`:
+4. The imported mesh will appear as a child named `Mesh` — leave that name as-is (BearConfig.js expects it)
+5. Create this child structure under `BearRoot`:
    ```
    BearRoot
-   ├── BearBody          ← the bear mesh (RenderMeshVisual)
+   ├── Mesh              ← the imported FBX mesh (auto-named, keep as "Mesh")
    ├── Clothing          ← empty parent for all clothing meshes
    │   ├── Clothing_TShirt    (hidden by default)
    │   ├── Clothing_Hoodie    (hidden by default)

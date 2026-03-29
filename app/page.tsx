@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Product, MockUser } from "@/types";
+import { Product, MockUser, FeedMode } from "@/types";
 import { CATEGORIES, getProductPool, getSearchPool } from "@/lib/mock-data";
 import { getStoryUsers } from "@/lib/mock-users";
 import { useDebounce } from "@/hooks/useDebounce";
@@ -41,6 +41,9 @@ export default function Home() {
 
   // My Profile
   const [myProfileOpen, setMyProfileOpen] = useState(false);
+
+  // Feed mode
+  const [feedMode, setFeedMode] = useState<"gallery" | "reels">("gallery");
 
   // Follow state
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());

@@ -31,7 +31,7 @@ export const SNAP_API_TOKEN =
 
 /** Whether the Snap AR integration is configured (env vars present). */
 export function isSnapConfigured(): boolean {
-  return !!(SNAP_LENS_ID && SNAP_LENS_GROUP_ID && SNAP_API_TOKEN);
+  return !!(SNAP_LENS_GROUP_ID && SNAP_API_TOKEN);
 }
 
 // ─── LAUNCH DATA ─────────────────────────────────────────────────────────────
@@ -173,11 +173,14 @@ export async function startCameraKitSession(
 
     await session.setSource(source);
 
-    // Load and apply the Gummi bear lens with the user's config
-    const lens = await cameraKit.lensRepository.loadLens(
-      SNAP_LENS_ID,
-      SNAP_LENS_GROUP_ID
-    );
+    // Load the first lens from the group (or by ID if specified)
+    let lens;
+    if (SNAP_LENS_ID) {
+      lens = await cameraKit.lensRepository.loadLens(SNAP_LENS_ID, SNAP_LENS_GROUP_ID);
+    } else {
+      const [group] = await cameraKit.lensRepository.loadLensGroups([SNAP_LENS_GROUP_ID]);
+      lens = group.lenses[0];
+    }
 
     // LensLaunchData.launchParams is the correct field for arbitrary key-value data
     await session.applyLens(lens, {
