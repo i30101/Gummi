@@ -1,11 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { Conversation, MockUser } from "@/types";
 import { getConversationsByUser, deleteConversation, getUnreadCount } from "@/lib/mock-conversations";
 import { getUserById, CURRENT_USER } from "@/lib/mock-users";
 import MessagesConversation from "./MessagesConversation";
+import GummiBear from "./GummiBear/GummiBear";
 
 function formatRelativeTime(date: Date): string {
   const now = new Date();
@@ -97,19 +97,22 @@ export default function MessagesHub() {
                   }`}
                 >
                   <div className="flex gap-3">
-                    {/* Avatar */}
-                    <div className="relative shrink-0">
-                      <Image
-                        src={participant.avatar}
-                        alt={participant.name}
-                        width={48}
-                        height={48}
-                        className="rounded-full object-cover"
+                  <div className="relative shrink-0">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-(--bg-secondary)">
+                      <GummiBear
+                        config={{
+                          hue: participant.gummiHue,
+                          clothing: participant.gummiOutfit?.clothing || null,
+                          accessory: participant.gummiOutfit?.accessory || null,
+                          headwear: participant.gummiOutfit?.headwear || null,
+                        }}
+                        size={48}
                       />
-                      {hasUnread && (
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-primary)" />
-                      )}
                     </div>
+                    {hasUnread && (
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-primary)" />
+                    )}
+                  </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-baseline gap-2">
@@ -174,19 +177,25 @@ export default function MessagesHub() {
                 <button
                   key={conv.id}
                   onClick={() => setSelectedConversationId(conv.id)}
-                  className="w-full px-4 py-3 bg-(--bg-secondary) rounded-lg hover:bg-(--border) transition-colors text-left"
+                  className={`w-full px-4 py-3.5 border-b border-(--border) hover:bg-(--bg-secondary) transition-colors text-left ${
+                    selectedConversationId === conv.id ? "bg-(--bg-secondary)" : ""
+                  }`}
                 >
                   <div className="flex gap-3">
                     <div className="relative shrink-0">
-                      <Image
-                        src={participant.avatar}
-                        alt={participant.name}
-                        width={48}
-                        height={48}
-                        className="rounded-full object-cover"
-                      />
+                      <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center bg-(--bg-secondary)">
+                        <GummiBear
+                          config={{
+                            hue: participant.gummiHue,
+                            clothing: participant.gummiOutfit?.clothing || null,
+                            accessory: participant.gummiOutfit?.accessory || null,
+                            headwear: participant.gummiOutfit?.headwear || null,
+                          }}
+                          size={48}
+                        />
+                      </div>
                       {hasUnread && (
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-secondary)" />
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-primary)" />
                       )}
                     </div>
 

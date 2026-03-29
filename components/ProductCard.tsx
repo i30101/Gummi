@@ -20,7 +20,6 @@ export default function ProductCard({ product, index, onClick, onFriendClick, on
   const [gummiCount, setGummiCount] = useState(product.gummis);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-
   const handleGummi = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (isGummied) {

@@ -230,7 +230,7 @@ export default function StoryViewer({
             animate="center"
             exit="exit"
             transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="relative z-10 shrink-0 w-[calc(100vw-32px) md:w-full md:max-w-105 h-[calc(100vh-80px) rounded-2xl overflow-hidden"
+            className="relative z-10 shrink-0 w-[calc(100vw-32px)] md:w-full md:max-w-[500px] h-[calc(100vh-80px)] rounded-2xl overflow-hidden"
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
             onTouchStart={handleTouchStart}

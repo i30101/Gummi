@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import { Conversation, MockUser } from "@/types";
 import { CURRENT_USER, getUserById } from "@/lib/mock-users";
 import { addMessageToConversation, markConversationAsRead } from "@/lib/mock-conversations";
 import GummyBearChat from "./GummyBearChat";
+import GummiBear from "./GummiBear/GummiBear";
+import EmojiPicker from "./EmojiPicker";
+import type { Emotion } from "@/lib/emoji-emotions";
 
 export default function MessagesConversation({
   conversation,
@@ -20,6 +22,8 @@ export default function MessagesConversation({
   const [messageInput, setMessageInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [conversationState, setConversationState] = useState(conversation);
+  const [emojiPickerOpen, setEmojiPickerOpen] = useState(false);
+  const [selectedEmoji, setSelectedEmoji] = useState<Emotion | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -91,13 +95,17 @@ export default function MessagesConversation({
             </svg>
           </button>
 
-          <Image
-            src={participantUser.avatar}
-            alt={participantUser.name}
-            width={40}
-            height={40}
-            className="rounded-full object-cover"
-          />
+          <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-(--bg-secondary) shrink-0">
+            <GummiBear
+              config={{
+                hue: participantUser.gummiHue,
+                clothing: participantUser.gummiOutfit?.clothing || null,
+                accessory: participantUser.gummiOutfit?.accessory || null,
+                headwear: participantUser.gummiOutfit?.headwear || null,
+              }}
+              size={40}
+            />
+          </div>
 
           <div className="min-w-0">
             <h2 className="font-semibold text-(--text-primary) truncate">
@@ -141,6 +149,18 @@ export default function MessagesConversation({
       {/* Message input */}
       <div className="px-4 py-4 border-t border-(--border) bg-(--bg-secondary)">
         <div className="flex gap-2">
+          <button
+            onClick={() => setEmojiPickerOpen(true)}
+            className="w-10 h-10 flex items-center justify-center hover:bg-(--bg-primary) rounded-full transition-colors"
+            aria-label="Add emoji"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+              <line x1="9" y1="9" x2="9" y2="9.01" />
+              <line x1="15" y1="9" x2="15" y2="9.01" />
+            </svg>
+          </button>
           <input
             ref={inputRef}
             type="text"
@@ -163,6 +183,51 @@ export default function MessagesConversation({
           </button>
         </div>
       </div>
+
+      {/* Emoji Picker */}
+      <EmojiPicker
+        isOpen={emojiPickerOpen}
+        onClose={() => setEmojiPickerOpen(false)}
+        onSelectEmoji={(emotion) => {
+          setSelectedEmoji(emotion);
+          // Send emoji as a message
+          addMessageToConversation(
+            conversation.id,
+            CURRENT_USER.id,
+            `[emoji:${emotion}]`
+          );
+          setConversationState({ ...conversation });
+          setEmojiPickerOpen(false);
+          
+          // Simulate response
+          setTimeout(() => {
+            const responses = [
+              "That's awesome! 😄",
+              "I totally agree! 💯",
+              "Love that energy ✨",
+              "Right? 🙌",
+              "For sure! 👀",
+              "Haha yes! 😂",
+              "Perfect! 🎯",
+              "Absolutely! 💕",
+            ];
+            const randomResponse =
+              responses[Math.floor(Math.random() * responses.length)];
+            addMessageToConversation(
+              conversation.id,
+              conversation.participantId,
+              randomResponse
+            );
+            setConversationState({ ...conversation });
+          }, 1200 + Math.random() * 800);
+        }}
+        userConfig={{
+          hue: CURRENT_USER.gummiHue,
+          clothing: CURRENT_USER.gummiOutfit?.clothing || null,
+          accessory: CURRENT_USER.gummiOutfit?.accessory || null,
+          headwear: CURRENT_USER.gummiOutfit?.headwear || null,
+        }}
+      />
     </div>
   );
 }

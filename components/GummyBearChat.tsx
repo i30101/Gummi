@@ -3,22 +3,9 @@
 import { Message, MockUser } from "@/types";
 import { motion } from "framer-motion";
 import { CURRENT_USER } from "@/lib/mock-users";
-
-// Hash user ID to consistent color
-function hashUserToColor(userId: string): string {
-  const colors = [
-    "#FF6B6B", // red
-    "#4ECDC4", // teal
-    "#FFE66D", // yellow
-    "#95E1D3", // mint
-    "#F38181", // pink
-    "#AA96DA", // purple
-    "#FFA07A", // salmon
-    "#87CEEB", // sky blue
-  ];
-  const hash = userId.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
-  return colors[hash % colors.length];
-}
+import GummiBear from "./GummiBear/GummiBear";
+import EmojiGummiBear from "./EmojiGummiBear";
+import type { Emotion } from "@/lib/emoji-emotions";
 
 // Format timestamp to relative time
 function formatRelativeTime(date: Date): string {
@@ -44,9 +31,6 @@ export default function GummyBearChat({
   participantUser: MockUser;
   isTyping?: boolean;
 }) {
-  const participantColor = hashUserToColor(participantUser.id);
-  const currentUserColor = hashUserToColor(CURRENT_USER.id);
-
   return (
     <div className="relative w-full h-full flex flex-col">
       {/* Background with field */}
@@ -86,8 +70,7 @@ export default function GummyBearChat({
               key={msg.id}
               message={msg}
               isOwn={msg.sender === CURRENT_USER.id}
-              participantColor={participantColor}
-              currentUserColor={currentUserColor}
+              participantUser={participantUser}
             />
           ))
         )}
@@ -127,26 +110,23 @@ export default function GummyBearChat({
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center"
           >
-            {/* Gummy bear body */}
-            <div
-              className="w-20 h-20 rounded-full shadow-lg relative flex items-center justify-center"
-              style={{ backgroundColor: participantColor }}
-            >
-              {/* Eyes */}
-              <div className="absolute top-6 flex gap-4">
-                <div className="w-2.5 h-3 bg-white rounded-full" />
-                <div className="w-2.5 h-3 bg-white rounded-full" />
-              </div>
-              {/* Mouth - semicircle smile */}
-              <div className="absolute bottom-3 w-6 h-3 border-b-2 border-white rounded-full" />
-            </div>
+            <GummiBear
+              config={{
+                hue: participantUser.gummiHue,
+                clothing: participantUser.gummiOutfit?.clothing || null,
+                accessory: participantUser.gummiOutfit?.accessory || null,
+                headwear: participantUser.gummiOutfit?.headwear || null,
+              }}
+              size={80}
+              className="drop-shadow-lg"
+            />
           </motion.div>
           <span className="text-xs font-semibold text-(--text-secondary)">
             {participantUser.name}
           </span>
         </div>
 
-        {/* Current user bear */}
+        {/* Your bear (right) */}
         <div className="flex flex-col items-center gap-3">
           <motion.div
             animate={{ y: [0, -12, 0] }}
@@ -158,19 +138,16 @@ export default function GummyBearChat({
             }}
             className="flex flex-col items-center"
           >
-            {/* Gummy bear body */}
-            <div
-              className="w-20 h-20 rounded-full shadow-lg relative flex items-center justify-center"
-              style={{ backgroundColor: currentUserColor }}
-            >
-              {/* Eyes */}
-              <div className="absolute top-6 flex gap-4">
-                <div className="w-2.5 h-3 bg-white rounded-full" />
-                <div className="w-2.5 h-3 bg-white rounded-full" />
-              </div>
-              {/* Mouth - semicircle smile */}
-              <div className="absolute bottom-3 w-6 h-3 border-b-2 border-white rounded-full" />
-            </div>
+            <GummiBear
+              config={{
+                hue: CURRENT_USER.gummiHue,
+                clothing: CURRENT_USER.gummiOutfit?.clothing || null,
+                accessory: CURRENT_USER.gummiOutfit?.accessory || null,
+                headwear: CURRENT_USER.gummiOutfit?.headwear || null,
+              }}
+              size={80}
+              className="drop-shadow-lg"
+            />
           </motion.div>
           <span className="text-xs font-semibold text-(--text-secondary)">
             {CURRENT_USER.name}
@@ -184,14 +161,17 @@ export default function GummyBearChat({
 function MessageBubble({
   message,
   isOwn,
-  participantColor,
-  currentUserColor,
+  participantUser,
 }: {
   message: Message;
   isOwn: boolean;
-  participantColor: string;
-  currentUserColor: string;
+  participantUser: MockUser;
 }) {
+  // Check if message is an emoji
+  const emojiMatch = message.content.match(/^\[emoji:(\w+)\]$/);
+  const isEmojiMessage = !!emojiMatch;
+  const emotion = emojiMatch?.[1] as Emotion | undefined;
+
   return (
     <motion.div
       initial={{ scale: 0.8, opacity: 0 }}
@@ -199,26 +179,40 @@ function MessageBubble({
       transition={{ duration: 0.3 }}
       className={`flex gap-2 ${isOwn ? "justify-end" : "justify-start"}`}
     >
-      <div
-        className={`max-w-xs px-4 py-2.5 rounded-lg ${
-          isOwn
-            ? `text-white`
-            : `bg-(--bg-secondary) text-(--text-primary)`
-        }`}
-        style={isOwn ? { backgroundColor: currentUserColor } : {}}
-      >
-        <p className="text-sm leading-relaxed break-words">{message.content}</p>
-        <div className="flex items-center justify-end gap-1.5 mt-1">
-          <p className="text-xs opacity-70">
-            {formatRelativeTime(message.timestamp)}
-          </p>
-          {isOwn && (
-            <span className="text-xs opacity-70">
-              {message.read ? "✓✓" : "✓"}
-            </span>
-          )}
+      {isEmojiMessage && emotion ? (
+        <div className="w-16 h-16 flex items-center justify-center">
+          <EmojiGummiBear
+            config={{
+              hue: CURRENT_USER.gummiHue,
+              clothing: CURRENT_USER.gummiOutfit?.clothing || null,
+              accessory: CURRENT_USER.gummiOutfit?.accessory || null,
+              headwear: CURRENT_USER.gummiOutfit?.headwear || null,
+            }}
+            emotion={emotion}
+            size={64}
+          />
         </div>
-      </div>
+      ) : (
+        <div
+          className={`max-w-xs px-4 py-2.5 rounded-lg ${
+            isOwn
+              ? `text-white bg-(--accent)`
+              : `bg-(--bg-secondary) text-(--text-primary)`
+          }`}
+        >
+          <p className="text-sm leading-relaxed break-words">{message.content}</p>
+          <div className="flex items-center justify-end gap-1.5 mt-1">
+            <p className="text-xs opacity-70">
+              {formatRelativeTime(message.timestamp)}
+            </p>
+            {isOwn && (
+              <span className="text-xs opacity-70">
+                {message.read ? "✓✓" : "✓"}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 }
