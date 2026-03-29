@@ -114,9 +114,9 @@ export default function Home() {
   };
 
   const handleProductClick = useCallback((product: Product) => {
-    // Navigate to product detail page
+    recordInteraction(product.id, "click");
     router.push(`/product/${encodeURIComponent(product.id)}`);
-  }, [router]);
+  }, [router, recordInteraction]);
 
   return (
     <main className="flex min-h-screen bg-(--bg-primary)">
@@ -203,6 +203,7 @@ export default function Home() {
                 onFriendClick={handleFriendClick}
                 prefetchSentinelIndex={prefetchSentinelIndex}
                 prefetchSentinelRef={prefetchSentinelRef}
+                recommendationScores={recommendationScores}
               />
 
             <div ref={loadSentinelRef} className="h-4" />
