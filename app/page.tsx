@@ -18,6 +18,9 @@ import GummiToast from "@/components/GummiToast";
 import AlgorithmModal from "@/components/AlgorithmModal";
 import MyProfile from "@/components/MyProfile/MyProfile";
 import ChatBot from "@/components/ChatBot";
+import GamesHub from "@/components/GamesHub";
+import MessagesHub from "@/components/MessagesHub";
+import { useRecommendations } from "@/hooks/useRecommendations";
 
 export default function Home() {
   const router = useRouter();
@@ -78,12 +81,16 @@ export default function Home() {
     resetKey: `${activeCategory}|${activeSearch}`,
   });
 
+  // Recommendation engine
+  const { scores: recommendationScores, recordInteraction } = useRecommendations(displayedProducts);
+
   // Handle Gummi action — show confirmation toast
   const handleGummi = useCallback((product: Product) => {
+    recordInteraction(product.id, "purchase");
     setToastProductTitle(product.title);
     setToastVisible(true);
     setTimeout(() => setToastVisible(false), 2500);
-  }, []);
+  }, [recordInteraction]);
 
   // Handle friend avatar click — open profile
   const handleFriendClick = useCallback((user: MockUser) => {
@@ -109,9 +116,20 @@ export default function Home() {
   };
 
   const handleProductClick = useCallback((product: Product) => {
-    // Navigate to product detail page
-    router.push(`/product/${encodeURIComponent(product.id)}`);
-  }, [router]);
+    recordInteraction(product.id, "click");
+    if (feedMode === "gallery") {
+      router.push(`/product/${encodeURIComponent(product.id)}`);
+    } else {
+      setSelectedProduct(product);
+    }
+  }, [feedMode, router, recordInteraction]);
+
+  const handleFeedModeChange = (mode: FeedMode) => {
+    setFeedMode(mode);
+    if (mode === "gallery") {
+      document.body.style.overflow = "";
+    }
+  };
 
   return (
     <main className="flex min-h-screen bg-(--bg-primary)">
@@ -206,17 +224,18 @@ export default function Home() {
             />
           )}
 
-          {/* Masonry grid */}
-          <div className="px-4 md:px-6 lg:px-8 py-6">
-            <MasonryGrid
-              products={displayedProducts}
-              isLoading={isLoading}
-              onProductClick={handleProductClick}
-              onFriendClick={handleFriendClick}
-              onGummi={handleGummi}
-              prefetchSentinelIndex={prefetchSentinelIndex}
-              prefetchSentinelRef={prefetchSentinelRef}
-            />
+            {/* Masonry grid */}
+            <div className="px-4 md:px-6 lg:px-8 py-6">
+              <MasonryGrid
+                products={displayedProducts}
+                isLoading={isLoading}
+                onProductClick={handleProductClick}
+                onFriendClick={handleFriendClick}
+                onGummi={handleGummi}
+                prefetchSentinelIndex={prefetchSentinelIndex}
+                prefetchSentinelRef={prefetchSentinelRef}
+                recommendationScores={recommendationScores}
+              />
 
             <div ref={loadSentinelRef} className="h-4" />
           </div>
