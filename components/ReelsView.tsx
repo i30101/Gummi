@@ -20,7 +20,6 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
   const [gummied, setGummied] = useState<Set<string>>(new Set());
   const [bookmarked, setBookmarked] = useState<Set<string>>(new Set());
   const [direction, setDirection] = useState(0);
-  const [showKeyHint, setShowKeyHint] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef(0);
   const isTransitioning = useRef(false);
@@ -47,8 +46,8 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") { onClose?.(); return; }
-      if (e.key === "ArrowDown" || e.key === "j") goTo(currentIndex + 1);
-      if (e.key === "ArrowUp" || e.key === "k") goTo(currentIndex - 1);
+      if (e.key === "ArrowDown") goTo(currentIndex + 1);
+      if (e.key === "ArrowUp") goTo(currentIndex - 1);
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
@@ -299,48 +298,6 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
         </motion.div>
       </AnimatePresence>
       </div>
-
-      {/* Scroll hint */}
-      {currentIndex === 0 && (
-        <motion.div
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-32 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1"
-        >
-          <motion.svg
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            strokeWidth="2"
-          >
-            <polyline points="6 9 12 15 18 9" />
-          </motion.svg>
-          <span className="text-white/60 text-xs">Scroll for more</span>
-        </motion.div>
-      )}
-
-      {/* Keyboard shortcut hint */}
-      <AnimatePresence>
-        {showKeyHint && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, delay: 0.5 }}
-            onAnimationComplete={() => {
-              setTimeout(() => setShowKeyHint(false), 3000);
-            }}
-            className="absolute bottom-24 left-1/2 -translate-x-1/2 bg-white/15 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 pointer-events-none"
-          >
-            <span className="text-white/80 text-xs font-medium">↑↓ or j/k to navigate</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
