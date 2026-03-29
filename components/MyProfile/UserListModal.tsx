@@ -50,19 +50,19 @@ export default function UserListModal({ type, onClose, onUserClick }: UserListMo
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-sm md:max-h-[70vh] z-[60] bg-[var(--card-bg)] rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-sm md:max-h-[70vh] z-[60] bg-(--card-bg) rounded-2xl shadow-2xl overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--border)]/50">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-(--border)/50">
               <h3
-                className="text-lg text-[var(--text-primary)]"
+                className="text-lg text-(--text-primary)"
                 style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
               >
                 {type === "followers" ? "Followers" : "Following"}
               </h3>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-full hover:bg-[var(--bg-secondary)] flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full hover:bg-(--bg-secondary) flex items-center justify-center transition-colors"
                 aria-label="Close"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -77,13 +77,13 @@ export default function UserListModal({ type, onClose, onUserClick }: UserListMo
               {users.map((user) => (
                 <div
                   key={user.id}
-                  className="flex items-center gap-3 px-5 py-3 hover:bg-[var(--bg-secondary)]/50 transition-colors"
+                  className="flex items-center gap-3 px-5 py-3 hover:bg-(--bg-secondary)/50 transition-colors"
                 >
                   <button
                     onClick={() => onUserClick(user)}
                     className="flex items-center gap-3 flex-1 min-w-0"
                   >
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden bg-[var(--bg-secondary)] flex-shrink-0">
+                    <div className="relative w-10 h-10 rounded-full overflow-hidden bg-(--bg-secondary) shrink-0">
                       <Image
                         src={user.avatar}
                         alt={user.name}
@@ -93,20 +93,20 @@ export default function UserListModal({ type, onClose, onUserClick }: UserListMo
                       />
                     </div>
                     <div className="flex-1 min-w-0 text-left">
-                      <p className="text-sm font-medium text-[var(--text-primary)] truncate">
+                      <p className="text-sm font-medium text-(--text-primary) truncate">
                         {user.name}
                       </p>
-                      <p className="text-xs text-[var(--text-tertiary)] truncate">
-                        @{user.username} · {formatCount(user.gumiCount)} gumis
+                      <p className="text-xs text-(--text-tertiary) truncate">
+                        @{user.username} · {formatCount(user.gummiCount)} gummis
                       </p>
                     </div>
                   </button>
                   <button
                     onClick={() => toggleFollow(user.id)}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-colors flex-shrink-0 ${
+                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-colors shrink-0 ${
                       followingState[user.id]
-                        ? "border border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--text-tertiary)]"
-                        : "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]"
+                        ? "border border-(--border) text-(--text-secondary) hover:border-(--text-tertiary)"
+                        : "bg-(--accent) text-white hover:bg-(--accent-hover)"
                     }`}
                   >
                     {followingState[user.id] ? "Following" : "Follow"}

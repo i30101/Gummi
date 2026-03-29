@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MockUser, Product } from "@/types";
-import { getUserGumis } from "@/lib/user-products";
+import { getUserGummis } from "@/lib/user-products";
 import { formatPriceRange, formatCount } from "@/lib/utils";
 
 type StoryViewerProps = {
@@ -35,7 +35,7 @@ export default function StoryViewer({
   const isHolding = useRef(false);
 
   const currentUser = users[userIndex];
-  const userStories = currentUser ? getUserGumis(currentUser.id) : [];
+  const userStories = currentUser ? getUserGummis(currentUser.id) : [];
   const currentStory = userStories[storyIndex];
 
   const isFirstStory = userIndex === 0 && storyIndex === 0;
@@ -136,7 +136,7 @@ export default function StoryViewer({
     } else if (userIndex > 0) {
       setUserDirection(-1);
       setDirection(-1);
-      const prevUserStories = getUserGumis(users[userIndex - 1].id);
+      const prevUserStories = getUserGummis(users[userIndex - 1].id);
       setUserIndex((prev) => prev - 1);
       setStoryIndex(prevUserStories.length - 1);
       setProgress(0);
@@ -230,7 +230,7 @@ export default function StoryViewer({
             animate="center"
             exit="exit"
             transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="relative z-10 shrink-0 w-[calc(100vw-32px)] md:w-full md:max-w-105 h-[calc(100vh-80px)] rounded-2xl overflow-hidden"
+            className="relative z-10 shrink-0 w-[calc(100vw-32px) md:w-full md:max-w-105 h-[calc(100vh-80px) rounded-2xl overflow-hidden"
             onPointerDown={handlePointerDown}
             onPointerUp={handlePointerUp}
             onTouchStart={handleTouchStart}
@@ -328,7 +328,7 @@ export default function StoryViewer({
             {/* Bottom product info */}
             <div className="absolute bottom-0 left-0 right-0 z-30 p-5 pb-8">
               <div className="flex items-center gap-1.5 mb-3">
-                <Image src="/gumi-icon.png" alt="" width={16} height={27} />
+                <Image src="/gummi-icon.png" alt="" width={16} height={27} />
                 <span className="text-white/70 text-xs">
                   {currentUser.name.split(" ")[0]} bought this
                 </span>
@@ -350,9 +350,9 @@ export default function StoryViewer({
                   {formatPriceRange(currentStory.price.min, currentStory.price.max)}
                 </span>
                 <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-2 py-0.5">
-                  <Image src="/gumi-icon.png" alt="" width={12} height={21} />
+                  <Image src="/gummi-icon.png" alt="" width={12} height={21} />
                   <span className="text-white text-xs">
-                    {formatCount(currentStory.gumis)} bought
+                    {formatCount(currentStory.gummis)} bought
                   </span>
                 </div>
               </div>

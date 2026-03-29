@@ -1,9 +1,9 @@
-type GumiBearClothingProps = {
+type GummiBearClothingProps = {
   itemId: string | null;
   detailLevel: "micro" | "compact" | "full";
 };
 
-export default function GumiBearClothing({ itemId, detailLevel }: GumiBearClothingProps) {
+export default function GummiBearClothing({ itemId, detailLevel }: GummiBearClothingProps) {
   if (!itemId || detailLevel === "micro") return null;
 
   switch (itemId) {

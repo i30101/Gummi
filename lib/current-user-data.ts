@@ -1,7 +1,7 @@
 import { Product, Collection, CurrentUserProfile, MockUser } from "@/types";
 import { MOCK_PRODUCTS } from "./mock-data";
 import { MOCK_USERS, CURRENT_USER } from "./mock-users";
-import { getUserGumis, getUserHighlights } from "./user-products";
+import { getUserGummis, getUserHighlights } from "./user-products";
 
 export type { HighlightCollection } from "./user-products";
 export { getUserHighlights } from "./user-products";
@@ -10,7 +10,7 @@ export { getUserHighlights } from "./user-products";
 export function getCurrentUserProfile(): CurrentUserProfile {
   return {
     ...CURRENT_USER,
-    email: "tyler@gumi.app",
+    email: "tyler@gummi.app",
     joinedDate: "2025-06-15",
     isPrivate: false,
     notificationsEnabled: true,
@@ -20,9 +20,9 @@ export function getCurrentUserProfile(): CurrentUserProfile {
   };
 }
 
-// Products the current user has Gumied (purchased) — expanded set
-export function getMyGumis(): Product[] {
-  const base = getUserGumis("user-me");
+// Products the current user has Gummied (purchased) — expanded set
+export function getMyGummis(): Product[] {
+  const base = getUserGummis("user-me");
   // Add more products for a richer profile — spread across categories
   const extra = MOCK_PRODUCTS.filter(
     (p) => !base.some((b) => b.id === p.id)

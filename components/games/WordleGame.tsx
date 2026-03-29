@@ -64,8 +64,8 @@ const TILE_COLORS: Record<TileState, string> = {
   correct: "bg-emerald-500 border-emerald-500 text-white",
   present: "bg-amber-400 border-amber-400 text-white",
   absent: "bg-zinc-600 border-zinc-600 text-white",
-  empty: "bg-transparent border-[var(--border)]",
-  active: "bg-transparent border-[var(--text-secondary)]",
+  empty: "bg-transparent border-(--border)",
+  active: "bg-transparent border-(--text-secondary)",
 };
 
 const KEY_COLORS: Record<string, string> = {
@@ -171,24 +171,24 @@ export default function WordleGame({ onBack }: { onBack: () => void }) {
     <div className="flex flex-col items-center w-full max-w-lg mx-auto px-4 py-6 select-none">
       {/* Header */}
       <div className="flex items-center justify-between w-full mb-6">
-        <button onClick={onBack} className="p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors">
+        <button onClick={onBack} className="p-2 rounded-lg hover:bg-(--bg-secondary) transition-colors">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div className="flex items-center gap-2">
           {/* GUMI_ICON_PLACEHOLDER */}
-          <Image src="/gumi-icon.png" alt="Gumi" width={28} height={28} />
-          <h2 className="text-xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-cormorant), serif" }}>
-            Gumi Wordle
+          <Image src="/gummi-icon.png" alt="Gummi" width={28} height={28} />
+          <h2 className="text-xl font-bold text-(--text-primary)" style={{ fontFamily: "var(--font-cormorant), serif" }}>
+            Gummi Wordle
           </h2>
         </div>
-        <button onClick={reset} className="text-xs px-3 py-1.5 rounded-full bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--border)] transition-colors">
+        <button onClick={reset} className="text-xs px-3 py-1.5 rounded-full bg-(--bg-secondary) text-(--text-secondary) hover:bg-(--border) transition-colors">
           New
         </button>
       </div>
 
       {/* Message */}
       {message && (
-        <div className="mb-4 px-4 py-2 rounded-lg bg-[var(--text-primary)] text-[var(--bg-primary)] text-sm font-bold animate-bounce">
+        <div className="mb-4 px-4 py-2 rounded-lg bg-(--text-primary) text-(--bg-primary) text-sm font-bold animate-bounce">
           {message}
         </div>
       )}
@@ -224,7 +224,7 @@ export default function WordleGame({ onBack }: { onBack: () => void }) {
           <div key={rowIdx} className="flex justify-center gap-1">
             {row.map(key => {
               const ks = keyStates.get(key);
-              const colorClass = ks ? KEY_COLORS[ks] : "bg-[var(--bg-secondary)] text-[var(--text-primary)]";
+              const colorClass = ks ? KEY_COLORS[ks] : "bg-(--bg-secondary) text-(--text-primary)";
               const isWide = key === "ENTER" || key === "DEL";
               return (
                 <button
@@ -243,17 +243,17 @@ export default function WordleGame({ onBack }: { onBack: () => void }) {
       {/* Game over overlay */}
       {gameState !== "playing" && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={reset}>
-          <div className="bg-[var(--card-bg)] rounded-2xl p-8 text-center max-w-sm mx-4 shadow-2xl" onClick={e => e.stopPropagation()}>
+          <div className="bg-(--card-bg) rounded-2xl p-8 text-center max-w-sm mx-4 shadow-2xl" onClick={e => e.stopPropagation()}>
             {/* GUMI_ICON_PLACEHOLDER */}
-            <Image src="/gumi-icon.png" alt="Gumi" width={64} height={64} className="mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>
+            <Image src="/gummi-icon.png" alt="Gummi" width={64} height={64} className="mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-(--text-primary) mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>
               {gameState === "won" ? "Sweet Victory!" : "Better Luck Next Time!"}
             </h3>
-            <p className="text-[var(--text-secondary)] mb-1">The word was <span className="font-bold text-[var(--text-primary)]">{solution}</span></p>
+            <p className="text-(--text-secondary) mb-1">The word was <span className="font-bold text-(--text-primary)">{solution}</span></p>
             {gameState === "won" && (
-              <p className="text-[var(--text-tertiary)] text-sm mb-4">Solved in {guesses.length}/6 guesses</p>
+              <p className="text-(--text-tertiary) text-sm mb-4">Solved in {guesses.length}/6 guesses</p>
             )}
-            <button onClick={reset} className="mt-4 px-6 py-2.5 rounded-full bg-[var(--accent)] text-white font-semibold hover:opacity-90 transition-opacity">
+            <button onClick={reset} className="mt-4 px-6 py-2.5 rounded-full bg-(--accent) text-white font-semibold hover:opacity-90 transition-opacity">
               Play Again
             </button>
           </div>

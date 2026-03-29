@@ -51,7 +51,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   };
 
   return (
-    <div className="relative w-full bg-[var(--bg-secondary)] rounded-xl overflow-hidden">
+    <div className="relative w-full bg-(--bg-secondary) rounded-xl overflow-hidden">
       <div className="relative aspect-square">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
@@ -116,8 +116,8 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               onClick={() => goTo(i)}
               className={`w-1.5 h-1.5 rounded-full transition-all ${
                 i === currentIndex
-                  ? "bg-[var(--text-primary)] w-4"
-                  : "bg-[var(--text-tertiary)]/40 hover:bg-[var(--text-tertiary)]"
+                  ? "bg-(--text-primary) w-4"
+                  : "bg-(--text-tertiary)/40 hover:bg-(--text-tertiary)"
               }`}
               aria-label={`Go to image ${i + 1}`}
             />

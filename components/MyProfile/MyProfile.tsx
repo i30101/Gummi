@@ -8,7 +8,7 @@ import ProfileHeader from "./ProfileHeader";
 import ProfileHighlights from "./ProfileHighlights";
 import HighlightViewer from "./HighlightViewer";
 import ProfileTabs from "./ProfileTabs";
-import ProfileGumisGrid from "./ProfileGumisGrid";
+import ProfileGummisGrid from "./ProfileGummisGrid";
 import ProfileSavedGrid from "./ProfileSavedGrid";
 import ProfileCollections from "./ProfileCollections";
 import ProfileCollectionDetail from "./ProfileCollectionDetail";
@@ -17,18 +17,18 @@ import EditProfileModal from "./EditProfileModal";
 import SettingsPanel from "./SettingsPanel";
 import UserListModal from "./UserListModal";
 import SuggestedFollowers from "./SuggestedFollowers";
-import GumiBearCustomizer from "../GumiBear/GumiBearCustomizer";
+import GummiBearCustomizer from "../GummiBear/GummiBearCustomizer";
 
 type MyProfileProps = {
   isOpen: boolean;
   onClose: () => void;
   onProductClick: (product: Product) => void;
   onUserClick: (user: MockUser) => void;
-  onGumi?: (product: Product) => void;
+  onGummi?: (product: Product) => void;
 };
 
-export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick, onGumi }: MyProfileProps) {
-  const [activeTab, setActiveTab] = useState<ProfileTab>("gumis");
+export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick, onGummi }: MyProfileProps) {
+  const [activeTab, setActiveTab] = useState<ProfileTab>("gummis");
   const [sortOption, setSortOption] = useState<SortOption>("recent");
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -101,7 +101,7 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
   // Reset state when closing
   useEffect(() => {
     if (!isOpen) {
-      setActiveTab("gumis");
+      setActiveTab("gummis");
       setSortOption("recent");
       setEditModalOpen(false);
       setSettingsOpen(false);
@@ -126,12 +126,12 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
           animate={{ y: 0 }}
           exit={{ y: "100%" }}
           transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-          className="fixed inset-0 z-50 bg-[var(--bg-primary)] overflow-y-auto"
+          className="fixed inset-0 z-50 bg-(--bg-primary) overflow-y-auto"
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="fixed top-4 left-4 z-30 w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center hover:bg-[var(--border)] transition-colors"
+            className="fixed top-4 left-4 z-30 w-10 h-10 rounded-full bg-(--bg-secondary) flex items-center justify-center hover:bg-(--border) transition-colors"
             aria-label="Close profile"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -168,8 +168,8 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
               >
-                {activeTab === "gumis" && (
-                  <ProfileGumisGrid
+                {activeTab === "gummis" && (
+                  <ProfileGummisGrid
                     sortOption={sortOption}
                     onSortChange={setSortOption}
                     onProductClick={onProductClick}
@@ -189,7 +189,7 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
                   />
                 )}
                 {activeTab === "wishlist" && (
-                  <ProfileWishlist onProductClick={onProductClick} onGumi={onGumi} />
+                  <ProfileWishlist onProductClick={onProductClick} onGummi={onGummi} />
                 )}
               </motion.div>
             </AnimatePresence>
@@ -227,10 +227,10 @@ export default function MyProfile({ isOpen, onClose, onProductClick, onUserClick
             onUserClick={onUserClick}
           />
 
-          {/* Gumi Bear Customizer */}
+          {/* Gummi Bear Customizer */}
           <AnimatePresence>
             {customizerOpen && (
-              <GumiBearCustomizer onClose={() => setCustomizerOpen(false)} />
+              <GummiBearCustomizer onClose={() => setCustomizerOpen(false)} />
             )}
           </AnimatePresence>
 

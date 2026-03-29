@@ -10,7 +10,7 @@ type MasonryGridProps = {
   isLoading: boolean;
   onProductClick: (product: Product) => void;
   onFriendClick?: (user: MockUser) => void;
-  onGumi?: (product: Product) => void;
+  onGummi?: (product: Product) => void;
   prefetchSentinelIndex?: number;
   prefetchSentinelRef?: (node: HTMLDivElement | null) => void;
 };
@@ -20,7 +20,7 @@ export default function MasonryGrid({
   isLoading,
   onProductClick,
   onFriendClick,
-  onGumi,
+  onGummi,
   prefetchSentinelIndex,
   prefetchSentinelRef,
 }: MasonryGridProps) {
@@ -33,7 +33,7 @@ export default function MasonryGrid({
             index={index}
             onClick={onProductClick}
             onFriendClick={onFriendClick}
-            onGumi={onGumi}
+            onGummi={onGummi}
           />
           {index === prefetchSentinelIndex && prefetchSentinelRef && (
             <div ref={prefetchSentinelRef} className="h-0 w-0" aria-hidden="true" />

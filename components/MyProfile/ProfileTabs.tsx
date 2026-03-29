@@ -10,7 +10,7 @@ type ProfileTabsProps = {
 };
 
 const TABS: { id: ProfileTab; label: string; hasIcon?: boolean }[] = [
-  { id: "gumis", label: "Gumis", hasIcon: true },
+  { id: "gummis", label: "Gummis", hasIcon: true },
   { id: "saved", label: "Saved" },
   { id: "collections", label: "Collections" },
   { id: "wishlist", label: "Wishlist" },
@@ -18,7 +18,7 @@ const TABS: { id: ProfileTab; label: string; hasIcon?: boolean }[] = [
 
 export default function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps) {
   return (
-    <div className="sticky top-0 z-10 bg-[var(--bg-primary)]/95 backdrop-blur-md border-b border-[var(--border)]/50">
+    <div className="sticky top-0 z-10 bg-(--bg-primary)/95 backdrop-blur-md border-b border-(--border)/50">
       <div className="flex">
         {TABS.map((tab) => (
           <button
@@ -26,13 +26,13 @@ export default function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps
             onClick={() => onTabChange(tab.id)}
             className={`flex-1 relative flex items-center justify-center gap-1.5 py-3 text-sm font-medium transition-colors ${
               activeTab === tab.id
-                ? "text-[var(--text-primary)]"
-                : "text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]"
+                ? "text-(--text-primary)"
+                : "text-(--text-tertiary) hover:text-(--text-secondary)"
             }`}
           >
             {tab.hasIcon && (
               <Image
-                src="/gumi-icon.png"
+                src="/gummi-icon.png"
                 alt=""
                 width={12}
                 height={21}
@@ -44,7 +44,7 @@ export default function ProfileTabs({ activeTab, onTabChange }: ProfileTabsProps
             {activeTab === tab.id && (
               <motion.div
                 layoutId="profile-tab-indicator"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--accent)]"
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-(--accent)"
                 transition={{ type: "spring", stiffness: 500, damping: 35 }}
               />
             )}

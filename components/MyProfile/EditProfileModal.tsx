@@ -59,18 +59,18 @@ export default function EditProfileModal({
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.97 }}
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-md z-[60] bg-[var(--card-bg)] rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-md z-[60] bg-(--card-bg) rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--border)]/50">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-(--border)/50">
               <button
                 onClick={onClose}
-                className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                className="text-sm text-(--text-secondary) hover:text-(--text-primary) transition-colors"
               >
                 Cancel
               </button>
               <h3
-                className="text-lg text-[var(--text-primary)]"
+                className="text-lg text-(--text-primary)"
                 style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
               >
                 Edit Profile
@@ -78,7 +78,7 @@ export default function EditProfileModal({
               <button
                 onClick={handleSave}
                 disabled={!editName.trim()}
-                className="text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors disabled:opacity-40"
+                className="text-sm font-semibold text-(--accent) hover:text-(--accent-hover) transition-colors disabled:opacity-40"
               >
                 Save
               </button>
@@ -89,7 +89,7 @@ export default function EditProfileModal({
               {/* Avatar */}
               <div className="flex flex-col items-center mb-6">
                 <div className="relative w-20 h-20 mb-3">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
+                  <div className="w-full h-full rounded-full overflow-hidden bg-(--bg-secondary)">
                     <Image
                       src={avatar}
                       alt="Profile photo"
@@ -99,14 +99,14 @@ export default function EditProfileModal({
                     />
                   </div>
                 </div>
-                <button className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors">
+                <button className="text-sm font-medium text-(--accent) hover:text-(--accent-hover) transition-colors">
                   Change Photo
                 </button>
               </div>
 
               {/* Name input */}
               <div className="mb-5">
-                <label className="block text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-2">
+                <label className="block text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-2">
                   Name
                 </label>
                 <input
@@ -114,7 +114,7 @@ export default function EditProfileModal({
                   value={editName}
                   onChange={(e) => setEditName(e.target.value)}
                   maxLength={50}
-                  className="w-full px-4 py-3 bg-[var(--bg-secondary)] rounded-xl text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] outline-none focus:ring-2 focus:ring-[var(--accent)]/30 transition-shadow"
+                  className="w-full px-4 py-3 bg-(--bg-secondary) rounded-xl text-sm text-(--text-primary) placeholder:text-(--text-tertiary) outline-none focus:ring-2 focus:ring-(--accent)/30 transition-shadow"
                   placeholder="Your name"
                 />
               </div>
@@ -122,14 +122,14 @@ export default function EditProfileModal({
               {/* Bio input */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium">
+                  <label className="text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium">
                     Bio
                   </label>
                   <span
                     className={`text-[10px] font-medium ${
                       editBio.length > MAX_BIO_LENGTH * 0.9
-                        ? "text-[var(--accent)]"
-                        : "text-[var(--text-tertiary)]"
+                        ? "text-(--accent)"
+                        : "text-(--text-tertiary)"
                     }`}
                   >
                     {editBio.length}/{MAX_BIO_LENGTH}
@@ -143,7 +143,7 @@ export default function EditProfileModal({
                     }
                   }}
                   rows={3}
-                  className="w-full px-4 py-3 bg-[var(--bg-secondary)] rounded-xl text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)] outline-none focus:ring-2 focus:ring-[var(--accent)]/30 transition-shadow resize-none"
+                  className="w-full px-4 py-3 bg-(--bg-secondary) rounded-xl text-sm text-(--text-primary) placeholder:text-(--text-tertiary) outline-none focus:ring-2 focus:ring-(--accent)/30 transition-shadow resize-none"
                   placeholder="Tell people about yourself"
                 />
               </div>

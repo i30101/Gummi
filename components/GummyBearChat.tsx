@@ -58,7 +58,7 @@ export default function GummyBearChat({
         }}
       >
         {/* Decorative grass */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#A5D6A7] to-transparent opacity-40" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[#A5D6A7] to-transparent opacity-40" />
 
         {/* Floating flowers (emoji) */}
         <div className="absolute top-8 left-12 text-2xl opacity-30">🌼</div>
@@ -72,10 +72,10 @@ export default function GummyBearChat({
         {messages.length === 0 ? (
           <div className="h-full flex items-center justify-center text-center">
             <div>
-              <p className="text-[var(--text-tertiary)] text-sm">
+              <p className="text-(--text-tertiary) text-sm">
                 Start a conversation with {participantUser.name}!
               </p>
-              <p className="text-[var(--text-tertiary)] text-xs mt-1">
+              <p className="text-(--text-tertiary) text-xs mt-1">
                 Send a message to get started
               </p>
             </div>
@@ -95,22 +95,22 @@ export default function GummyBearChat({
         {/* Typing indicator */}
         {isTyping && (
           <motion.div className="flex justify-start">
-            <div className="bg-[var(--bg-secondary)] px-4 py-2 rounded-lg max-w-xs">
+            <div className="bg-(--bg-secondary) px-4 py-2 rounded-lg max-w-xs">
               <div className="flex gap-1.5">
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 0.6, repeat: Infinity }}
-                  className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full"
+                  className="w-2 h-2 bg-(--text-tertiary) rounded-full"
                 />
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 0.6, repeat: Infinity, delay: 0.1 }}
-                  className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full"
+                  className="w-2 h-2 bg-(--text-tertiary) rounded-full"
                 />
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                  className="w-2 h-2 bg-[var(--text-tertiary)] rounded-full"
+                  className="w-2 h-2 bg-(--text-tertiary) rounded-full"
                 />
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function GummyBearChat({
               <div className="absolute bottom-3 w-6 h-3 border-b-2 border-white rounded-full" />
             </div>
           </motion.div>
-          <span className="text-xs font-semibold text-[var(--text-secondary)]">
+          <span className="text-xs font-semibold text-(--text-secondary)">
             {participantUser.name}
           </span>
         </div>
@@ -172,7 +172,7 @@ export default function GummyBearChat({
               <div className="absolute bottom-3 w-6 h-3 border-b-2 border-white rounded-full" />
             </div>
           </motion.div>
-          <span className="text-xs font-semibold text-[var(--text-secondary)]">
+          <span className="text-xs font-semibold text-(--text-secondary)">
             {CURRENT_USER.name}
           </span>
         </div>
@@ -203,7 +203,7 @@ function MessageBubble({
         className={`max-w-xs px-4 py-2.5 rounded-lg ${
           isOwn
             ? `text-white`
-            : `bg-[var(--bg-secondary)] text-[var(--text-primary)]`
+            : `bg-(--bg-secondary) text-(--text-primary)`
         }`}
         style={isOwn ? { backgroundColor: currentUserColor } : {}}
       >

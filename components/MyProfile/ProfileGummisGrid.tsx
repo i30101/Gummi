@@ -2,25 +2,25 @@
 
 import { useMemo } from "react";
 import { Product, SortOption } from "@/types";
-import { getMyGumis } from "@/lib/current-user-data";
+import { getMyGummis } from "@/lib/current-user-data";
 import ProfileSortFilter from "./ProfileSortFilter";
 import ProfileProductGrid from "./ProfileProductGrid";
 
-type ProfileGumisGridProps = {
+type ProfileGummisGridProps = {
   sortOption: SortOption;
   onSortChange: (option: SortOption) => void;
   onProductClick: (product: Product) => void;
 };
 
-export default function ProfileGumisGrid({
+export default function ProfileGummisGrid({
   sortOption,
   onSortChange,
   onProductClick,
-}: ProfileGumisGridProps) {
-  const allGumis = useMemo(() => getMyGumis(), []);
+}: ProfileGummisGridProps) {
+  const allGummis = useMemo(() => getMyGummis(), []);
 
   const sortedProducts = useMemo(() => {
-    const products = [...allGumis];
+    const products = [...allGummis];
     switch (sortOption) {
       case "recent":
         return products; // default order
@@ -33,7 +33,7 @@ export default function ProfileGumisGrid({
       default:
         return products;
     }
-  }, [allGumis, sortOption]);
+  }, [allGummis, sortOption]);
 
   return (
     <div>
@@ -44,7 +44,7 @@ export default function ProfileGumisGrid({
       />
       <ProfileProductGrid
         products={sortedProducts}
-        variant="gumi"
+        variant="gummi"
         emptyMessage="No purchases yet. Start discovering!"
         onProductClick={onProductClick}
       />

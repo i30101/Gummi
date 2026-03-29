@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     )
     .join("\n");
 
-  const systemPrompt = `You are Gumi's shopping assistant. KEEP YOUR MESSAGE SUPER SHORT - MAX 1 SENTENCE.
+  const systemPrompt = `You are Gummi's shopping assistant. KEEP YOUR MESSAGE SUPER SHORT - MAX 1 SENTENCE.
 
 The user searched for: "${searchQuery}"
 

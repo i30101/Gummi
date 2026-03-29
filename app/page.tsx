@@ -16,7 +16,7 @@ import MasonryGrid from "@/components/MasonryGrid";
 import ReelsView from "@/components/ReelsView";
 import ProductModal from "@/components/ProductModal";
 import UserProfile from "@/components/UserProfile";
-import GumiToast from "@/components/GumiToast";
+import GummiToast from "@/components/GummiToast";
 import AlgorithmModal from "@/components/AlgorithmModal";
 import MyProfile from "@/components/MyProfile/MyProfile";
 import ChatBot from "@/components/ChatBot";
@@ -51,7 +51,7 @@ export default function Home() {
   // Follow state
   const [followedUsers, setFollowedUsers] = useState<Set<string>>(new Set());
 
-  // Gumi toast state
+  // Gummi toast state
   const [toastVisible, setToastVisible] = useState(false);
   const [toastProductTitle, setToastProductTitle] = useState("");
 
@@ -86,8 +86,8 @@ export default function Home() {
     resetKey: `${activeCategory}|${activeSearch}`,
   });
 
-  // Handle Gumi action — show confirmation toast
-  const handleGumi = useCallback((product: Product) => {
+  // Handle Gummi action — show confirmation toast
+  const handleGummi = useCallback((product: Product) => {
     setToastProductTitle(product.title);
     setToastVisible(true);
     setTimeout(() => setToastVisible(false), 2500);
@@ -133,12 +133,8 @@ export default function Home() {
     }
   };
 
-  const handleUserClick = (user: MockUser) => {
-    setSelectedUser(user);
-  };
-
   return (
-    <main className="flex min-h-screen bg-[var(--bg-primary)]">
+    <main className="flex min-h-screen bg-(--bg-primary)">
       {/* Sidebar */}
       <Sidebar
         feedMode={feedMode}
@@ -192,7 +188,7 @@ export default function Home() {
             {/* Search results header */}
             {activeSearch && (
               <div className="px-4 md:px-6 lg:px-8 py-4">
-                <p className="text-sm text-[var(--text-secondary)]">
+                <p className="text-sm text-(--text-secondary)">
                   {displayedProducts.length > 0
                     ? `Results for "${activeSearch}"`
                     : isLoading
@@ -201,7 +197,7 @@ export default function Home() {
                 </p>
                 {displayedProducts.length === 0 && !isLoading && (
                   <div className="mt-4 flex flex-wrap gap-2">
-                    <span className="text-xs text-[var(--text-tertiary)]">Try:</span>
+                    <span className="text-xs text-(--text-tertiary)">Try:</span>
                     {["fashion", "home decor", "skincare", "kitchen", "art"].map((s) => (
                       <button
                         key={s}
@@ -209,7 +205,7 @@ export default function Home() {
                           setSearchValue(s);
                           setActiveSearch(s);
                         }}
-                        className="px-3 py-1 bg-[var(--bg-secondary)] rounded-full text-xs text-[var(--text-secondary)] hover:bg-[var(--border)] transition-colors"
+                        className="px-3 py-1 bg-(--bg-secondary) rounded-full text-xs text-(--text-secondary) hover:bg-(--border) transition-colors"
                       >
                         {s}
                       </button>
@@ -235,7 +231,7 @@ export default function Home() {
                 isLoading={isLoading}
                 onProductClick={handleProductClick}
                 onFriendClick={handleFriendClick}
-                onGumi={handleGumi}
+                onGummi={handleGummi}
                 prefetchSentinelIndex={prefetchSentinelIndex}
                 prefetchSentinelRef={prefetchSentinelRef}
               />
@@ -264,7 +260,7 @@ export default function Home() {
         <ProductModal
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
-          onGumi={handleGumi}
+          onGummi={handleGummi}
           onFriendClick={handleFriendClick}
         />
       )}
@@ -275,7 +271,7 @@ export default function Home() {
         onFollow={(userId) => {
           setFollowedUsers((prev) => new Set([...prev, userId]));
         }}
-        onMessage={(userId) => {
+        onMessage={() => {
           setAppSection("messages");
           setSelectedUser(null);
         }}
@@ -317,7 +313,7 @@ export default function Home() {
           setMyProfileOpen(false);
           setTimeout(() => setSelectedUser(user), 300);
         }}
-        onGumi={handleGumi}
+        onGummi={handleGummi}
       />
 
       {/* Algorithm Modal */}
@@ -327,7 +323,7 @@ export default function Home() {
       />
 
       {/* Purchase confirmation toast */}
-      <GumiToast visible={toastVisible} productTitle={toastProductTitle} />
+      <GummiToast visible={toastVisible} productTitle={toastProductTitle} />
     </main>
   );
 }

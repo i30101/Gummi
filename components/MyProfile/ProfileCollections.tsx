@@ -21,15 +21,15 @@ export default function ProfileCollections({ onCollectionClick }: ProfileCollect
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="aspect-[4/3] rounded-2xl border-2 border-dashed border-[var(--border)] flex flex-col items-center justify-center gap-2 hover:border-[var(--text-tertiary)] transition-colors"
+          className="aspect-[4/3] rounded-2xl border-2 border-dashed border-(--border) flex flex-col items-center justify-center gap-2 hover:border-(--text-tertiary) transition-colors"
         >
-          <div className="w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-(--bg-secondary) flex items-center justify-center">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" strokeWidth="2" strokeLinecap="round">
               <line x1="12" y1="5" x2="12" y2="19" />
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
           </div>
-          <span className="text-xs text-[var(--text-tertiary)] font-medium">New Collection</span>
+          <span className="text-xs text-(--text-tertiary) font-medium">New Collection</span>
         </motion.button>
 
         {/* Collection cards */}
@@ -44,7 +44,7 @@ export default function ProfileCollections({ onCollectionClick }: ProfileCollect
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: (index + 1) * 0.05 }}
               onClick={() => onCollectionClick(collection)}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[var(--bg-secondary)] group cursor-pointer"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-(--bg-secondary) group cursor-pointer"
             >
               {coverProduct && (
                 <Image
@@ -56,7 +56,7 @@ export default function ProfileCollections({ onCollectionClick }: ProfileCollect
                 />
               )}
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
               {/* Collection info */}
               <div className="absolute bottom-0 left-0 right-0 p-3">
                 <h3

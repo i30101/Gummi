@@ -1,37 +1,37 @@
-export type GumiBearItemCategory = "color" | "clothing" | "accessory" | "headwear";
+export type GummiBearItemCategory = "color" | "clothing" | "accessory" | "headwear";
 
-export type GumiBearItem = {
+export type GummiBearItem = {
   id: string;
   name: string;
-  category: GumiBearItemCategory;
+  category: GummiBearItemCategory;
   price: number;
   rarity: "common" | "rare" | "legendary";
   hue?: number; // for color items — the target hue shift
   isDefault?: boolean;
 };
 
-export type GumiBearConfig = {
+export type GummiBearConfig = {
   hue: number; // 0-360 hue shift (0 = original cherry red)
   clothing: string | null;
   accessory: string | null;
   headwear: string | null;
 };
 
-export type GumiBearState = {
-  config: GumiBearConfig;
+export type GummiBearState = {
+  config: GummiBearConfig;
   inventory: string[]; // owned item IDs
-  gumiBalance: number;
+  gummiBalance: number;
 };
 
-export const DEFAULT_BEAR_CONFIG: GumiBearConfig = {
+export const DEFAULT_BEAR_CONFIG: GummiBearConfig = {
   hue: 0,
   clothing: null,
   accessory: null,
   headwear: null,
 };
 
-export const DEFAULT_BEAR_STATE: GumiBearState = {
+export const DEFAULT_BEAR_STATE: GummiBearState = {
   config: { ...DEFAULT_BEAR_CONFIG },
   inventory: ["color-default"],
-  gumiBalance: 89,
+  gummiBalance: 89,
 };

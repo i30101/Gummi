@@ -54,16 +54,16 @@ export default function MessagesHub() {
   }
 
   return (
-    <div className="flex h-screen bg-[var(--bg-primary)]">
+    <div className="flex h-screen bg-(--bg-primary)">
       {/* Conversations list - hidden on mobile */}
-      <div className="hidden md:flex md:flex-col w-96 border-r border-[var(--border)]">
+      <div className="hidden md:flex md:flex-col w-96 border-r border-(--border)">
         {/* Header */}
-        <div className="px-6 py-4 border-b border-[var(--border)] sticky top-0 z-40 bg-[var(--bg-secondary)]">
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-cormorant), serif" }}>
+        <div className="px-6 py-4 border-b border-(--border) sticky top-0 z-40 bg-(--bg-secondary)">
+          <h1 className="text-2xl font-bold text-(--text-primary)" style={{ fontFamily: "var(--font-cormorant), serif" }}>
             Messages
           </h1>
           {unreadCount > 0 && (
-            <p className="text-xs text-[var(--text-tertiary)] mt-1">
+            <p className="text-xs text-(--text-tertiary) mt-1">
               {unreadCount} unread
             </p>
           )}
@@ -73,10 +73,10 @@ export default function MessagesHub() {
         <div className="flex-1 overflow-y-auto">
           {conversations.length === 0 ? (
             <div className="p-6 text-center">
-              <p className="text-[var(--text-tertiary)] text-sm">
+              <p className="text-(--text-tertiary) text-sm">
                 No messages yet
               </p>
-              <p className="text-[var(--text-tertiary)] text-xs mt-1">
+              <p className="text-(--text-tertiary) text-xs mt-1">
                 Start messaging your followers!
               </p>
             </div>
@@ -92,13 +92,13 @@ export default function MessagesHub() {
                 <button
                   key={conv.id}
                   onClick={() => setSelectedConversationId(conv.id)}
-                  className={`w-full px-4 py-3.5 border-b border-[var(--border)] hover:bg-[var(--bg-secondary)] transition-colors text-left ${
-                    selectedConversationId === conv.id ? "bg-[var(--bg-secondary)]" : ""
+                  className={`w-full px-4 py-3.5 border-b border-(--border) hover:bg-(--bg-secondary) transition-colors text-left ${
+                    selectedConversationId === conv.id ? "bg-(--bg-secondary)" : ""
                   }`}
                 >
                   <div className="flex gap-3">
                     {/* Avatar */}
-                    <div className="relative flex-shrink-0">
+                    <div className="relative shrink-0">
                       <Image
                         src={participant.avatar}
                         alt={participant.name}
@@ -107,16 +107,16 @@ export default function MessagesHub() {
                         className="rounded-full object-cover"
                       />
                       {hasUnread && (
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-[var(--accent)] rounded-full border-2 border-[var(--bg-primary)]" />
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-primary)" />
                       )}
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-baseline gap-2">
-                        <p className={`text-sm ${hasUnread ? "font-semibold" : ""} text-[var(--text-primary)]`}>
+                        <p className={`text-sm ${hasUnread ? "font-semibold" : ""} text-(--text-primary)`}>
                           {participant.name}
                         </p>
-                        <span className="text-xs text-[var(--text-tertiary)] flex-shrink-0">
+                        <span className="text-xs text-(--text-tertiary) shrink-0">
                           {formatRelativeTime(conv.updatedAt)}
                         </span>
                       </div>
@@ -125,8 +125,8 @@ export default function MessagesHub() {
                       <p
                         className={`text-sm truncate ${
                           hasUnread
-                            ? "font-medium text-[var(--text-primary)]"
-                            : "text-[var(--text-secondary)]"
+                            ? "font-medium text-(--text-primary)"
+                            : "text-(--text-secondary)"
                         }`}
                       >
                         {lastMessage?.sender === CURRENT_USER.id && "You: "}
@@ -143,11 +143,11 @@ export default function MessagesHub() {
 
       {/* Mobile conversation list overlay */}
       <div className="md:hidden w-full px-4 py-6 flex flex-col max-h-screen overflow-y-auto">
-        <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-4" style={{ fontFamily: "var(--font-cormorant), serif" }}>
+        <h1 className="text-2xl font-bold text-(--text-primary) mb-4" style={{ fontFamily: "var(--font-cormorant), serif" }}>
           Messages
         </h1>
         {unreadCount > 0 && (
-          <p className="text-xs text-[var(--text-tertiary)] mb-3">
+          <p className="text-xs text-(--text-tertiary) mb-3">
             {unreadCount} unread
           </p>
         )}
@@ -155,10 +155,10 @@ export default function MessagesHub() {
         <div className="space-y-2">
           {conversations.length === 0 ? (
             <div className="text-center py-8">
-              <p className="text-[var(--text-tertiary)] text-sm">
+              <p className="text-(--text-tertiary) text-sm">
                 No messages yet
               </p>
-              <p className="text-[var(--text-tertiary)] text-xs mt-1">
+              <p className="text-(--text-tertiary) text-xs mt-1">
                 Start messaging your followers!
               </p>
             </div>
@@ -174,10 +174,10 @@ export default function MessagesHub() {
                 <button
                   key={conv.id}
                   onClick={() => setSelectedConversationId(conv.id)}
-                  className="w-full px-4 py-3 bg-[var(--bg-secondary)] rounded-lg hover:bg-[var(--border)] transition-colors text-left"
+                  className="w-full px-4 py-3 bg-(--bg-secondary) rounded-lg hover:bg-(--border) transition-colors text-left"
                 >
                   <div className="flex gap-3">
-                    <div className="relative flex-shrink-0">
+                    <div className="relative shrink-0">
                       <Image
                         src={participant.avatar}
                         alt={participant.name}
@@ -186,16 +186,16 @@ export default function MessagesHub() {
                         className="rounded-full object-cover"
                       />
                       {hasUnread && (
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-[var(--accent)] rounded-full border-2 border-[var(--bg-secondary)]" />
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-(--accent) rounded-full border-2 border-(--bg-secondary)" />
                       )}
                     </div>
 
                     <div className="flex-1 min-w-0">
                       <div className="flex justify-between items-baseline gap-2">
-                        <p className={`text-sm ${hasUnread ? "font-semibold" : ""} text-[var(--text-primary)]`}>
+                        <p className={`text-sm ${hasUnread ? "font-semibold" : ""} text-(--text-primary)`}>
                           {participant.name}
                         </p>
-                        <span className="text-xs text-[var(--text-tertiary)] flex-shrink-0">
+                        <span className="text-xs text-(--text-tertiary) shrink-0">
                           {formatRelativeTime(conv.updatedAt)}
                         </span>
                       </div>
@@ -203,8 +203,8 @@ export default function MessagesHub() {
                       <p
                         className={`text-sm truncate ${
                           hasUnread
-                            ? "font-medium text-[var(--text-primary)]"
-                            : "text-[var(--text-secondary)]"
+                            ? "font-medium text-(--text-primary)"
+                            : "text-(--text-secondary)"
                         }`}
                       >
                         {lastMessage?.sender === CURRENT_USER.id && "You: "}
@@ -223,7 +223,7 @@ export default function MessagesHub() {
       <div className="hidden md:flex flex-1 items-center justify-center">
         <div className="text-center">
           <div className="text-6xl mb-4">💬</div>
-          <p className="text-[var(--text-secondary)] text-lg">
+          <p className="text-(--text-secondary) text-lg">
             Select a conversation to start chatting
           </p>
         </div>

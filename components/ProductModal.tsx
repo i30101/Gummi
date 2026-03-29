@@ -11,17 +11,17 @@ import ImageGallery from "./ImageGallery";
 type ProductModalProps = {
   product: Product | null;
   onClose: () => void;
-  onGumi?: (product: Product) => void;
+  onGummi?: (product: Product) => void;
   onFriendClick?: (user: MockUser) => void;
 };
 
-export default function ProductModal({ product, onClose, onGumi, onFriendClick }: ProductModalProps) {
-  const [isGumied, setIsGumied] = useState(false);
+export default function ProductModal({ product, onClose, onGummi, onFriendClick }: ProductModalProps) {
+  const [isGummied, setIsGummied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
     if (product) {
-      setIsGumied(product.isGumied ?? false);
+      setIsGummied(product.isGummied ?? false);
       setIsSaved(false);
     }
   }, [product]);
@@ -62,12 +62,12 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
     };
   }, [product]);
 
-  const handleGumi = () => {
-    if (!isGumied && product) {
-      setIsGumied(true);
-      onGumi?.(product);
+  const handleGummi = () => {
+    if (!isGummied && product) {
+      setIsGummied(true);
+      onGummi?.(product);
     } else {
-      setIsGumied(false);
+      setIsGummied(false);
     }
   };
 
@@ -78,8 +78,8 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
         ? [product.primaryImage]
         : [];
 
-  const gumiFriends = product
-    ? (product.gumiedByFriends || []).map((id) => getUserById(id)).filter(Boolean)
+  const gummiFriends = product
+    ? (product.gummiedByFriends || []).map((id) => getUserById(id)).filter(Boolean)
     : [];
 
   return (
@@ -100,11 +100,11 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.97 }}
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-4 md:inset-8 lg:inset-16 xl:inset-24 bg-[var(--card-bg)] rounded-2xl z-50 overflow-hidden flex flex-col md:flex-row shadow-2xl"
+            className="fixed inset-4 md:inset-8 lg:inset-16 xl:inset-24 bg-(--card-bg) rounded-2xl z-50 overflow-hidden flex flex-col md:flex-row shadow-2xl"
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center hover:bg-[var(--border)] transition-colors z-20"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-(--bg-secondary) flex items-center justify-center hover:bg-(--border) transition-colors z-20"
               aria-label="Close"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -114,18 +114,18 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
             </button>
 
             {/* Image gallery */}
-            <div className="md:w-1/2 lg:w-[55%] flex-shrink-0 p-4 md:p-6 flex items-center">
+            <div className="md:w-1/2 lg:w-[55%] shrink-0 p-4 md:p-6 flex items-center">
               <ImageGallery images={allImages} />
             </div>
 
             {/* Product details */}
             <div className="md:w-1/2 lg:w-[45%] overflow-y-auto p-6 md:p-8 lg:p-10 flex flex-col">
-              <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--text-tertiary)] font-medium mb-2">
+              <p className="text-[11px] uppercase tracking-[0.15em] text-(--text-tertiary) font-medium mb-2">
                 {product.brand}
               </p>
 
               <h2
-                className="text-2xl md:text-3xl text-[var(--text-primary)] mb-3 leading-tight"
+                className="text-2xl md:text-3xl text-(--text-primary) mb-3 leading-tight"
                 style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
               >
                 {product.title}
@@ -133,7 +133,7 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
 
               {/* Price & Rating */}
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-xl font-semibold text-[var(--text-primary)]">
+                <span className="text-xl font-semibold text-(--text-primary)">
                   {formatPriceRange(product.price.min, product.price.max)}
                 </span>
                 {product.rating && (
@@ -153,37 +153,37 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                         </svg>
                       ))}
                     </div>
-                    <span className="text-sm text-[var(--text-tertiary)]">
+                    <span className="text-sm text-(--text-tertiary)">
                       {formatRating(product.rating.average)} ({formatCount(product.rating.count)})
                     </span>
                   </div>
                 )}
               </div>
 
-              {/* Gumi count — purchase social proof */}
-              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-[var(--border)]">
-                <div className="flex items-center gap-2 bg-[var(--accent)]/5 rounded-full px-4 py-2">
-                  <Image src="/gumi-icon.png" alt="Gumi" width={22} height={38} />
-                  <span className="text-base font-semibold text-[var(--accent)]">
-                    {formatCount(product.gumis)}
+              {/* Gummi count — purchase social proof */}
+              <div className="flex items-center gap-4 mb-6 pb-6 border-b border-(--border)">
+                <div className="flex items-center gap-2 bg-(--accent)/5 rounded-full px-4 py-2">
+                  <Image src="/gummi-icon.png" alt="Gummi" width={22} height={38} />
+                  <span className="text-base font-semibold text-(--accent)">
+                    {formatCount(product.gummis)}
                   </span>
-                  <span className="text-sm text-[var(--accent)]/70">people bought this</span>
+                  <span className="text-sm text-(--accent)/70">people bought this</span>
                 </div>
               </div>
 
               {/* Friends who bought this — clickable */}
-              {gumiFriends.length > 0 && (
+              {gummiFriends.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-3">
+                  <h3 className="text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-3">
                     Friends who bought this
                   </h3>
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
-                      {gumiFriends.map((friend) => (
+                      {gummiFriends.map((friend) => (
                         <button
                           key={friend!.id}
                           onClick={() => onFriendClick?.(friend!)}
-                          className="w-8 h-8 rounded-full overflow-hidden border-2 border-[var(--card-bg)] relative hover:scale-110 transition-transform hover:z-10"
+                          className="w-8 h-8 rounded-full overflow-hidden border-2 border-(--card-bg) relative hover:scale-110 transition-transform hover:z-10"
                         >
                           <Image
                             src={friend!.avatar}
@@ -195,8 +195,8 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                         </button>
                       ))}
                     </div>
-                    <span className="text-sm text-[var(--text-secondary)]">
-                      {gumiFriends.map((f) => f!.name.split(" ")[0]).join(", ")}
+                    <span className="text-sm text-(--text-secondary)">
+                      {gummiFriends.map((f) => f!.name.split(" ")[0]).join(", ")}
                     </span>
                   </div>
                 </div>
@@ -205,14 +205,14 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
               {/* Key Features */}
               {product.topFeatures.length > 0 && (
                 <div className="mb-6">
-                  <h3 className="text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-3">
+                  <h3 className="text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-3">
                     Key Features
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {product.topFeatures.map((feature, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 bg-[var(--bg-secondary)] rounded-full text-xs text-[var(--text-secondary)]"
+                        className="px-3 py-1.5 bg-(--bg-secondary) rounded-full text-xs text-(--text-secondary)"
                       >
                         {feature}
                       </span>
@@ -223,10 +223,10 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
 
               {product.description && (
                 <div className="mb-8">
-                  <h3 className="text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-3">
+                  <h3 className="text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-3">
                     About
                   </h3>
-                  <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+                  <p className="text-sm leading-relaxed text-(--text-secondary)">
                     {product.description}
                   </p>
                 </div>
@@ -235,29 +235,29 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
               <div className="flex-1" />
 
               {/* Action buttons */}
-              <div className="flex items-center gap-2 sticky bottom-0 pt-4 bg-[var(--card-bg)]">
-                {/* Gumi = "I Bought This" */}
+              <div className="flex items-center gap-2 sticky bottom-0 pt-4 bg-(--card-bg)">
+                {/* Gummi = "I Bought This" */}
                 <button
-                  onClick={handleGumi}
+                  onClick={handleGummi}
                   className={`flex items-center gap-2 px-4 py-3 rounded-full border text-sm font-medium transition-all ${
-                    isGumied
-                      ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)]"
-                      : "border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    isGummied
+                      ? "bg-(--accent)/10 border-(--accent) text-(--accent)"
+                      : "border-(--border) text-(--text-secondary) hover:border-(--accent) hover:text-(--accent)"
                   }`}
                 >
                   <motion.div
-                    animate={isGumied ? { scale: [1, 1.3, 1] } : { scale: 1 }}
+                    animate={isGummied ? { scale: [1, 1.3, 1] } : { scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image
-                      src="/gumi-icon.png"
-                      alt="Gumi"
+                      src="/gummi-icon.png"
+                      alt="Gummi"
                       width={18}
                       height={31}
-                      className={isGumied ? "" : "grayscale opacity-50"}
+                      className={isGummied ? "" : "grayscale opacity-50"}
                     />
                   </motion.div>
-                  {isGumied ? "Purchased!" : "I Bought This"}
+                  {isGummied ? "Purchased!" : "I Bought This"}
                 </button>
 
                 {/* Share */}
@@ -266,12 +266,12 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                     if (navigator.share) {
                       navigator.share({
                         title: product.title,
-                        text: `Check out ${product.title} by ${product.brand} on Gumi`,
+                        text: `Check out ${product.title} by ${product.brand} on Gummi`,
                         url: product.buyUrl,
                       });
                     }
                   }}
-                  className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--text-tertiary)] transition-colors"
+                  className="w-11 h-11 shrink-0 flex items-center justify-center rounded-full border border-(--border) text-(--text-secondary) hover:border-(--text-tertiary) transition-colors"
                   aria-label="Share"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -284,10 +284,10 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                 {/* Wishlist/Save */}
                 <button
                   onClick={() => setIsSaved(!isSaved)}
-                  className={`w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full border transition-all ${
+                  className={`w-11 h-11 shrink-0 flex items-center justify-center rounded-full border transition-all ${
                     isSaved
-                      ? "bg-[var(--text-primary)] border-[var(--text-primary)]"
-                      : "border-[var(--border)] hover:border-[var(--text-tertiary)]"
+                      ? "bg-(--text-primary) border-(--text-primary)"
+                      : "border-(--border) hover:border-(--text-tertiary)"
                   }`}
                   aria-label={isSaved ? "Remove from wishlist" : "Add to wishlist"}
                 >
@@ -306,7 +306,7 @@ export default function ProductModal({ product, onClose, onGumi, onFriendClick }
                   href={product.buyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-full text-sm font-semibold transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-(--accent) hover:bg-(--accent-hover) text-white rounded-full text-sm font-semibold transition-colors"
                 >
                   Shop Now
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

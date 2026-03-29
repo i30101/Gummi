@@ -76,12 +76,12 @@ export default function ChatBot({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.2 }}
-      className="border-b border-[var(--border)] bg-[var(--card-bg)]"
+      className="border-b border-(--border) bg-(--card-bg)"
     >
       <div className="px-4 md:px-6 lg:px-8 py-4">
         <div className="mb-4">
           <p
-            className="text-sm font-medium text-[var(--accent)] mb-2"
+            className="text-sm font-medium text-(--accent) mb-2"
             style={{ fontFamily: "var(--font-cormorant), serif" }}
           >
             AI Assistant
@@ -89,18 +89,18 @@ export default function ChatBot({
 
           {isLoading ? (
             <div className="flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-[var(--text-tertiary)] animate-bounce" />
+              <div className="w-2 h-2 rounded-full bg-(--text-tertiary) animate-bounce" />
               <div
-                className="w-2 h-2 rounded-full bg-[var(--text-tertiary)] animate-bounce"
+                className="w-2 h-2 rounded-full bg-(--text-tertiary) animate-bounce"
                 style={{ animationDelay: "0.1s" }}
               />
               <div
-                className="w-2 h-2 rounded-full bg-[var(--text-tertiary)] animate-bounce"
+                className="w-2 h-2 rounded-full bg-(--text-tertiary) animate-bounce"
                 style={{ animationDelay: "0.2s" }}
               />
             </div>
           ) : (
-            <p className="text-sm text-[var(--text-primary)] mb-4 line-clamp-2">
+            <p className="text-sm text-(--text-primary) mb-4 line-clamp-2">
               {message?.content}
             </p>
           )}
@@ -112,9 +112,9 @@ export default function ChatBot({
                 <button
                   key={product.id}
                   onClick={() => onProductClick(product)}
-                  className="w-full text-left group flex gap-3 p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors"
+                  className="w-full text-left group flex gap-3 p-2 rounded-lg hover:bg-(--bg-secondary) transition-colors"
                 >
-                  <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden bg-[var(--bg-secondary)]">
+                  <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden bg-(--bg-secondary)">
                     <img
                       src={product.primaryImage.url}
                       alt={product.primaryImage.alt}
@@ -122,13 +122,13 @@ export default function ChatBot({
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-[var(--text-primary)] line-clamp-2 group-hover:text-[var(--accent)] transition-colors">
+                    <p className="text-sm font-medium text-(--text-primary) line-clamp-2 group-hover:text-(--accent) transition-colors">
                       {product.title}
                     </p>
-                    <p className="text-xs text-[var(--text-tertiary)]">
+                    <p className="text-xs text-(--text-tertiary)">
                       {product.brand}
                     </p>
-                    <p className="text-sm font-semibold text-[var(--accent)]">
+                    <p className="text-sm font-semibold text-(--accent)">
                       {formatPriceRange(product.price.min, product.price.max, product.price.currency)}
                     </p>
                   </div>

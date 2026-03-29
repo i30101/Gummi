@@ -7,7 +7,7 @@ import { formatCount } from "@/lib/utils";
 
 type ProfileProductGridProps = {
   products: Product[];
-  variant: "gumi" | "saved" | "wishlist";
+  variant: "gummi" | "saved" | "wishlist";
   emptyMessage: string;
   onProductClick: (product: Product) => void;
 };
@@ -21,9 +21,9 @@ export default function ProfileProductGrid({
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-6">
-        <div className="w-16 h-16 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mb-4">
-          {variant === "gumi" && (
-            <Image src="/gumi-icon.png" alt="" width={20} height={35} className="opacity-30" />
+        <div className="w-16 h-16 rounded-full bg-(--bg-secondary) flex items-center justify-center mb-4">
+          {variant === "gummi" && (
+            <Image src="/gummi-icon.png" alt="" width={20} height={35} className="opacity-30" />
           )}
           {variant === "saved" && (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" strokeWidth="1.5">
@@ -36,7 +36,7 @@ export default function ProfileProductGrid({
             </svg>
           )}
         </div>
-        <p className="text-sm text-[var(--text-tertiary)] text-center">{emptyMessage}</p>
+        <p className="text-sm text-(--text-tertiary) text-center">{emptyMessage}</p>
       </div>
     );
   }
@@ -50,7 +50,7 @@ export default function ProfileProductGrid({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: (index % 12) * 0.03 }}
           onClick={() => onProductClick(product)}
-          className="relative aspect-square rounded-xl overflow-hidden bg-[var(--bg-secondary)] group cursor-pointer"
+          className="relative aspect-square rounded-xl overflow-hidden bg-(--bg-secondary) group cursor-pointer"
         >
           <Image
             src={product.primaryImage.url}
@@ -61,11 +61,11 @@ export default function ProfileProductGrid({
           />
 
           {/* Variant-specific badge */}
-          {variant === "gumi" && (
+          {variant === "gummi" && (
             <div className="absolute bottom-1.5 left-1.5 flex items-center gap-0.5 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-              <Image src="/gumi-icon.png" alt="" width={10} height={17} />
+              <Image src="/gummi-icon.png" alt="" width={10} height={17} />
               <span className="text-white text-[9px] font-medium">
-                {formatCount(product.gumis)}
+                {formatCount(product.gummis)}
               </span>
             </div>
           )}

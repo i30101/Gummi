@@ -1,8 +1,8 @@
 import { Product, Category } from "@/types";
-import { getRandomGumiFriends } from "./mock-users";
+import { getRandomGummiFriends } from "./mock-users";
 import { ALL_PRODUCTS, CATEGORY_PRODUCTS } from "./mock-products";
 
-function randomGumis(): number {
+function randomGummis(): number {
   const ranges = [
     [50, 500],
     [500, 5000],
@@ -71,9 +71,9 @@ export function getMockProducts(
     const looped = products.slice(0, remaining).map((p, i) => ({
       ...p,
       id: `${p.id}-loop-${startIndex}-${i}`,
-      gumis: randomGumis(),
+      gummis: randomGummis(),
       shares: randomShares(),
-      gumiedByFriends: getRandomGumiFriends(),
+      gummiedByFriends: getRandomGummiFriends(),
     }));
     const allProducts = [...slice, ...looped];
     return {

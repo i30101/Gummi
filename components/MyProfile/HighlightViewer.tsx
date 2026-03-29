@@ -208,7 +208,7 @@ export default function HighlightViewer({
       {/* Highlight info row */}
       <div className="absolute top-8 left-0 right-0 z-30 px-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white/50 bg-[var(--bg-secondary)]">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border-2 border-white/50 bg-(--bg-secondary)">
             {currentHighlight.products[0] ? (
               <Image
                 src={currentHighlight.products[0].primaryImage.url}
@@ -265,14 +265,14 @@ export default function HighlightViewer({
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-black/30" />
         </motion.div>
       </AnimatePresence>
 
       {/* Bottom product info */}
       <div className="absolute bottom-0 left-0 right-0 z-30 p-5 pb-8">
         <div className="flex items-center gap-1.5 mb-3">
-          <Image src="/gumi-icon.png" alt="" width={16} height={27} />
+          <Image src="/gummi-icon.png" alt="" width={16} height={27} />
           <span className="text-white/70 text-xs">
             You bought this
           </span>
@@ -292,14 +292,14 @@ export default function HighlightViewer({
             {formatPriceRange(currentProduct.price.min, currentProduct.price.max)}
           </span>
           <div className="flex items-center gap-1 bg-white/15 backdrop-blur-sm rounded-full px-2 py-0.5">
-            <Image src="/gumi-icon.png" alt="" width={12} height={21} />
-            <span className="text-white text-xs">{formatCount(currentProduct.gumis)} bought</span>
+            <Image src="/gummi-icon.png" alt="" width={12} height={21} />
+            <span className="text-white text-xs">{formatCount(currentProduct.gummis)} bought</span>
           </div>
         </div>
 
         <button
           onClick={handleViewProduct}
-          className="w-full py-3 bg-white text-[var(--text-primary)] rounded-full text-sm font-semibold hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+          className="w-full py-3 bg-white text-(--text-primary) rounded-full text-sm font-semibold hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
         >
           View Product
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

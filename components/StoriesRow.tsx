@@ -3,8 +3,8 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { MockUser } from "@/types";
-import TintedImage from "./GumiBear/TintedImage";
-import GumiBear from "./GumiBear/GumiBear";
+import TintedImage from "./GummiBear/TintedImage";
+import GummiBear from "./GummiBear/GummiBear";
 
 type StoriesRowProps = {
   users: MockUser[];
@@ -66,7 +66,7 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
   };
 
   return (
-    <div className="relative bg-[var(--bg-primary)] group">
+    <div className="relative bg-(--bg-primary) group">
       {/* Left scroll button */}
       {showLeftButton && (
         <button
@@ -104,7 +104,7 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
             <button
               key={user.id}
               onClick={() => onStoryClick(user, index)}
-              className="flex flex-col items-center gap-1.5 flex-shrink-0 group/story"
+              className="flex flex-col items-center gap-1.5 shrink-0 group/story"
             >
               <div className="relative w-20 h-20 md:w-24 md:h-24 group-hover/story:scale-105 transition-transform">
                 <div
@@ -112,14 +112,14 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
                     user.hasStory ? "p-[3px]" : "p-0"
                   }`}
                 >
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] flex items-center justify-center">
-                    {(user.gumiOutfit || user.gumiHue !== 0) ? (
-                      <GumiBear
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-(--bg-secondary) flex items-center justify-center">
+                    {(user.gummiOutfit || user.gummiHue !== 0) ? (
+                      <GummiBear
                         config={{
-                          hue: user.gumiHue,
-                          clothing: user.gumiOutfit?.clothing || null,
-                          accessory: user.gumiOutfit?.accessory || null,
-                          headwear: user.gumiOutfit?.headwear || null,
+                          hue: user.gummiHue,
+                          clothing: user.gummiOutfit?.clothing || null,
+                          accessory: user.gummiOutfit?.accessory || null,
+                          headwear: user.gummiOutfit?.headwear || null,
                         }}
                         size={64}
                       />
@@ -137,7 +137,7 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
                 {user.hasStory && (
                   <TintedImage
                     src="/story-ring.png"
-                    hue={user.gumiHue}
+                    hue={user.gummiHue}
                     fill
                     className={`object-contain z-10 pointer-events-none transition-all ${
                       isViewed ? "grayscale" : ""
@@ -146,12 +146,12 @@ export default function StoriesRow({ users, onStoryClick, viewedUserIds }: Stori
                 )}
                 {user.hasStory && !isViewed && (
                   <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 flex items-center justify-center z-20">
-                    <TintedImage src="/gumi-icon.png" hue={user.gumiHue} width={12} height={21} />
+                    <TintedImage src="/gummi-icon.png" hue={user.gummiHue} width={12} height={21} />
                   </div>
                 )}
               </div>
               <span className={`text-[11px] truncate w-20 text-center ${
-                isViewed ? "text-[var(--text-tertiary)]" : "text-[var(--text-secondary)]"
+                isViewed ? "text-(--text-tertiary)" : "text-(--text-secondary)"
               }`}>
                 {user.username}
               </span>

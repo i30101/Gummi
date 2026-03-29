@@ -3,18 +3,18 @@
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { GumiBearItemCategory, GumiBearItem, GumiBearConfig } from "@/types/gumi-bear";
-import { useGumiBear } from "@/lib/gumi-bear-context";
-import { getItemsByCategory, GUMI_BEAR_ITEMS } from "@/lib/gumi-bear-items";
+import { GummiBearItemCategory, GummiBearItem, GummiBearConfig } from "@/types/gummi-bear";
+import { useGummiBear } from "@/lib/gummi-bear-context";
+import { getItemsByCategory, GUMI_BEAR_ITEMS } from "@/lib/gummi-bear-items";
 import { formatCount } from "@/lib/utils";
-import GumiBear from "./GumiBear";
+import GummiBear from "./GummiBear";
 import TintedImage from "./TintedImage";
 
-type GumiBearCustomizerProps = {
+type GummiBearCustomizerProps = {
   onClose: () => void;
 };
 
-const CATEGORIES: { id: GumiBearItemCategory; label: string; emoji: string }[] = [
+const CATEGORIES: { id: GummiBearItemCategory; label: string; emoji: string }[] = [
   { id: "color", label: "Colors", emoji: "🎨" },
   { id: "clothing", label: "Clothing", emoji: "👕" },
   { id: "accessory", label: "Accessories", emoji: "✨" },
@@ -22,7 +22,7 @@ const CATEGORIES: { id: GumiBearItemCategory; label: string; emoji: string }[] =
 ];
 
 const RARITY_BORDER = {
-  common: "border-[var(--border)]",
+  common: "border-(--border)",
   rare: "border-blue-300",
   legendary: "border-amber-400",
 };
@@ -37,11 +37,11 @@ const ITEM_EMOJI: Record<string, string> = {
   "hat-beret": "🎨", "hat-tophat": "🎩", "hat-cap": "🧢", "hat-halo": "😇",
 };
 
-export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps) {
-  const { state, equipItem, purchaseItem } = useGumiBear();
-  const [activeCategory, setActiveCategory] = useState<GumiBearItemCategory>("color");
-  const [previewConfig, setPreviewConfig] = useState<GumiBearConfig | null>(null);
-  const [pendingItem, setPendingItem] = useState<GumiBearItem | null>(null);
+export default function GummiBearCustomizer({ onClose }: GummiBearCustomizerProps) {
+  const { state, equipItem, purchaseItem } = useGummiBear();
+  const [activeCategory, setActiveCategory] = useState<GummiBearItemCategory>("color");
+  const [previewConfig, setPreviewConfig] = useState<GummiBearConfig | null>(null);
+  const [pendingItem, setPendingItem] = useState<GummiBearItem | null>(null);
   const [animateKey, setAnimateKey] = useState("init");
   const [toast, setToast] = useState<string | null>(null);
 
@@ -57,7 +57,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
     return a.price - b.price;
   });
 
-  const handleSelectItem = useCallback((item: GumiBearItem) => {
+  const handleSelectItem = useCallback((item: GummiBearItem) => {
     const isOwned = state.inventory.includes(item.id) || !!item.isDefault;
 
     if (isOwned) {
@@ -100,13 +100,13 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
       animate={{ y: 0 }}
       exit={{ y: "100%" }}
       transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
-      className="fixed inset-0 z-[60] bg-[var(--bg-primary)] overflow-hidden flex flex-col"
+      className="fixed inset-0 z-[60] bg-(--bg-primary) overflow-hidden flex flex-col"
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 pt-4 pb-2 flex-shrink-0">
+      <div className="flex items-center justify-between px-4 pt-4 pb-2 shrink-0">
         <button
           onClick={onClose}
-          className="w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center hover:bg-[var(--border)] transition-colors"
+          className="w-10 h-10 rounded-full bg-(--bg-secondary) flex items-center justify-center hover:bg-(--border) transition-colors"
           aria-label="Close"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -116,22 +116,22 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
         </button>
 
         <h2
-          className="text-lg text-[var(--text-primary)]"
+          className="text-lg text-(--text-primary)"
           style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
         >
-          Customize Your Gumi
+          Customize Your Gummi
         </h2>
 
-        <div className="flex items-center gap-1.5 bg-[var(--bg-secondary)] px-3 py-1.5 rounded-full">
-          <Image src="/gumi-icon.png" alt="" width={14} height={24} />
-          <span className="text-sm font-semibold text-[var(--accent)]">
-            {formatCount(state.gumiBalance)}
+        <div className="flex items-center gap-1.5 bg-(--bg-secondary) px-3 py-1.5 rounded-full">
+          <Image src="/gummi-icon.png" alt="" width={14} height={24} />
+          <span className="text-sm font-semibold text-(--accent)">
+            {formatCount(state.gummiBalance)}
           </span>
         </div>
       </div>
 
       {/* Preview */}
-      <div className="flex-shrink-0 flex items-center justify-center py-4">
+      <div className="shrink-0 flex items-center justify-center py-4">
         <motion.div
           key={animateKey}
           initial={{ scale: 0.95 }}
@@ -141,7 +141,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
             y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
           }}
         >
-          <GumiBear config={displayConfig} size={180} />
+          <GummiBear config={displayConfig} size={180} />
         </motion.div>
       </div>
 
@@ -150,38 +150,38 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-center gap-3 px-4 pb-3 flex-shrink-0"
+          className="flex items-center justify-center gap-3 px-4 pb-3 shrink-0"
         >
           <button
             onClick={() => { setPreviewConfig(null); setPendingItem(null); }}
-            className="px-4 py-2 text-sm font-medium text-[var(--text-secondary)] bg-[var(--bg-secondary)] rounded-full hover:bg-[var(--border)] transition-colors"
+            className="px-4 py-2 text-sm font-medium text-(--text-secondary) bg-(--bg-secondary) rounded-full hover:bg-(--border) transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={handlePurchase}
-            disabled={state.gumiBalance < pendingItem.price}
+            disabled={state.gummiBalance < pendingItem.price}
             className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-              state.gumiBalance >= pendingItem.price
-                ? "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] active:scale-95"
-                : "bg-[var(--bg-secondary)] text-[var(--text-tertiary)] cursor-not-allowed"
+              state.gummiBalance >= pendingItem.price
+                ? "bg-(--accent) text-white hover:bg-(--accent-hover) active:scale-95"
+                : "bg-(--bg-secondary) text-(--text-tertiary) cursor-not-allowed"
             }`}
           >
-            {state.gumiBalance >= pendingItem.price ? (
+            {state.gummiBalance >= pendingItem.price ? (
               <>
                 <span>Buy for</span>
-                <Image src="/gumi-icon.png" alt="" width={12} height={20} className="brightness-0 invert" />
+                <Image src="/gummi-icon.png" alt="" width={12} height={20} className="brightness-0 invert" />
                 <span>{pendingItem.price}</span>
               </>
             ) : (
-              "Not enough Gumis"
+              "Not enough Gummis"
             )}
           </button>
         </motion.div>
       )}
 
       {/* Category pills */}
-      <div className="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar flex-shrink-0">
+      <div className="flex gap-2 px-4 pb-3 overflow-x-auto hide-scrollbar shrink-0">
         {CATEGORIES.map((cat) => (
           <button
             key={cat.id}
@@ -190,10 +190,10 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
               setPreviewConfig(null);
               setPendingItem(null);
             }}
-            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all flex-shrink-0 ${
+            className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all shrink-0 ${
               activeCategory === cat.id
-                ? "bg-[var(--text-primary)] text-[var(--bg-primary)]"
-                : "bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--border)]"
+                ? "bg-(--text-primary) text-(--bg-primary)"
+                : "bg-(--bg-secondary) text-(--text-secondary) hover:bg-(--border)"
             }`}
           >
             <span>{cat.emoji}</span>
@@ -208,7 +208,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
           {sortedItems.map((item) => {
             const isOwned = state.inventory.includes(item.id) || !!item.isDefault;
             const isEquipped = isItemEquipped(state.config, item);
-            const canAfford = state.gumiBalance >= item.price;
+            const canAfford = state.gummiBalance >= item.price;
 
             return (
               <button
@@ -216,7 +216,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
                 onClick={() => handleSelectItem(item)}
                 className={`relative flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all hover:scale-[1.03] active:scale-[0.98] ${
                   isEquipped
-                    ? "border-[var(--accent)] bg-[var(--accent)]/5"
+                    ? "border-(--accent) bg-(--accent)/5"
                     : RARITY_BORDER[item.rarity]
                 } ${!isOwned && !canAfford ? "opacity-50" : ""}`}
               >
@@ -225,39 +225,39 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
                   {item.category === "color" ? (
                     <div className="w-12 h-12 rounded-full overflow-hidden relative">
                       <TintedImage
-                        src="/gumi-icon.png"
+                        src="/gummi-icon.png"
                         hue={item.hue ?? 0}
                         fill
                         className="object-contain scale-150"
                       />
                     </div>
                   ) : (
-                    <div className="w-12 h-12 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-(--bg-secondary) flex items-center justify-center">
                       <span className="text-lg">{ITEM_EMOJI[item.id] || "🧸"}</span>
                     </div>
                   )}
                 </div>
 
                 {/* Name */}
-                <span className="text-xs font-medium text-[var(--text-primary)] text-center leading-tight line-clamp-2">
+                <span className="text-xs font-medium text-(--text-primary) text-center leading-tight line-clamp-2">
                   {item.name}
                 </span>
 
                 {/* Status */}
                 {isOwned ? (
                   isEquipped ? (
-                    <span className="text-[10px] font-semibold text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-semibold text-(--accent) bg-(--accent)/10 px-2 py-0.5 rounded-full">
                       Equipped
                     </span>
                   ) : (
-                    <span className="text-[10px] font-medium text-[var(--text-tertiary)] bg-[var(--bg-secondary)] px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-medium text-(--text-tertiary) bg-(--bg-secondary) px-2 py-0.5 rounded-full">
                       Owned
                     </span>
                   )
                 ) : (
                   <span className="flex items-center gap-1">
-                    <Image src="/gumi-icon.png" alt="" width={10} height={17} />
-                    <span className={`text-[11px] font-semibold ${canAfford ? "text-[var(--text-secondary)]" : "text-[var(--text-tertiary)]"}`}>
+                    <Image src="/gummi-icon.png" alt="" width={10} height={17} />
+                    <span className={`text-[11px] font-semibold ${canAfford ? "text-(--text-secondary)" : "text-(--text-tertiary)"}`}>
                       {item.price}
                     </span>
                   </span>
@@ -265,7 +265,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
 
                 {/* Equipped check */}
                 {isEquipped && (
-                  <div className="absolute top-1 left-1 w-4 h-4 bg-[var(--accent)] rounded-full flex items-center justify-center">
+                  <div className="absolute top-1 left-1 w-4 h-4 bg-(--accent) rounded-full flex items-center justify-center">
                     <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
@@ -282,9 +282,9 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[var(--text-primary)] text-[var(--bg-primary)] px-5 py-3 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 z-[70]"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-(--text-primary) text-(--bg-primary) px-5 py-3 rounded-full text-sm font-medium shadow-lg flex items-center gap-2 z-[70]"
         >
-          <Image src="/gumi-icon.png" alt="" width={14} height={24} />
+          <Image src="/gummi-icon.png" alt="" width={14} height={24} />
           {toast}
         </motion.div>
       )}
@@ -292,7 +292,7 @@ export default function GumiBearCustomizer({ onClose }: GumiBearCustomizerProps)
   );
 }
 
-function getCurrentEquipped(config: GumiBearConfig, category: GumiBearItemCategory): string | null {
+function getCurrentEquipped(config: GummiBearConfig, category: GummiBearItemCategory): string | null {
   switch (category) {
     case "clothing": return config.clothing;
     case "accessory": return config.accessory;
@@ -301,7 +301,7 @@ function getCurrentEquipped(config: GumiBearConfig, category: GumiBearItemCatego
   }
 }
 
-function isItemEquipped(config: GumiBearConfig, item: GumiBearItem): boolean {
+function isItemEquipped(config: GummiBearConfig, item: GummiBearItem): boolean {
   switch (item.category) {
     case "color": return config.hue === (item.hue ?? 0);
     case "clothing": return config.clothing === item.id;
@@ -310,7 +310,7 @@ function isItemEquipped(config: GumiBearConfig, item: GumiBearItem): boolean {
   }
 }
 
-function buildPreview(base: GumiBearConfig, item: GumiBearItem): GumiBearConfig {
+function buildPreview(base: GummiBearConfig, item: GummiBearItem): GummiBearConfig {
   const preview = { ...base };
   switch (item.category) {
     case "color":

@@ -16,14 +16,12 @@ type ReelsViewProps = {
 
 export default function ReelsView({ products, onLoadMore, hasMore, onProductClick }: ReelsViewProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [gumied, setGumied] = useState<Set<string>>(new Set());
+  const [gummied, setGummied] = useState<Set<string>>(new Set());
   const [bookmarked, setBookmarked] = useState<Set<string>>(new Set());
   const [direction, setDirection] = useState(0);
-  const [showDoubleTapGumi, setShowDoubleTapGumi] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef(0);
   const isTransitioning = useRef(false);
-  const lastTapTime = useRef(0);
 
   const product = products[currentIndex];
 
@@ -81,8 +79,8 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
     }
   };
 
-  const toggleGumi = () => {
-    setGumied((prev) => {
+  const toggleGummi = () => {
+    setGummied((prev) => {
       const next = new Set(prev);
       if (next.has(product.id)) next.delete(product.id);
       else next.add(product.id);
@@ -99,14 +97,14 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
     });
   };
 
-  // No double-tap to Gumi — Gumi is a purchase action, not a casual gesture
+  // No double-tap to Gummi — Gummi is a purchase action, not a casual gesture
 
   if (!product) return null;
 
-  const isGumied = gumied.has(product.id);
+  const isGummied = gummied.has(product.id);
   const isBookmarked = bookmarked.has(product.id);
 
-  const gumiFriends = (product.gumiedByFriends || [])
+  const gummiFriends = (product.gummiedByFriends || [])
     .map((id) => getUserById(id))
     .filter(Boolean)
     .slice(0, 3);
@@ -147,7 +145,7 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
                 sizes="(max-width: 768px) 100vw, 28rem"
               />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/30" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-black/30" />
 
             {/* Top bar */}
             <div className="absolute top-0 left-0 right-0 p-4 pt-14 flex items-center justify-between z-20">
@@ -173,23 +171,23 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
 
             {/* Right action bar */}
             <div className="absolute right-4 bottom-44 flex flex-col items-center gap-6 z-20">
-              {/* Gumi = "I bought this" */}
-              <button onClick={toggleGumi} className="flex flex-col items-center gap-1">
+              {/* Gummi = "I bought this" */}
+              <button onClick={toggleGummi} className="flex flex-col items-center gap-1">
                 <motion.div
-                  animate={isGumied ? { scale: [1, 1.4, 1] } : { scale: 1 }}
+                  animate={isGummied ? { scale: [1, 1.4, 1] } : { scale: 1 }}
                   transition={{ duration: 0.3 }}
                   className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center"
                 >
                   <Image
-                    src="/gumi-icon.png"
-                    alt="Gumi"
+                    src="/gummi-icon.png"
+                    alt="Gummi"
                     width={28}
                     height={48}
-                    className={`transition-all ${isGumied ? "drop-shadow-[0_0_8px_rgba(196,93,62,0.6)]" : "grayscale opacity-70"}`}
+                    className={`transition-all ${isGummied ? "drop-shadow-[0_0_8px_rgba(196,93,62,0.6)" : "grayscale opacity-70"}`}
                   />
                 </motion.div>
                 <span className="text-white text-xs font-medium">
-                  {isGumied ? "Bought" : formatCount(product.gumis)}
+                  {isGummied ? "Bought" : formatCount(product.gummis)}
                 </span>
               </button>
 
@@ -201,7 +199,7 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
                   </svg>
                 </div>
                 <span className="text-white text-xs font-medium">
-                  {formatCount(Math.floor(product.gumis * 0.12))}
+                  {formatCount(Math.floor(product.gummis * 0.12))}
                 </span>
               </button>
 
@@ -259,19 +257,19 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
                 )}
               </div>
 
-              {/* Friends who Gumied — avatars */}
-              {gumiFriends.length > 0 && (
+              {/* Friends who Gummied — avatars */}
+              {gummiFriends.length > 0 && (
                 <div className="flex items-center gap-2 mt-2">
                   <div className="flex -space-x-1.5">
-                    {gumiFriends.map((friend) => (
+                    {gummiFriends.map((friend) => (
                       <div key={friend!.id} className="w-5 h-5 rounded-full overflow-hidden border-2 border-black/30 relative">
                         <Image src={friend!.avatar} alt={friend!.name} fill className="object-cover" sizes="20px" />
                       </div>
                     ))}
                   </div>
                   <span className="text-white/50 text-xs">
-                    {gumiFriends[0]!.name.split(" ")[0]}
-                    {gumiFriends.length > 1 && ` +${gumiFriends.length - 1}`} bought this
+                    {gummiFriends[0]!.name.split(" ")[0]}
+                    {gummiFriends.length > 1 && ` +${gummiFriends.length - 1}`} bought this
                   </span>
                 </div>
               )}
@@ -282,7 +280,7 @@ export default function ReelsView({ products, onLoadMore, hasMore, onProductClic
                   e.stopPropagation();
                   onProductClick(product);
                 }}
-                className="mt-4 w-full py-3 bg-white text-[var(--text-primary)] rounded-full text-sm font-semibold hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
+                className="mt-4 w-full py-3 bg-white text-(--text-primary) rounded-full text-sm font-semibold hover:bg-white/90 transition-colors flex items-center justify-center gap-2"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />

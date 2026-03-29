@@ -12,7 +12,7 @@ export default function SkeletonCard({ index }: SkeletonCardProps) {
 
   return (
     <div className="masonry-item">
-      <div className="rounded-xl overflow-hidden bg-[var(--card-bg)]">
+      <div className="rounded-xl overflow-hidden bg-(--card-bg)">
         {/* Image placeholder */}
         <div className="shimmer" style={{ height: `${height}px` }} />
 
@@ -25,7 +25,7 @@ export default function SkeletonCard({ index }: SkeletonCardProps) {
             <div className="shimmer h-3.5 w-14 rounded" />
             <div className="shimmer h-3 w-10 rounded" />
           </div>
-          <div className="flex gap-3 pt-2 border-t border-[var(--border)]">
+          <div className="flex gap-3 pt-2 border-t border-(--border)">
             <div className="shimmer h-3 w-12 rounded" />
             <div className="shimmer h-3 w-12 rounded" />
           </div>

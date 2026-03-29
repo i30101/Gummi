@@ -3,13 +3,13 @@ export type ProductImage = {
   alt: string;
 };
 
-// Re-export gumi bear types
+// Re-export gummi bear types
 export type {
-  GumiBearConfig,
-  GumiBearState,
-  GumiBearItem,
-  GumiBearItemCategory,
-} from "./gumi-bear";
+  GummiBearConfig,
+  GummiBearState,
+  GummiBearItem,
+  GummiBearItemCategory,
+} from "./gummi-bear";
 
 export type MockUser = {
   id: string;
@@ -17,12 +17,12 @@ export type MockUser = {
   username: string;
   avatar: string; // Unsplash profile photo URL
   bio: string;
-  gumiCount: number; // total products they've Gumied
+  gummiCount: number; // total products they've Gummied
   followers: number;
   following: number;
   hasStory: boolean; // whether they have an active story ring
-  gumiHue: number; // 0-360 hue shift for their gumi bear color
-  gumiOutfit?: {
+  gummiHue: number; // 0-360 hue shift for their gummi bear color
+  gummiOutfit?: {
     clothing?: string;
     accessory?: string;
     headwear?: string;
@@ -49,11 +49,11 @@ export type Product = {
   description?: string;
   aspectRatio?: number;
 
-  // Gumi social metrics
-  gumis: number; // total Gumi count (replaces likes)
+  // Gummi social metrics
+  gummis: number; // total Gummi count (replaces likes)
   shares: number;
-  gumiedByFriends?: string[]; // user IDs of friends who Gumied this
-  isGumied?: boolean; // current user Gumied this
+  gummiedByFriends?: string[]; // user IDs of friends who Gummied this
+  isGummied?: boolean; // current user Gummied this
 };
 
 export type Vendor = {
@@ -99,7 +99,7 @@ export type Collection = {
   isDefault: boolean;
 };
 
-export type ProfileTab = "gumis" | "saved" | "collections" | "wishlist";
+export type ProfileTab = "gummis" | "saved" | "collections" | "wishlist";
 
 export type SortOption = "recent" | "category" | "price-low" | "price-high";
 

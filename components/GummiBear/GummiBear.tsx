@@ -1,18 +1,18 @@
 "use client";
 
-import { GumiBearConfig, DEFAULT_BEAR_CONFIG } from "@/types/gumi-bear";
+import { GummiBearConfig, DEFAULT_BEAR_CONFIG } from "@/types/gummi-bear";
 import TintedImage from "./TintedImage";
-import GumiBearClothing from "./GumiBearClothing";
-import GumiBearAccessories from "./GumiBearAccessories";
-import GumiBearHeadwear from "./GumiBearHeadwear";
+import GummiBearClothing from "./GummiBearClothing";
+import GummiBearAccessories from "./GummiBearAccessories";
+import GummiBearHeadwear from "./GummiBearHeadwear";
 
-type GumiBearProps = {
-  config?: GumiBearConfig;
+type GummiBearProps = {
+  config?: GummiBearConfig;
   size: number;
   className?: string;
 };
 
-export default function GumiBear({ config = DEFAULT_BEAR_CONFIG, size, className }: GumiBearProps) {
+export default function GummiBear({ config = DEFAULT_BEAR_CONFIG, size, className }: GummiBearProps) {
   const hasOverlays = config.clothing || config.accessory || config.headwear;
   const detailLevel = size < 32 ? "micro" as const : size <= 64 ? "compact" as const : "full" as const;
 
@@ -21,12 +21,12 @@ export default function GumiBear({ config = DEFAULT_BEAR_CONFIG, size, className
       className={`relative ${className || ""}`}
       style={{ width: size, height: size }}
     >
-      {/* The real gumi-icon.png, hue-shifted */}
+      {/* The real gummi-icon.png, hue-shifted */}
       <TintedImage
-        src="/gumi-icon.png"
+        src="/gummi-icon.png"
         hue={config.hue}
         fill
-        alt="Gumi Bear"
+        alt="Gummi Bear"
         className="object-contain"
       />
 
@@ -41,24 +41,24 @@ export default function GumiBear({ config = DEFAULT_BEAR_CONFIG, size, className
         >
           {/* Accessories behind body (backpack, wings, cape) */}
           {(config.accessory === "acc-wings") && (
-            <GumiBearAccessories itemId={config.accessory} detailLevel={detailLevel} />
+            <GummiBearAccessories itemId={config.accessory} detailLevel={detailLevel} />
           )}
           {config.clothing === "clothing-cape" && (
-            <GumiBearClothing itemId={config.clothing} detailLevel={detailLevel} />
+            <GummiBearClothing itemId={config.clothing} detailLevel={detailLevel} />
           )}
 
           {/* Clothing */}
           {config.clothing && config.clothing !== "clothing-cape" && (
-            <GumiBearClothing itemId={config.clothing} detailLevel={detailLevel} />
+            <GummiBearClothing itemId={config.clothing} detailLevel={detailLevel} />
           )}
 
           {/* Accessories (except wings which go behind) */}
           {config.accessory && config.accessory !== "acc-wings" && (
-            <GumiBearAccessories itemId={config.accessory} detailLevel={detailLevel} />
+            <GummiBearAccessories itemId={config.accessory} detailLevel={detailLevel} />
           )}
 
           {/* Headwear */}
-          <GumiBearHeadwear itemId={config.headwear} detailLevel={detailLevel} />
+          <GummiBearHeadwear itemId={config.headwear} detailLevel={detailLevel} />
         </svg>
       )}
     </div>

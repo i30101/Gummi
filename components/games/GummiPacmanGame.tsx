@@ -54,7 +54,7 @@ function canMove(maze: number[][], x: number, y: number, dir: Dir): boolean {
   return !isWall(maze, x + DX[dir], y + DY[dir]);
 }
 
-export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
+export default function GummiPacmanGame({ onBack }: { onBack: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameState, setGameState] = useState<"menu" | "playing" | "won" | "lost">("menu");
   const [score, setScore] = useState(0);
@@ -70,7 +70,7 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
     totalPellets: 0, pelletsEaten: 0,
     powerTimer: 0, state: "menu" as string,
     animFrame: 0,
-    gumiImg: null as HTMLImageElement | null,
+    gummiImg: null as HTMLImageElement | null,
     moveTimer: 0,
     ghostMoveTimer: 0,
     deathPause: 0,
@@ -78,8 +78,8 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/gumi-icon.png";
-    img.onload = () => { gRef.current.gumiImg = img; };
+    img.src = "/gummi-icon.png";
+    img.onload = () => { gRef.current.gummiImg = img; };
   }, []);
 
   const initGame = useCallback(() => {
@@ -296,11 +296,11 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
         }
       }
 
-      // Player (Gumi icon)
+      // Player (Gummi icon)
       const pcx = r.px * CELL + CELL / 2, pcy = r.py * CELL + CELL / 2;
-      if (r.gumiImg) {
+      if (r.gummiImg) {
         const size = CELL * 0.85;
-        ctx.drawImage(r.gumiImg, pcx - size / 2, pcy - size / 2, size, size);
+        ctx.drawImage(r.gummiImg, pcx - size / 2, pcy - size / 2, size, size);
       } else {
         ctx.fillStyle = "#ffd93d";
         ctx.beginPath(); ctx.arc(pcx, pcy, CELL * 0.4, 0, Math.PI * 2); ctx.fill();
@@ -367,16 +367,16 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
     <div className="flex flex-col items-center w-full h-full">
       {/* Header */}
       <div className="flex items-center justify-between w-full px-4 py-3 z-10">
-        <button onClick={onBack} className="p-2 rounded-lg hover:bg-[var(--bg-secondary)] transition-colors">
+        <button onClick={onBack} className="p-2 rounded-lg hover:bg-(--bg-secondary) transition-colors">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div className="flex items-center gap-2">
           {/* GUMI_ICON_PLACEHOLDER */}
-          <Image src="/gumi-icon.png" alt="Gumi" width={24} height={24} />
-          <span className="text-lg font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gumi Pac</span>
+          <Image src="/gummi-icon.png" alt="Gummi" width={24} height={24} />
+          <span className="text-lg font-bold text-(--text-primary)" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gummi Pac</span>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-sm font-bold text-[var(--text-primary)]">{score}</span>
+          <span className="text-sm font-bold text-(--text-primary)">{score}</span>
           <div className="flex gap-0.5">
             {Array.from({ length: 3 }).map((_, i) => (
               <span key={i} className={`text-sm ${i < lives ? "" : "opacity-20"}`}>💗</span>
@@ -393,11 +393,11 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
         {gameState === "menu" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
             <div className="text-center">
-              <Image src="/gumi-icon.png" alt="Gumi" width={72} height={72} className="mx-auto mb-4 animate-bounce" />
-              <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gumi Pac</h2>
+              <Image src="/gummi-icon.png" alt="Gummi" width={72} height={72} className="mx-auto mb-4 animate-bounce" />
+              <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gummi Pac</h2>
               <p className="text-white/60 text-sm mb-6">Eat all the gummy candies!</p>
               <p className="text-white/40 text-xs mb-4">Use arrow keys or WASD</p>
-              <button onClick={initGame} className="px-8 py-3 rounded-full bg-gradient-to-r from-amber-400 to-pink-500 text-white font-bold text-lg hover:scale-105 transition-transform shadow-lg">
+              <button onClick={initGame} className="px-8 py-3 rounded-full bg-linear-to-r from-amber-400 to-pink-500 text-white font-bold text-lg hover:scale-105 transition-transform shadow-lg">
                 Start Game
               </button>
             </div>
@@ -408,10 +408,10 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
         {gameState === "won" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
             <div className="text-center">
-              <Image src="/gumi-icon.png" alt="Gumi" width={72} height={72} className="mx-auto mb-4" />
+              <Image src="/gummi-icon.png" alt="Gummi" width={72} height={72} className="mx-auto mb-4" />
               <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Level Clear!</h2>
               <p className="text-amber-400 text-lg font-bold mb-4">Score: {score}</p>
-              <button onClick={initGame} className="px-8 py-3 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 text-white font-bold hover:scale-105 transition-transform shadow-lg">
+              <button onClick={initGame} className="px-8 py-3 rounded-full bg-linear-to-r from-emerald-400 to-cyan-500 text-white font-bold hover:scale-105 transition-transform shadow-lg">
                 Play Again
               </button>
             </div>
@@ -422,10 +422,10 @@ export default function GumiPacmanGame({ onBack }: { onBack: () => void }) {
         {gameState === "lost" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
             <div className="text-center">
-              <Image src="/gumi-icon.png" alt="Gumi" width={64} height={64} className="mx-auto mb-4 grayscale" />
+              <Image src="/gummi-icon.png" alt="Gummi" width={64} height={64} className="mx-auto mb-4 grayscale" />
               <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Game Over</h2>
               <p className="text-white/80 text-lg mb-4">Score: <span className="text-amber-400 font-bold">{score}</span></p>
-              <button onClick={initGame} className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform shadow-lg">
+              <button onClick={initGame} className="px-8 py-3 rounded-full bg-linear-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform shadow-lg">
                 Try Again
               </button>
             </div>

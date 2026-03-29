@@ -29,13 +29,13 @@ export default function ProfileSavedGrid({
   return (
     <div>
       <div className="flex items-center justify-between px-4 py-3">
-        <span className="text-xs text-[var(--text-tertiary)] font-medium">
+        <span className="text-xs text-(--text-tertiary) font-medium">
           {displayProducts.length} saved
         </span>
         {removedIds.size > 0 && (
           <button
             onClick={onUndoAll}
-            className="text-xs text-[var(--accent)] font-medium hover:underline"
+            className="text-xs text-(--accent) font-medium hover:underline"
           >
             Undo all
           </button>
@@ -44,12 +44,12 @@ export default function ProfileSavedGrid({
 
       {displayProducts.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 px-6">
-          <div className="w-16 h-16 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mb-4">
+          <div className="w-16 h-16 rounded-full bg-(--bg-secondary) flex items-center justify-center mb-4">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" strokeWidth="1.5">
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
             </svg>
           </div>
-          <p className="text-sm text-[var(--text-tertiary)] text-center">
+          <p className="text-sm text-(--text-tertiary) text-center">
             {removedIds.size > 0 ? "All items removed" : "Save products to find them later"}
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function ProfileSavedGrid({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3, delay: index * 0.02 }}
-                className="relative aspect-square rounded-xl overflow-hidden bg-[var(--bg-secondary)] group cursor-pointer"
+                className="relative aspect-square rounded-xl overflow-hidden bg-(--bg-secondary) group cursor-pointer"
               >
                 <button
                   onClick={() => onProductClick(product)}

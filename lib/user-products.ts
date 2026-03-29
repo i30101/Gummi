@@ -9,7 +9,7 @@ export type HighlightCollection = {
 };
 
 // Deterministic products for a user based on their ID
-export function getUserGumis(userId: string): Product[] {
+export function getUserGummis(userId: string): Product[] {
   const seed = userId.split("").reduce((acc, c) => acc + c.charCodeAt(0), 0);
   const shuffled = [...MOCK_PRODUCTS].sort((a, b) => {
     const hashA = (a.id.charCodeAt(a.id.length - 1) * seed) % 100;
@@ -36,7 +36,7 @@ const HIGHLIGHT_DEFS = [
 ];
 
 export function getUserHighlights(userId: string): HighlightCollection[] {
-  const userProducts = getUserGumis(userId);
+  const userProducts = getUserGummis(userId);
   const productIds = new Set(userProducts.map((p) => p.id));
 
   return HIGHLIGHT_DEFS

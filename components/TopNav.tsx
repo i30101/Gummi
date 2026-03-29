@@ -53,15 +53,15 @@ export default function TopNav({
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-lg border-b border-[var(--border)]/50 transition-transform duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 bg-(--bg-primary)/80 backdrop-blur-lg border-b border-(--border)/50 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       {/* Main nav bar */}
       <div className="flex items-center gap-4 px-4 md:px-6 lg:px-8 py-3">
-        {/* Logo: Gumi bear icon + text */}
+        {/* Logo: Gummi bear icon + text */}
         <div
-          className="flex items-center gap-2 flex-shrink-0 cursor-pointer"
+          className="flex items-center gap-2 shrink-0 cursor-pointer"
           onClick={() => {
             onCategorySelect("for-you");
             onSearchChange("");
@@ -69,17 +69,17 @@ export default function TopNav({
           }}
         >
           <Image
-            src="/gumi-icon.png"
-            alt="Gumi"
+            src="/gummi-icon.png"
+            alt="Gummi"
             width={28}
             height={48}
             className="drop-shadow-sm"
           />
           <h1
-            className="tracking-tight text-[var(--text-primary)]"
+            className="tracking-tight text-(--text-primary)"
             style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700, fontSize: "48px", lineHeight: "48px" }}
           >
-            Gumi
+            Gummi
           </h1>
         </div>
 
@@ -91,7 +91,7 @@ export default function TopNav({
         />
 
         {/* Feed mode toggle */}
-        <div className="flex items-center bg-[var(--bg-secondary)] rounded-full p-1 flex-shrink-0">
+        <div className="flex items-center bg-(--bg-secondary) rounded-full p-1 shrink-0">
           <button
             onClick={() => onFeedModeChange("gallery")}
             className={`p-2 rounded-full transition-all ${
@@ -144,28 +144,28 @@ export default function TopNav({
         {onAlgorithmClick && (
           <button
             onClick={onAlgorithmClick}
-            className="flex-shrink-0 w-8 h-8 rounded-full hover:bg-[var(--bg-secondary)] flex items-center justify-center transition-colors"
-            aria-label="How Gumi works"
+            className="shrink-0 w-8 h-8 rounded-full hover:bg-(--bg-secondary) flex items-center justify-center transition-colors"
+            aria-label="How Gummi works"
             title="The Algorithm"
           >
-            <span className="text-sm text-[var(--text-tertiary)]" style={{ fontFamily: "var(--font-cormorant), serif", fontStyle: "italic", fontWeight: 600 }}>
+            <span className="text-sm text-(--text-tertiary)" style={{ fontFamily: "var(--font-cormorant), serif", fontStyle: "italic", fontWeight: 600 }}>
               Σ
             </span>
           </button>
         )}
 
-        {/* Profile with Gumi count */}
+        {/* Profile with Gummi count */}
         <button
           onClick={onProfileClick}
-          className="flex-shrink-0 flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+          className="shrink-0 flex items-center gap-1.5 px-2 py-1.5 rounded-full hover:bg-(--bg-secondary) transition-colors"
           aria-label="Profile"
         >
-          <div className="relative w-7 h-7 rounded-full overflow-hidden bg-[var(--bg-secondary)]">
+          <div className="relative w-7 h-7 rounded-full overflow-hidden bg-(--bg-secondary)">
             <Image src={CURRENT_USER.avatar} alt="You" fill className="object-cover" sizes="28px" />
           </div>
           <div className="flex items-center gap-0.5">
-            <Image src="/gumi-icon.png" alt="" width={12} height={21} />
-            <span className="text-xs font-semibold text-[var(--text-primary)]">{CURRENT_USER.gumiCount}</span>
+            <Image src="/gummi-icon.png" alt="" width={12} height={21} />
+            <span className="text-xs font-semibold text-(--text-primary)">{CURRENT_USER.gummiCount}</span>
           </div>
         </button>
       </div>

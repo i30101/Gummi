@@ -1,4 +1,4 @@
-# Gumi
+# Gummi
 
 ## Dev Server
 - Port: **54980** (not the default 3000)

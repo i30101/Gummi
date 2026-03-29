@@ -1,5 +1,5 @@
 import { Product } from "@/types";
-import { getRandomGumiFriends } from "../mock-users";
+import { getRandomGummiFriends } from "../mock-users";
 
 export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
   // ─── BAGS ──────────────────────────────────────────────
@@ -22,9 +22,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Signature Intrecciato weave", "Lambskin leather", "Magnetic closure", "Interior card slots"],
     description: "The iconic Bottega Veneta clutch featuring their signature Intrecciato weave in buttery lambskin. A timeless evening companion that elevates any outfit with understated Italian luxury.",
     aspectRatio: 0.85,
-    gumis: 142000,
+    gummis: 142000,
     shares: 17000,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-2",
@@ -44,9 +44,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Full-grain calfskin", "Adjustable crossbody strap", "Sculptural half-moon shape"],
     description: "Polene's bestselling Numero Dix in a refined half-moon silhouette. The structured calfskin body and clean lines make it the perfect everyday bag that punches far above its price point.",
     aspectRatio: 1.15,
-    gumis: 19400,
+    gummis: 19400,
     shares: 2300,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-3",
@@ -66,9 +66,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Geometric paneled design", "Classic calfskin", "Folds completely flat", "Multiple carry styles"],
     description: "The Loewe Puzzle is a modern icon of geometric precision and artisanal craft. Its unique paneled construction allows it to fold flat while the supple calfskin softens beautifully with wear.",
     aspectRatio: 1.0,
-    gumis: 67000,
+    gummis: 67000,
     shares: 7500,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-4",
@@ -89,9 +89,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Smooth Italian leather", "Crescent silhouette", "Adjustable strap"],
     description: "The quintessential Parisian crossbody with A.P.C.'s effortless minimalist DNA. The crescent shape sits perfectly against the hip while the buttery Italian leather develops a gorgeous patina over time.",
     aspectRatio: 1.35,
-    gumis: 11200,
+    gummis: 11200,
     shares: 1300,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-5",
@@ -111,9 +111,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Recycled nylon", "Lightweight & packable", "Exterior zip pocket"],
     description: "Baggu's cult-favorite crescent shape in their signature recycled nylon. Ultralight and endlessly practical, this is the grab-and-go bag you'll reach for every single day.",
     aspectRatio: 0.75,
-    gumis: 5800,
+    gummis: 5800,
     shares: 620,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-6",
@@ -133,9 +133,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Vegetable-tanned Italian leather", "Contrast interior lining", "Drawstring closure", "Detachable strap"],
     description: "The bag that launched a thousand waitlists. Mansur Gavriel's bucket bag is the gold standard of quiet luxury with its signature contrast-colored interior and beautifully aging vegetable-tanned leather.",
     aspectRatio: 1.25,
-    gumis: 23500,
+    gummis: 23500,
     shares: 2700,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-7",
@@ -156,9 +156,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Grained calfskin", "Iconic belt closure", "Suede-lined interior", "Three interior compartments"],
     description: "Celine's Belt Bag is the ultimate quiet luxury statement. The distinctive knotted belt closure and impeccable construction in grained calfskin make it an enduring investment piece.",
     aspectRatio: 0.95,
-    gumis: 54000,
+    gummis: 54000,
     shares: 6200,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-8",
@@ -178,9 +178,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Hand-woven palm leaf", "Calfskin leather trim", "Embossed Anagram logo", "Unlined interior"],
     description: "Loewe's iconic basket bag marries artisanal craft with luxury design. Each bag is hand-woven by skilled artisans in Spain, making every piece unique. Perfect from farmers market to seaside dinner.",
     aspectRatio: 1.45,
-    gumis: 78000,
+    gummis: 78000,
     shares: 9100,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-9",
@@ -200,9 +200,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Italian pebbled leather", "Organized interior pockets", "Adjustable strap"],
     description: "Cuyana's System Crossbody is designed for the organized minimalist. Multiple interior pockets keep essentials in place while the pebbled Italian leather stands up to daily wear beautifully.",
     aspectRatio: 0.7,
-    gumis: 14700,
+    gummis: 14700,
     shares: 1700,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-10",
@@ -223,9 +223,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["American bridle leather", "Hand-stitched in USA", "Brass hardware", "Fits 15-inch laptop", "Lifetime guarantee"],
     description: "Lotuff's heirloom-quality briefcase is crafted from American bridle leather and hand-stitched in their Providence workshop. The kind of bag you buy once and hand down to the next generation.",
     aspectRatio: 1.1,
-    gumis: 9800,
+    gummis: 9800,
     shares: 1100,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── SUNGLASSES ────────────────────────────────────────
@@ -247,9 +247,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Carl Zeiss polarized lenses", "Plant-based acetate frame", "Keyhole bridge"],
     description: "Raen's bestselling Wiley frame in premium plant-based acetate with Carl Zeiss polarized lenses. The keyhole bridge and rounded shape flatter nearly every face. California cool, built to last.",
     aspectRatio: 0.65,
-    gumis: 12300,
+    gummis: 12300,
     shares: 1400,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-12",
@@ -269,9 +269,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Hand-finished acetate", "Mineral glass lenses", "Filigree temple detail", "Made in Italy"],
     description: "Oliver Peoples' signature round silhouette in hand-finished acetate with mineral glass lenses. The subtle filigree detailing on the temples is a hallmark of their meticulous Italian craftsmanship.",
     aspectRatio: 0.8,
-    gumis: 31500,
+    gummis: 31500,
     shares: 3600,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-13",
@@ -292,9 +292,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["UV400 protection", "Polycarbonate lenses", "Retro cat-eye shape"],
     description: "Le Specs' Caliente brings vintage glamour at an unbeatable price. The exaggerated cat-eye frame adds instant attitude to any look while the impact-resistant lenses handle real life.",
     aspectRatio: 1.55,
-    gumis: 4200,
+    gummis: 4200,
     shares: 470,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── WATCHES ───────────────────────────────────────────
@@ -316,9 +316,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Ultra-slim 8mm case", "Steel mesh band", "Sapphire crystal", "Japanese quartz movement"],
     description: "Scandinavian minimalism at its finest. Skagen's Signatur is impossibly thin at just 8mm, with a steel mesh band that sits flush against the wrist. Clean design that lets the details speak for themselves.",
     aspectRatio: 1.3,
-    gumis: 8600,
+    gummis: 8600,
     shares: 980,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-15",
@@ -338,9 +338,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Miyota automatic movement", "Vegetable-tanned leather strap", "Exhibition caseback", "100m water resistance"],
     description: "Acne Studios brings their signature understated aesthetic to a proper field watch. The automatic Miyota movement visible through the exhibition caseback is endlessly satisfying to watch.",
     aspectRatio: 0.9,
-    gumis: 38000,
+    gummis: 38000,
     shares: 4400,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-16",
@@ -361,9 +361,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["200m water resistance", "Ceramic bezel insert", "Luminous indices", "Screw-down crown"],
     description: "A proper dive watch wrapped in Scandinavian design restraint. The ceramic bezel and luminous indices mean business, while the slim profile keeps it refined enough for everyday wear.",
     aspectRatio: 1.05,
-    gumis: 10500,
+    gummis: 10500,
     shares: 1200,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── WALLETS & LEATHER GOODS ───────────────────────────
@@ -385,9 +385,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Premium leather", "RFID protection", "Pull-tab card access", "Holds 4-11 cards"],
     description: "Bellroy's flagship wallet that started the slim wallet revolution. Cleverly engineered to hold everything you need while disappearing in your pocket. The pull-tab card access is pure genius.",
     aspectRatio: 0.7,
-    gumis: 16800,
+    gummis: 16800,
     shares: 1900,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-18",
@@ -407,9 +407,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Smooth calfskin", "YKK zip closure", "4 card slots + coin pocket"],
     description: "A.P.C.'s pared-back card case in their signature smooth calfskin. The zip-around design keeps everything secure while the compact footprint fits even the smallest bag or pocket.",
     aspectRatio: 1.4,
-    gumis: 9200,
+    gummis: 9200,
     shares: 1050,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-19",
@@ -430,9 +430,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Pebbled Italian leather", "Boarding pass pocket", "Free monogramming"],
     description: "Travel in style with Cuyana's thoughtfully designed passport folio. The pebbled Italian leather gets more beautiful with every trip, and the free monogramming makes it the perfect gift.",
     aspectRatio: 1.2,
-    gumis: 8400,
+    gummis: 8400,
     shares: 960,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── SCARVES & COLD WEATHER ────────────────────────────
@@ -454,9 +454,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Wool-cashmere blend", "Jacquard Anagram pattern", "Fringed edges", "Oversized 200x70cm"],
     description: "Loewe's signature Anagram scarf in a sumptuous wool-cashmere blend. The tonal jacquard pattern is subtle yet unmistakable, and the oversized dimensions mean endless styling possibilities.",
     aspectRatio: 1.5,
-    gumis: 44000,
+    gummis: 44000,
     shares: 5100,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-21",
@@ -476,9 +476,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["100% cashmere", "Ribbed knit construction", "Face patch logo", "One size fits most"],
     description: "The smiley face beanie that launched a streetwear phenomenon. Acne Studios' cashmere beanie is impossibly soft with the perfect amount of slouch. The tiny face patch is the only branding you need.",
     aspectRatio: 0.85,
-    gumis: 35000,
+    gummis: 35000,
     shares: 4000,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-22",
@@ -499,9 +499,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["100% wool felt", "Grosgrain ribbon band", "Wide 7cm brim", "Made in France"],
     description: "A.P.C.'s perfectly proportioned fedora in structured wool felt. The grosgrain ribbon band adds a classic touch while the wide brim provides just the right amount of drama and sun protection.",
     aspectRatio: 0.75,
-    gumis: 13600,
+    gummis: 13600,
     shares: 1550,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-23",
@@ -521,9 +521,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Grade-A Mongolian cashmere", "Featherweight weave", "Versatile 200x80cm", "Free monogramming"],
     description: "Cuyana's travel wrap is the most versatile piece in your wardrobe. Wear it as a scarf, blanket, or shawl in impossibly soft Grade-A Mongolian cashmere. The carry pouch makes it a perfect travel companion.",
     aspectRatio: 1.15,
-    gumis: 11900,
+    gummis: 11900,
     shares: 1350,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── BELTS ─────────────────────────────────────────────
@@ -545,9 +545,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Smooth calfskin leather", "Brushed nickel buckle", "30mm width", "Made in France"],
     description: "The belt you'll wear every day for the next decade. A.P.C.'s classic belt in smooth calfskin with a clean brushed nickel buckle embodies their philosophy of elevated essentials.",
     aspectRatio: 0.65,
-    gumis: 10200,
+    gummis: 10200,
     shares: 1170,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-25",
@@ -568,9 +568,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Intrecciato woven leather", "Tonal buckle", "35mm width", "Hand-finished in Italy"],
     description: "Bottega Veneta's Intrecciato belt is the quiet power move of accessories. The signature weave in butter-soft leather paired with the tonal buckle is a masterclass in understated luxury.",
     aspectRatio: 1.0,
-    gumis: 98000,
+    gummis: 98000,
     shares: 11500,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── HAIR ACCESSORIES ─────────────────────────────────
@@ -592,9 +592,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["100% mulberry silk", "Set of 3 clips", "No-snag mechanism"],
     description: "Lelet NY's silk-wrapped clips elevate the humble hair accessory into something truly luxurious. The no-snag mechanism grips without pulling while the mulberry silk adds a subtle sheen.",
     aspectRatio: 1.35,
-    gumis: 3700,
+    gummis: 3700,
     shares: 420,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-27",
@@ -614,9 +614,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Italian acetate", "Large size holds thick hair", "Spring-loaded hinge"],
     description: "The claw clip that made claw clips cool again. Machete's oversized acetate clip holds even the thickest hair in a perfectly undone updo. Each pattern is unique thanks to the hand-poured acetate.",
     aspectRatio: 0.9,
-    gumis: 2900,
+    gummis: 2900,
     shares: 330,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── TOTES & CANVAS ────────────────────────────────────
@@ -639,9 +639,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Hand-woven toquilla straw", "Leather handles", "Unstructured silhouette"],
     description: "Cuyana's market tote is hand-woven from sustainably sourced toquilla straw by artisans in Ecuador. The leather handles add durability while the roomy interior swallows a full day's haul.",
     aspectRatio: 1.1,
-    gumis: 13100,
+    gummis: 13100,
     shares: 1500,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-29",
@@ -661,9 +661,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Ripstop nylon", "Holds 2-3 grocery bags worth", "Machine washable", "Folds into 5x5 pouch"],
     description: "The reusable bag that actually gets reused. Baggu's Standard tote holds a shocking amount of stuff, then folds into a tiny pouch that lives in your pocket. Ripstop nylon handles anything you throw at it.",
     aspectRatio: 1.45,
-    gumis: 6400,
+    gummis: 6400,
     shares: 730,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-30",
@@ -683,9 +683,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Waxed canvas body", "Bridle leather trim", "Riveted stress points", "Interior zip pocket", "Made in USA"],
     description: "Lotuff's canvas tote marries waxed cotton canvas with their signature bridle leather trim. Riveted at every stress point, this tote gets better with every year of heavy use.",
     aspectRatio: 0.8,
-    gumis: 17300,
+    gummis: 17300,
     shares: 1970,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── TECH ACCESSORIES ─────────────────────────────────
@@ -708,9 +708,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Recycled woven fabric", "Magnetic cable loops", "Clamshell opening", "Fits chargers & adapters"],
     description: "Bellroy's Tech Kit corrals your cable chaos into one beautifully organized pouch. The clamshell design opens flat for easy access while magnetic loops keep cables from tangling.",
     aspectRatio: 0.75,
-    gumis: 8100,
+    gummis: 8100,
     shares: 930,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-32",
@@ -730,9 +730,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Premium leather", "Precision fit", "Wireless charging compatible", "Keyring attachment"],
     description: "Give your AirPods the home they deserve. Bellroy's leather case fits like a glove, supports wireless charging, and develops a gorgeous patina that makes it look better every day.",
     aspectRatio: 1.5,
-    gumis: 4900,
+    gummis: 4900,
     shares: 560,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 
   // ─── STATEMENT PIECES ─────────────────────────────────
@@ -754,9 +754,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Maxi Intrecciato weave", "Knotted handle", "Suede-lined interior", "Compact yet spacious"],
     description: "The Mini Jodie is Bottega Veneta's most coveted silhouette. The oversized Intrecciato weave and sculptural knotted handle create an instantly recognizable shape that needs no logo.",
     aspectRatio: 0.95,
-    gumis: 187000,
+    gummis: 187000,
     shares: 22000,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-34",
@@ -777,9 +777,9 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Full-grain calfskin", "Origami-inspired fold", "Crossbody & shoulder strap", "Fits phone + essentials"],
     description: "Polene's Numero Un Nano is the mini bag that actually fits things. The origami-inspired fold in full-grain calfskin is architectural and practical, holding your phone, cards, and keys with room to spare.",
     aspectRatio: 1.25,
-    gumis: 21600,
+    gummis: 21600,
     shares: 2500,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "bags-35",
@@ -799,8 +799,8 @@ export const BAGS_ACCESSORIES_PRODUCTS: Product[] = [
     topFeatures: ["Japanese titanium frame", "Mineral glass lenses", "Adjustable nose pads", "Handmade in Japan", "UV400 protection"],
     description: "Oliver Peoples reimagines the classic aviator in featherlight Japanese titanium with mineral glass lenses. The handmade construction and adjustable nose pads deliver all-day comfort with timeless style.",
     aspectRatio: 0.7,
-    gumis: 42000,
+    gummis: 42000,
     shares: 4800,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 ];

@@ -2,30 +2,30 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react";
 import {
-  GumiBearConfig,
-  GumiBearState,
-  GumiBearItemCategory,
+  GummiBearConfig,
+  GummiBearState,
+  GummiBearItemCategory,
   DEFAULT_BEAR_STATE,
-} from "@/types/gumi-bear";
-import { GUMI_BEAR_ITEMS } from "./gumi-bear-items";
+} from "@/types/gummi-bear";
+import { GUMI_BEAR_ITEMS } from "./gummi-bear-items";
 
-const STORAGE_KEY = "gumi-bear-state";
+const STORAGE_KEY = "gummi-bear-state";
 
-type GumiBearContextValue = {
-  state: GumiBearState;
-  equipItem: (category: GumiBearItemCategory, itemId: string | null) => void;
+type GummiBearContextValue = {
+  state: GummiBearState;
+  equipItem: (category: GummiBearItemCategory, itemId: string | null) => void;
   purchaseItem: (itemId: string) => boolean;
   resetBear: () => void;
 };
 
-const GumiBearContext = createContext<GumiBearContextValue | null>(null);
+const GummiBearContext = createContext<GummiBearContextValue | null>(null);
 
-function loadState(): GumiBearState {
+function loadState(): GummiBearState {
   if (typeof window === "undefined") return DEFAULT_BEAR_STATE;
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_BEAR_STATE;
-    const parsed = JSON.parse(raw) as GumiBearState;
+    const parsed = JSON.parse(raw) as GummiBearState;
     if (typeof parsed.config?.hue !== "number" || !Array.isArray(parsed.inventory)) {
       return DEFAULT_BEAR_STATE;
     }
@@ -35,7 +35,7 @@ function loadState(): GumiBearState {
   }
 }
 
-function saveState(state: GumiBearState) {
+function saveState(state: GummiBearState) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
@@ -43,8 +43,8 @@ function saveState(state: GumiBearState) {
   }
 }
 
-export function GumiBearProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<GumiBearState>(DEFAULT_BEAR_STATE);
+export function GummiBearProvider({ children }: { children: ReactNode }) {
+  const [state, setState] = useState<GummiBearState>(DEFAULT_BEAR_STATE);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export function GumiBearProvider({ children }: { children: ReactNode }) {
     if (hydrated) saveState(state);
   }, [state, hydrated]);
 
-  const equipItem = useCallback((category: GumiBearItemCategory, itemId: string | null) => {
+  const equipItem = useCallback((category: GummiBearItemCategory, itemId: string | null) => {
     setState((prev) => {
       const next = { ...prev, config: { ...prev.config } };
       switch (category) {
@@ -88,13 +88,13 @@ export function GumiBearProvider({ children }: { children: ReactNode }) {
     let success = false;
     setState((prev) => {
       if (prev.inventory.includes(itemId)) return prev;
-      if (prev.gumiBalance < item.price) return prev;
+      if (prev.gummiBalance < item.price) return prev;
 
       success = true;
       const next = {
         ...prev,
         inventory: [...prev.inventory, itemId],
-        gumiBalance: prev.gumiBalance - item.price,
+        gummiBalance: prev.gummiBalance - item.price,
         config: { ...prev.config },
       };
 
@@ -125,14 +125,14 @@ export function GumiBearProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <GumiBearContext.Provider value={{ state, equipItem, purchaseItem, resetBear }}>
+    <GummiBearContext.Provider value={{ state, equipItem, purchaseItem, resetBear }}>
       {children}
-    </GumiBearContext.Provider>
+    </GummiBearContext.Provider>
   );
 }
 
-export function useGumiBear(): GumiBearContextValue {
-  const ctx = useContext(GumiBearContext);
-  if (!ctx) throw new Error("useGumiBear must be used within GumiBearProvider");
+export function useGummiBear(): GummiBearContextValue {
+  const ctx = useContext(GummiBearContext);
+  if (!ctx) throw new Error("useGummiBear must be used within GummiBearProvider");
   return ctx;
 }

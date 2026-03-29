@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { MockUser } from "@/types";
-import { getUserGumis, getUserHighlights } from "@/lib/user-products";
+import { getUserGummis, getUserHighlights } from "@/lib/user-products";
 import { formatCount } from "@/lib/utils";
 
 type UserProfileProps = {
@@ -58,7 +58,7 @@ export default function UserProfile({
     };
   }, [user]);
 
-  const userGumis = user ? getUserGumis(user.id) : [];
+  const userGummis = user ? getUserGummis(user.id) : [];
   const highlights = user ? getUserHighlights(user.id) : [];
   const [activeHighlight, setActiveHighlight] = useState<string | null>(null);
 
@@ -68,8 +68,8 @@ export default function UserProfile({
   }, [user]);
 
   const displayProducts = activeHighlight
-    ? highlights.find((h) => h.id === activeHighlight)?.products || userGumis
-    : userGumis;
+    ? highlights.find((h) => h.id === activeHighlight)?.products || userGummis
+    : userGummis;
 
   return (
     <AnimatePresence>
@@ -88,11 +88,11 @@ export default function UserProfile({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-[var(--card-bg)] z-50 overflow-y-auto shadow-2xl"
+            className="fixed right-0 top-0 bottom-0 w-full max-w-md bg-(--card-bg) z-50 overflow-y-auto shadow-2xl"
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center hover:bg-[var(--border)] transition-colors z-20"
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-(--bg-secondary) flex items-center justify-center hover:bg-(--border) transition-colors z-20"
               aria-label="Close"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -106,7 +106,7 @@ export default function UserProfile({
               {/* Avatar with story ring */}
               <div className="relative w-24 h-24 mb-4">
                 <div className={`absolute inset-0 flex items-center justify-center ${user.hasStory ? "p-[4px]" : "p-0"}`}>
-                  <div className="relative w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)]">
+                  <div className="relative w-full h-full rounded-full overflow-hidden bg-(--bg-secondary)">
                     <Image src={user.avatar} alt={user.name} fill className="object-cover" sizes="96px" />
                   </div>
                 </div>
@@ -116,38 +116,38 @@ export default function UserProfile({
               </div>
 
               <h2
-                className="text-xl text-[var(--text-primary)] mb-0.5"
+                className="text-xl text-(--text-primary) mb-0.5"
                 style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
               >
                 {user.name}
               </h2>
-              <p className="text-sm text-[var(--text-tertiary)] mb-3">@{user.username}</p>
-              <p className="text-sm text-[var(--text-secondary)] text-center max-w-xs mb-6">
+              <p className="text-sm text-(--text-tertiary) mb-3">@{user.username}</p>
+              <p className="text-sm text-(--text-secondary) text-center max-w-xs mb-6">
                 {user.bio}
               </p>
 
-              {/* Stats — Gumi count is the star metric */}
+              {/* Stats — Gummi count is the star metric */}
               <div className="flex gap-8 mb-6">
                 <div className="flex flex-col items-center">
                   <div className="flex items-center gap-1.5">
-                    <Image src="/gumi-icon.png" alt="" width={18} height={31} />
-                    <span className="text-xl font-bold text-[var(--accent)]">
-                      {formatCount(user.gumiCount)}
+                    <Image src="/gummi-icon.png" alt="" width={18} height={31} />
+                    <span className="text-xl font-bold text-(--accent)">
+                      {formatCount(user.gummiCount)}
                     </span>
                   </div>
-                  <span className="text-xs text-[var(--text-tertiary)]">Gumis</span>
+                  <span className="text-xs text-(--text-tertiary)">Gummis</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-lg font-semibold text-[var(--text-primary)]">
+                  <span className="text-lg font-semibold text-(--text-primary)">
                     {formatCount(user.followers)}
                   </span>
-                  <span className="text-xs text-[var(--text-tertiary)]">Followers</span>
+                  <span className="text-xs text-(--text-tertiary)">Followers</span>
                 </div>
                 <div className="flex flex-col items-center">
-                  <span className="text-lg font-semibold text-[var(--text-primary)]">
+                  <span className="text-lg font-semibold text-(--text-primary)">
                     {formatCount(user.following)}
                   </span>
-                  <span className="text-xs text-[var(--text-tertiary)]">Following</span>
+                  <span className="text-xs text-(--text-tertiary)">Following</span>
                 </div>
               </div>
 
@@ -159,8 +159,8 @@ export default function UserProfile({
                   }}
                   className={`flex-1 py-2.5 rounded-full text-sm font-semibold transition-colors ${
                     isFollowing?.(user.id)
-                      ? "border border-[var(--border)] text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]"
-                      : "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]"
+                      ? "border border-(--border) text-(--text-secondary) hover:bg-(--bg-secondary)"
+                      : "bg-(--accent) text-white hover:bg-(--accent-hover)"
                   }`}
                 >
                   {isFollowing?.(user.id) ? "Following" : "Follow"}
@@ -169,7 +169,7 @@ export default function UserProfile({
                   onClick={() => {
                     onMessage?.(user.id);
                   }}
-                  className="flex-1 py-2.5 border border-[var(--border)] text-[var(--text-secondary)] rounded-full text-sm font-medium hover:border-[var(--text-tertiary)] transition-colors"
+                  className="flex-1 py-2.5 border border-(--border) text-(--text-secondary) rounded-full text-sm font-medium hover:border-(--text-tertiary) transition-colors"
                 >
                   Message
                 </button>
@@ -178,7 +178,7 @@ export default function UserProfile({
 
             {/* Highlights row */}
             {highlights.length > 0 && (
-              <div className="px-6 py-4 border-t border-[var(--border)]/50">
+              <div className="px-6 py-4 border-t border-(--border)/50">
                 <div className="flex gap-4 overflow-x-auto hide-scrollbar">
                   {highlights.map((highlight) => (
                     <button
@@ -186,16 +186,16 @@ export default function UserProfile({
                       onClick={() =>
                         setActiveHighlight(activeHighlight === highlight.id ? null : highlight.id)
                       }
-                      className="flex flex-col items-center gap-1.5 flex-shrink-0"
+                      className="flex flex-col items-center gap-1.5 shrink-0"
                     >
                       <div
                         className={`w-16 h-16 rounded-full overflow-hidden border-2 transition-colors ${
                           activeHighlight === highlight.id
-                            ? "border-[var(--accent)]"
-                            : "border-[var(--border)]"
+                            ? "border-(--accent)"
+                            : "border-(--border)"
                         }`}
                       >
-                        <div className="w-full h-full bg-[var(--bg-secondary)] flex items-center justify-center relative">
+                        <div className="w-full h-full bg-(--bg-secondary) flex items-center justify-center relative">
                           {highlight.products[0] ? (
                             <Image
                               src={highlight.products[0].primaryImage.url}
@@ -209,7 +209,7 @@ export default function UserProfile({
                           )}
                         </div>
                       </div>
-                      <span className="text-[10px] text-[var(--text-secondary)] font-medium">
+                      <span className="text-[10px] text-(--text-secondary) font-medium">
                         {highlight.label}
                       </span>
                     </button>
@@ -218,9 +218,9 @@ export default function UserProfile({
               </div>
             )}
 
-            {/* Products they've Gumied (purchased and posted) */}
+            {/* Products they've Gummied (purchased and posted) */}
             <div className="px-6 pb-8">
-              <h3 className="text-xs uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-3">
+              <h3 className="text-xs uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-3">
                 {activeHighlight
                   ? highlights.find((h) => h.id === activeHighlight)?.label
                   : `Products ${user.name.split(" ")[0]} bought`}
@@ -229,7 +229,7 @@ export default function UserProfile({
                 {displayProducts.map((product) => (
                   <div
                     key={product.id}
-                    className="relative aspect-square rounded-xl overflow-hidden bg-[var(--bg-secondary)] group cursor-pointer"
+                    className="relative aspect-square rounded-xl overflow-hidden bg-(--bg-secondary) group cursor-pointer"
                   >
                     <Image
                       src={product.primaryImage.url}
@@ -238,11 +238,11 @@ export default function UserProfile({
                       className="object-cover group-hover:scale-105 transition-transform"
                       sizes="120px"
                     />
-                    {/* Gumi badge overlay */}
+                    {/* Gummi badge overlay */}
                     <div className="absolute bottom-1 left-1 flex items-center gap-0.5 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                      <Image src="/gumi-icon.png" alt="" width={10} height={17} />
+                      <Image src="/gummi-icon.png" alt="" width={10} height={17} />
                       <span className="text-white text-[9px] font-medium">
-                        {formatCount(product.gumis)}
+                        {formatCount(product.gummis)}
                       </span>
                     </div>
                   </div>

@@ -1,5 +1,5 @@
 import { Product } from "@/types";
-import { getRandomGumiFriends } from "../mock-users";
+import { getRandomGummiFriends } from "../mock-users";
 
 export const PLANTS_PRODUCTS: Product[] = [
   {
@@ -36,9 +36,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The statement plant that transformed a million apartments. Bloomscape ships this fiddle leaf fig healthy and ready to thrive, so you skip the garden center gamble entirely.",
     aspectRatio: 0.72,
-    gumis: 62000,
+    gummis: 62000,
     shares: 7400,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-2",
@@ -70,9 +70,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The Swiss cheese plant that took over Instagram and never left. The Sill's monstera arrives with dramatic fenestrations and enough personality to anchor any room.",
     aspectRatio: 0.85,
-    gumis: 78500,
+    gummis: 78500,
     shares: 9800,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-3",
@@ -108,9 +108,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The plant even your most neglectful friend can keep alive. Golden pothos trails elegantly from shelves and hangers while quietly purifying your air.",
     aspectRatio: 1.15,
-    gumis: 34000,
+    gummis: 34000,
     shares: 4200,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-4",
@@ -142,9 +142,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The bedroom plant that works the night shift. Snake plants release oxygen while you sleep and demand almost nothing in return — water every few weeks and you're golden.",
     aspectRatio: 0.68,
-    gumis: 28500,
+    gummis: 28500,
     shares: 3600,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-5",
@@ -180,9 +180,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The effortless botanical that makes every shelf look curated. Terrain's dried eucalyptus holds its silvery color for months and fills the room with a subtle, spa-like fragrance.",
     aspectRatio: 1.0,
-    gumis: 18200,
+    gummis: 18200,
     shares: 2300,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-6",
@@ -214,9 +214,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The planter that makes you feel something. East Fork's stoneware vessels are hand-thrown by artisans in Asheville, each one carrying subtle variations that mass production could never replicate.",
     aspectRatio: 1.05,
-    gumis: 14800,
+    gummis: 14800,
     shares: 1800,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-7",
@@ -252,9 +252,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "For people who love plants but forget everything. JOMO's self-watering system uses a cotton wick to pull moisture from a hidden reservoir, keeping roots perfectly hydrated for weeks.",
     aspectRatio: 0.92,
-    gumis: 11600,
+    gummis: 11600,
     shares: 1450,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-8",
@@ -286,9 +286,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Turn one plant into many and watch it happen. Areaware's propagation station lets you root cuttings in glass tubes, turning the science of plant multiplication into living decor.",
     aspectRatio: 1.35,
-    gumis: 8900,
+    gummis: 8900,
     shares: 1100,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-9",
@@ -324,9 +324,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Grow your dinner's finishing touch on the windowsill. This all-in-one herb kit comes with heirloom seeds, organic soil, and a self-watering planter — no green thumb required.",
     aspectRatio: 1.45,
-    gumis: 7200,
+    gummis: 7200,
     shares: 900,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-10",
@@ -358,9 +358,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "A tiny desert ecosystem you build yourself. Plant Circle's terrarium kit includes everything from the hand-blown glass to the colored sand layers, making a meditative weekend project.",
     aspectRatio: 1.0,
-    gumis: 5800,
+    gummis: 5800,
     shares: 720,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-11",
@@ -397,9 +397,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "An ancient art form, simplified for modern beginners. This pre-trained juniper arrives with everything you need to start shaping your own miniature tree — patience sold separately.",
     aspectRatio: 0.88,
-    gumis: 4300,
+    gummis: 4300,
     shares: 540,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-12",
@@ -431,9 +431,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The fastest way to add dimension to a room without furniture. Terrain's hand-knotted macrame hanger turns any trailing plant into a floating sculptural moment.",
     aspectRatio: 0.65,
-    gumis: 21000,
+    gummis: 21000,
     shares: 2600,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-13",
@@ -469,9 +469,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "A plant care tool beautiful enough to leave on the shelf. Haws has been crafting brass misters in England since 1886, and this one produces the finest mist your ferns will ever feel.",
     aspectRatio: 0.78,
-    gumis: 19500,
+    gummis: 19500,
     shares: 2400,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-14",
@@ -504,9 +504,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Garden tools that feel like they belong in a gallery. Sophie Conran's set pairs FSC-certified beech handles with mirror-polished stainless steel — built to last decades of weekend potting sessions.",
     aspectRatio: 1.25,
-    gumis: 12400,
+    gummis: 12400,
     shares: 1550,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-15",
@@ -543,9 +543,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Everything you need to start a garden from scratch, minus the overwhelm. Biodegradable cells go straight into the ground when seedlings are ready, so there's zero plastic waste.",
     aspectRatio: 1.42,
-    gumis: 6700,
+    gummis: 6700,
     shares: 840,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-16",
@@ -581,9 +581,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "A living centerpiece that practically takes care of itself. Lively Root hand-selects each succulent for color and texture, creating an arrangement that looks professionally styled from day one.",
     aspectRatio: 1.2,
-    gumis: 31000,
+    gummis: 31000,
     shares: 3900,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-17",
@@ -615,9 +615,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The gift that outclasses every bouquet. Urban Stems' double-stem phalaenopsis arrives in a glazed ceramic pot, ready to bloom for months — far outlasting any cut flowers.",
     aspectRatio: 0.75,
-    gumis: 9600,
+    gummis: 9600,
     shares: 1200,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-18",
@@ -653,9 +653,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Plants that float in midair — almost. These brass geometric frames cradle living tillandsia that need nothing but a weekly mist, making them the lowest-maintenance decor you'll ever own.",
     aspectRatio: 1.0,
-    gumis: 4800,
+    gummis: 4800,
     shares: 600,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-19",
@@ -688,9 +688,9 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "The watering can your great-grandchildren will fight over. Haws has been hand-spinning copper in England for over a century, and each can develops a one-of-a-kind patina that only gets better with age.",
     aspectRatio: 1.1,
-    gumis: 16500,
+    gummis: 16500,
     shares: 2050,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
   {
     id: "plants-20",
@@ -727,8 +727,8 @@ export const PLANTS_PRODUCTS: Product[] = [
     description:
       "Elevate your favorite plant — literally. This walnut stand lifts floor plants to eye level with mid-century lines and brass details that nod to the furniture icons of the 1950s.",
     aspectRatio: 0.7,
-    gumis: 13800,
+    gummis: 13800,
     shares: 1720,
-    gumiedByFriends: getRandomGumiFriends(),
+    gummiedByFriends: getRandomGummiFriends(),
   },
 ];

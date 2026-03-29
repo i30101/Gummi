@@ -22,7 +22,7 @@ export default function ProfileSortFilter({
 }: ProfileSortFilterProps) {
   return (
     <div className="flex items-center justify-between px-4 py-3">
-      <span className="text-xs text-[var(--text-tertiary)] font-medium">
+      <span className="text-xs text-(--text-tertiary) font-medium">
         {productCount} {productCount === 1 ? "product" : "products"}
       </span>
       <div className="flex gap-1.5 overflow-x-auto hide-scrollbar">
@@ -30,10 +30,10 @@ export default function ProfileSortFilter({
           <button
             key={option.id}
             onClick={() => onSortChange(option.id)}
-            className={`px-3 py-1 rounded-full text-[11px] font-medium transition-colors flex-shrink-0 ${
+            className={`px-3 py-1 rounded-full text-[11px] font-medium transition-colors shrink-0 ${
               sortOption === option.id
-                ? "bg-[var(--text-primary)] text-white"
-                : "bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--border)]"
+                ? "bg-(--text-primary) text-white"
+                : "bg-(--bg-secondary) text-(--text-secondary) hover:bg-(--border)"
             }`}
           >
             {option.label}

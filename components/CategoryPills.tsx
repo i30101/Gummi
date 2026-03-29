@@ -27,10 +27,10 @@ export default function CategoryPills({
           <button
             key={category.id}
             onClick={() => onSelect(category.id)}
-            className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+            className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               isActive
-                ? "bg-[var(--text-primary)] text-white"
-                : "bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:bg-[var(--border)] hover:text-[var(--text-primary)]"
+                ? "bg-(--text-primary) text-white"
+                : "bg-(--bg-secondary) text-(--text-secondary) hover:bg-(--border) hover:text-(--text-primary)"
             }`}
           >
             {category.label}

@@ -9,7 +9,7 @@ import { formatCount } from "@/lib/utils";
 
 type ProfileWishlistProps = {
   onProductClick: (product: Product) => void;
-  onGumi?: (product: Product) => void;
+  onGummi?: (product: Product) => void;
 };
 
 // Deterministic "price change" indicator based on product ID
@@ -18,18 +18,18 @@ function getPriceIndicator(productId: string): "dropped" | "none" {
   return hash % 3 === 0 ? "dropped" : "none";
 }
 
-export default function ProfileWishlist({ onProductClick, onGumi }: ProfileWishlistProps) {
+export default function ProfileWishlist({ onProductClick, onGummi }: ProfileWishlistProps) {
   const wishlist = useMemo(() => getMyWishlist(), []);
 
   if (wishlist.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-6">
-        <div className="w-16 h-16 rounded-full bg-[var(--bg-secondary)] flex items-center justify-center mb-4">
+        <div className="w-16 h-16 rounded-full bg-(--bg-secondary) flex items-center justify-center mb-4">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-tertiary)" strokeWidth="1.5">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
         </div>
-        <p className="text-sm text-[var(--text-tertiary)] text-center">
+        <p className="text-sm text-(--text-tertiary) text-center">
           Add items to your wishlist to track them
         </p>
       </div>
@@ -39,7 +39,7 @@ export default function ProfileWishlist({ onProductClick, onGumi }: ProfileWishl
   return (
     <div>
       <div className="px-4 py-3">
-        <span className="text-xs text-[var(--text-tertiary)] font-medium">
+        <span className="text-xs text-(--text-tertiary) font-medium">
           {wishlist.length} {wishlist.length === 1 ? "item" : "items"}
         </span>
       </div>
@@ -53,7 +53,7 @@ export default function ProfileWishlist({ onProductClick, onGumi }: ProfileWishl
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: (index % 12) * 0.03 }}
               onClick={() => onProductClick(product)}
-              className="relative aspect-square rounded-xl overflow-hidden bg-[var(--bg-secondary)] group cursor-pointer"
+              className="relative aspect-square rounded-xl overflow-hidden bg-(--bg-secondary) group cursor-pointer"
             >
               <Image
                 src={product.primaryImage.url}
@@ -81,25 +81,25 @@ export default function ProfileWishlist({ onProductClick, onGumi }: ProfileWishl
                 </svg>
               </div>
 
-              {/* Bottom gumi badge */}
+              {/* Bottom gummi badge */}
               <div className="absolute bottom-1.5 left-1.5 flex items-center gap-0.5 bg-black/50 backdrop-blur-sm rounded-full px-1.5 py-0.5">
-                <Image src="/gumi-icon.png" alt="" width={10} height={17} />
+                <Image src="/gummi-icon.png" alt="" width={10} height={17} />
                 <span className="text-white text-[9px] font-medium">
-                  {formatCount(product.gumis)}
+                  {formatCount(product.gummis)}
                 </span>
               </div>
 
               {/* "I bought this" button — visible on hover */}
-              {onGumi && (
+              {onGummi && (
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    onGumi(product);
+                    onGummi(product);
                   }}
-                  className="absolute bottom-1.5 right-1.5 flex items-center gap-1 bg-[var(--accent)]/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[var(--accent)]"
+                  className="absolute bottom-1.5 right-1.5 flex items-center gap-1 bg-(--accent)/90 backdrop-blur-sm rounded-full px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-(--accent)"
                   aria-label="I bought this"
                 >
-                  <Image src="/gumi-icon.png" alt="" width={10} height={17} />
+                  <Image src="/gummi-icon.png" alt="" width={10} height={17} />
                   <span className="text-white text-[8px] font-bold">Bought</span>
                 </button>
               )}

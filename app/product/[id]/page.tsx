@@ -14,14 +14,14 @@ import ImageGallery from "@/components/ImageGallery";
 import ProductCard from "@/components/ProductCard";
 import SkeletonCard from "@/components/SkeletonCard";
 import UserProfile from "@/components/UserProfile";
-import GumiToast from "@/components/GumiToast";
+import GummiToast from "@/components/GummiToast";
 
 export default function ProductPage() {
   const params = useParams();
   const router = useRouter();
   const productId = params.id as string;
 
-  const [isGumied, setIsGumied] = useState(false);
+  const [isGummied, setIsGummied] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const [selectedUser, setSelectedUser] = useState<MockUser | null>(null);
@@ -59,19 +59,19 @@ export default function ProductPage() {
       : [product.primaryImage]
     : [];
 
-  const gumiFriends = product
-    ? (product.gumiedByFriends || []).map((id) => getUserById(id)).filter(Boolean)
+  const gummiFriends = product
+    ? (product.gummiedByFriends || []).map((id) => getUserById(id)).filter(Boolean)
     : [];
 
-  const handleGumi = useCallback(() => {
-    if (!isGumied && product) {
-      setIsGumied(true);
+  const handleGummi = useCallback(() => {
+    if (!isGummied && product) {
+      setIsGummied(true);
       setToastVisible(true);
       setTimeout(() => setToastVisible(false), 2500);
     } else {
-      setIsGumied(false);
+      setIsGummied(false);
     }
-  }, [isGumied, product]);
+  }, [isGummied, product]);
 
   const handleRelatedProductClick = useCallback(
     (p: Product) => {
@@ -82,20 +82,20 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center">
-        <p className="text-[var(--text-tertiary)]">Product not found</p>
+      <div className="min-h-screen bg-(--bg-primary) flex items-center justify-center">
+        <p className="text-(--text-tertiary)">Product not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)]">
+    <div className="min-h-screen bg-(--bg-primary)">
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-[var(--bg-primary)]/80 backdrop-blur-lg border-b border-[var(--border)]/50">
+      <div className="sticky top-0 z-40 bg-(--bg-primary)/80 backdrop-blur-lg border-b border-(--border)/50">
         <div className="flex items-center gap-4 px-4 md:px-6 lg:px-8 py-3">
           <button
             onClick={() => router.back()}
-            className="w-10 h-10 rounded-full hover:bg-[var(--bg-secondary)] flex items-center justify-center transition-colors"
+            className="w-10 h-10 rounded-full hover:bg-(--bg-secondary) flex items-center justify-center transition-colors"
             aria-label="Go back"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" strokeWidth="2" strokeLinecap="round">
@@ -106,12 +106,12 @@ export default function ProductPage() {
             className="flex items-center gap-2 cursor-pointer"
             onClick={() => router.push("/")}
           >
-            <Image src="/gumi-icon.png" alt="Gumi" width={24} height={41} className="drop-shadow-sm" />
+            <Image src="/gummi-icon.png" alt="Gummi" width={24} height={41} className="drop-shadow-sm" />
             <span
-              className="text-2xl tracking-tight text-[var(--text-primary)]"
+              className="text-2xl tracking-tight text-(--text-primary)"
               style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 700 }}
             >
-              Gumi
+              Gummi
             </span>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function ProductPage() {
       <div className="max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8 py-6">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left column: Product detail (sticky on desktop) */}
-          <div className="lg:w-[420px] xl:w-[480px] flex-shrink-0">
+          <div className="lg:w-[420px] xl:w-[480px] shrink-0">
             <div className="lg:sticky lg:top-24">
               {/* Image gallery */}
               <div className="mb-5">
@@ -129,13 +129,13 @@ export default function ProductPage() {
               </div>
 
               {/* Brand */}
-              <p className="text-[11px] uppercase tracking-[0.15em] text-[var(--text-tertiary)] font-medium mb-1">
+              <p className="text-[11px] uppercase tracking-[0.15em] text-(--text-tertiary) font-medium mb-1">
                 {product.brand}
               </p>
 
               {/* Title */}
               <h1
-                className="text-2xl md:text-3xl text-[var(--text-primary)] mb-3 leading-tight"
+                className="text-2xl md:text-3xl text-(--text-primary) mb-3 leading-tight"
                 style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
               >
                 {product.title}
@@ -143,7 +143,7 @@ export default function ProductPage() {
 
               {/* Price & Rating */}
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-xl font-semibold text-[var(--text-primary)]">
+                <span className="text-xl font-semibold text-(--text-primary)">
                   {formatPriceRange(product.price.min, product.price.max)}
                 </span>
                 {product.rating && (
@@ -163,44 +163,44 @@ export default function ProductPage() {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-sm text-[var(--text-tertiary)]">
+                    <span className="text-sm text-(--text-tertiary)">
                       {formatRating(product.rating.average)} ({formatCount(product.rating.count)})
                     </span>
                   </div>
                 )}
               </div>
 
-              {/* Gumi count */}
-              <div className="flex items-center gap-3 mb-5 pb-5 border-b border-[var(--border)]">
-                <div className="flex items-center gap-2 bg-[var(--accent)]/5 rounded-full px-4 py-2">
-                  <Image src="/gumi-icon.png" alt="Gumi" width={20} height={34} />
-                  <span className="text-base font-semibold text-[var(--accent)]">
-                    {formatCount(product.gumis)}
+              {/* Gummi count */}
+              <div className="flex items-center gap-3 mb-5 pb-5 border-b border-(--border)">
+                <div className="flex items-center gap-2 bg-(--accent)/5 rounded-full px-4 py-2">
+                  <Image src="/gummi-icon.png" alt="Gummi" width={20} height={34} />
+                  <span className="text-base font-semibold text-(--accent)">
+                    {formatCount(product.gummis)}
                   </span>
-                  <span className="text-sm text-[var(--accent)]/70">people bought this</span>
+                  <span className="text-sm text-(--accent)/70">people bought this</span>
                 </div>
               </div>
 
               {/* Friends who bought */}
-              {gumiFriends.length > 0 && (
+              {gummiFriends.length > 0 && (
                 <div className="mb-5">
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-2">
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-2">
                     Friends who bought this
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="flex -space-x-2">
-                      {gumiFriends.map((friend) => (
+                      {gummiFriends.map((friend) => (
                         <button
                           key={friend!.id}
                           onClick={() => setSelectedUser(friend!)}
-                          className="w-8 h-8 rounded-full overflow-hidden border-2 border-[var(--card-bg)] relative hover:scale-110 transition-transform hover:z-10"
+                          className="w-8 h-8 rounded-full overflow-hidden border-2 border-(--card-bg) relative hover:scale-110 transition-transform hover:z-10"
                         >
                           <Image src={friend!.avatar} alt={friend!.name} fill className="object-cover" sizes="32px" />
                         </button>
                       ))}
                     </div>
-                    <span className="text-sm text-[var(--text-secondary)]">
-                      {gumiFriends.map((f) => f!.name.split(" ")[0]).join(", ")}
+                    <span className="text-sm text-(--text-secondary)">
+                      {gummiFriends.map((f) => f!.name.split(" ")[0]).join(", ")}
                     </span>
                   </div>
                 </div>
@@ -209,14 +209,14 @@ export default function ProductPage() {
               {/* Features */}
               {product.topFeatures.length > 0 && (
                 <div className="mb-5">
-                  <p className="text-[10px] uppercase tracking-[0.1em] text-[var(--text-tertiary)] font-medium mb-2">
+                  <p className="text-[10px] uppercase tracking-[0.1em] text-(--text-tertiary) font-medium mb-2">
                     Key Features
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {product.topFeatures.map((feature, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 bg-[var(--bg-secondary)] rounded-full text-xs text-[var(--text-secondary)]"
+                        className="px-3 py-1.5 bg-(--bg-secondary) rounded-full text-xs text-(--text-secondary)"
                       >
                         {feature}
                       </span>
@@ -227,7 +227,7 @@ export default function ProductPage() {
 
               {/* Description */}
               {product.description && (
-                <p className="text-sm leading-relaxed text-[var(--text-secondary)] mb-6">
+                <p className="text-sm leading-relaxed text-(--text-secondary) mb-6">
                   {product.description}
                 </p>
               )}
@@ -235,26 +235,26 @@ export default function ProductPage() {
               {/* Action buttons */}
               <div className="flex items-center gap-2 mb-8">
                 <button
-                  onClick={handleGumi}
+                  onClick={handleGummi}
                   className={`flex items-center gap-2 px-4 py-3 rounded-full border text-sm font-medium transition-all ${
-                    isGumied
-                      ? "bg-[var(--accent)]/10 border-[var(--accent)] text-[var(--accent)]"
-                      : "border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    isGummied
+                      ? "bg-(--accent)/10 border-(--accent) text-(--accent)"
+                      : "border-(--border) text-(--text-secondary) hover:border-(--accent) hover:text-(--accent)"
                   }`}
                 >
                   <motion.div
-                    animate={isGumied ? { scale: [1, 1.3, 1] } : { scale: 1 }}
+                    animate={isGummied ? { scale: [1, 1.3, 1] } : { scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
                     <Image
-                      src="/gumi-icon.png"
-                      alt="Gumi"
+                      src="/gummi-icon.png"
+                      alt="Gummi"
                       width={18}
                       height={31}
-                      className={isGumied ? "" : "grayscale opacity-50"}
+                      className={isGummied ? "" : "grayscale opacity-50"}
                     />
                   </motion.div>
-                  {isGumied ? "Purchased!" : "I Bought This"}
+                  {isGummied ? "Purchased!" : "I Bought This"}
                 </button>
 
                 <button
@@ -263,7 +263,7 @@ export default function ProductPage() {
                       navigator.share({ title: product.title, url: product.buyUrl });
                     }
                   }}
-                  className="w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full border border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--text-tertiary)] transition-colors"
+                  className="w-11 h-11 shrink-0 flex items-center justify-center rounded-full border border-(--border) text-(--text-secondary) hover:border-(--text-tertiary) transition-colors"
                   aria-label="Share"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -275,10 +275,10 @@ export default function ProductPage() {
 
                 <button
                   onClick={() => setIsSaved(!isSaved)}
-                  className={`w-11 h-11 flex-shrink-0 flex items-center justify-center rounded-full border transition-all ${
+                  className={`w-11 h-11 shrink-0 flex items-center justify-center rounded-full border transition-all ${
                     isSaved
-                      ? "bg-[var(--text-primary)] border-[var(--text-primary)]"
-                      : "border-[var(--border)] hover:border-[var(--text-tertiary)]"
+                      ? "bg-(--text-primary) border-(--text-primary)"
+                      : "border-(--border) hover:border-(--text-tertiary)"
                   }`}
                   aria-label={isSaved ? "Remove from wishlist" : "Add to wishlist"}
                 >
@@ -296,7 +296,7 @@ export default function ProductPage() {
                   href={product.buyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white rounded-full text-sm font-semibold transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-(--accent) hover:bg-(--accent-hover) text-white rounded-full text-sm font-semibold transition-colors"
                 >
                   Shop Now
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -311,7 +311,7 @@ export default function ProductPage() {
 
           {/* Right column: Similar products masonry grid with infinite queue */}
           <div className="flex-1 min-w-0">
-            <p className="text-[10px] uppercase tracking-[0.15em] text-[var(--text-tertiary)] font-medium mb-4">
+            <p className="text-[10px] uppercase tracking-[0.15em] text-(--text-tertiary) font-medium mb-4">
               More like this
             </p>
             <div className="masonry" style={{ columns: 3 }}>
@@ -340,8 +340,8 @@ export default function ProductPage() {
       {/* User Profile Panel */}
       <UserProfile user={selectedUser} onClose={() => setSelectedUser(null)} />
 
-      {/* Gumi toast */}
-      <GumiToast visible={toastVisible} productTitle={product.title} />
+      {/* Gummi toast */}
+      <GummiToast visible={toastVisible} productTitle={product.title} />
     </div>
   );
 }

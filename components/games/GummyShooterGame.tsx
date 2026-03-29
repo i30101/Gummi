@@ -39,20 +39,20 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
     mouseX: 0, mouseY: 0,
     muzzleFlash: 0, shakeTimer: 0,
     state: "menu" as GameState,
-    gumiImg: null as HTMLImageElement | null,
+    gummiImg: null as HTMLImageElement | null,
     animFrame: 0,
     stars: [] as { x: number; y: number; s: number; b: number }[],
   });
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/gumi-icon.png";
-    img.onload = () => { g.current.gumiImg = img; };
+    img.src = "/gummi-icon.png";
+    img.onload = () => { g.current.gummiImg = img; };
     // Generate stars
     g.current.stars = Array.from({ length: 60 }, () => ({
       x: Math.random(), y: Math.random() * 0.55, s: 0.5 + Math.random() * 1.5, b: 0.3 + Math.random() * 0.7,
     }));
-    const saved = localStorage.getItem("gumi-shooter-high");
+    const saved = localStorage.getItem("gummi-shooter-high");
     if (saved) setHighScore(parseInt(saved));
   }, []);
 
@@ -73,7 +73,7 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
     setGameState("gameover");
     if (r.score > highScore) {
       setHighScore(r.score);
-      localStorage.setItem("gumi-shooter-high", String(r.score));
+      localStorage.setItem("gummi-shooter-high", String(r.score));
     }
   }, [highScore]);
 
@@ -235,8 +235,8 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
           ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(ex, ey, es, 0, Math.PI * 2); ctx.fill();
         }
         // Enemy image
-        if (r.gumiImg) {
-          ctx.drawImage(r.gumiImg, ex - es / 2, ey - es / 2, es, es);
+        if (r.gummiImg) {
+          ctx.drawImage(r.gummiImg, ex - es / 2, ey - es / 2, es, es);
         } else {
           ctx.fillStyle = "#ff6b9d";
           ctx.beginPath(); ctx.arc(ex, ey, es / 2, 0, Math.PI * 2); ctx.fill();
@@ -296,8 +296,8 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
         </button>
         <div className="flex items-center gap-2">
           {/* GUMI_ICON_PLACEHOLDER */}
-          <Image src="/gumi-icon.png" alt="Gumi" width={24} height={24} />
-          <span className="text-lg font-bold text-[var(--text-primary)]" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gummy Blaster</span>
+          <Image src="/gummi-icon.png" alt="Gummi" width={24} height={24} />
+          <span className="text-lg font-bold text-(--text-primary)" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gummy Blaster</span>
         </div>
         <div className="w-10" />
       </div>
@@ -342,11 +342,11 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-xl">
             <div className="text-center">
               {/* GUMI_ICON_PLACEHOLDER */}
-              <Image src="/gumi-icon.png" alt="Gumi" width={80} height={80} className="mx-auto mb-4 animate-bounce" />
+              <Image src="/gummi-icon.png" alt="Gummi" width={80} height={80} className="mx-auto mb-4 animate-bounce" />
               <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Gummy Blaster</h2>
               <p className="text-white/60 text-sm mb-6">Defend against the gummy invasion!</p>
               {highScore > 0 && <p className="text-amber-400 text-sm mb-4">High Score: {highScore}</p>}
-              <button onClick={startGame} className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-lg hover:scale-105 transition-transform shadow-lg">
+              <button onClick={startGame} className="px-8 py-3 rounded-full bg-linear-to-r from-pink-500 to-purple-600 text-white font-bold text-lg hover:scale-105 transition-transform shadow-lg">
                 Start Game
               </button>
             </div>
@@ -358,12 +358,12 @@ export default function GummyShooterGame({ onBack }: { onBack: () => void }) {
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-xl">
             <div className="text-center">
               {/* GUMI_ICON_PLACEHOLDER */}
-              <Image src="/gumi-icon.png" alt="Gumi" width={64} height={64} className="mx-auto mb-4 grayscale" />
+              <Image src="/gummi-icon.png" alt="Gummi" width={64} height={64} className="mx-auto mb-4 grayscale" />
               <h2 className="text-3xl font-bold text-white mb-2" style={{ fontFamily: "var(--font-cormorant), serif" }}>Game Over</h2>
               <p className="text-white/80 text-lg mb-1">Score: <span className="font-bold text-amber-400">{score}</span></p>
               <p className="text-white/60 text-sm mb-1">Wave Reached: {wave}</p>
               {score >= highScore && score > 0 && <p className="text-amber-400 text-sm font-bold mb-4">New High Score!</p>}
-              <button onClick={startGame} className="mt-4 px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform shadow-lg">
+              <button onClick={startGame} className="mt-4 px-8 py-3 rounded-full bg-linear-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform shadow-lg">
                 Play Again
               </button>
             </div>

@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { CurrentUserProfile } from "@/types";
 import { formatCount } from "@/lib/utils";
-import GumiBear from "../GumiBear/GumiBear";
-import { useGumiBear } from "@/lib/gumi-bear-context";
+import GummiBear from "../GummiBear/GummiBear";
+import { useGummiBear } from "@/lib/gummi-bear-context";
 
 type ProfileHeaderProps = {
   profile: CurrentUserProfile;
@@ -23,19 +23,19 @@ export default function ProfileHeader({
   onFollowingClick,
   onCustomizeClick,
 }: ProfileHeaderProps) {
-  const { state } = useGumiBear();
+  const { state } = useGummiBear();
 
   return (
     <div className="flex flex-col items-center pt-14 pb-6 px-6">
-      {/* Gumi Bear avatar */}
+      {/* Gummi Bear avatar */}
       <div className="relative w-24 h-24 mb-4">
-        <div className="w-full h-full rounded-full overflow-hidden bg-[var(--bg-secondary)] flex items-center justify-center">
-          <GumiBear config={state.config} size={80} />
+        <div className="w-full h-full rounded-full overflow-hidden bg-(--bg-secondary) flex items-center justify-center">
+          <GummiBear config={state.config} size={80} />
         </div>
         {/* Customize button */}
         <button
           onClick={onCustomizeClick}
-          className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-[var(--accent)] flex items-center justify-center shadow-md border-2 border-[var(--card-bg)]"
+          className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-(--accent) flex items-center justify-center shadow-md border-2 border-(--card-bg)"
           aria-label="Customize bear"
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -46,13 +46,13 @@ export default function ProfileHeader({
 
       {/* Name */}
       <h2
-        className="text-2xl text-[var(--text-primary)] mb-0.5"
+        className="text-2xl text-(--text-primary) mb-0.5"
         style={{ fontFamily: "var(--font-cormorant), serif", fontWeight: 600 }}
       >
         {profile.name}
       </h2>
-      <p className="text-sm text-[var(--text-tertiary)] mb-2">@{profile.username}</p>
-      <p className="text-sm text-[var(--text-secondary)] text-center max-w-xs mb-6">
+      <p className="text-sm text-(--text-tertiary) mb-2">@{profile.username}</p>
+      <p className="text-sm text-(--text-secondary) text-center max-w-xs mb-6">
         {profile.bio}
       </p>
 
@@ -60,24 +60,24 @@ export default function ProfileHeader({
       <div className="flex gap-8 mb-6">
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-1.5">
-            <Image src="/gumi-icon.png" alt="" width={18} height={31} />
-            <span className="text-xl font-bold text-[var(--accent)]">
-              {formatCount(profile.gumiCount)}
+            <Image src="/gummi-icon.png" alt="" width={18} height={31} />
+            <span className="text-xl font-bold text-(--accent)">
+              {formatCount(profile.gummiCount)}
             </span>
           </div>
-          <span className="text-xs text-[var(--text-tertiary)]">Gumis</span>
+          <span className="text-xs text-(--text-tertiary)">Gummis</span>
         </div>
         <button onClick={onFollowersClick} className="flex flex-col items-center hover:opacity-70 transition-opacity">
-          <span className="text-lg font-semibold text-[var(--text-primary)]">
+          <span className="text-lg font-semibold text-(--text-primary)">
             {formatCount(profile.followers)}
           </span>
-          <span className="text-xs text-[var(--text-tertiary)]">Followers</span>
+          <span className="text-xs text-(--text-tertiary)">Followers</span>
         </button>
         <button onClick={onFollowingClick} className="flex flex-col items-center hover:opacity-70 transition-opacity">
-          <span className="text-lg font-semibold text-[var(--text-primary)]">
+          <span className="text-lg font-semibold text-(--text-primary)">
             {formatCount(profile.following)}
           </span>
-          <span className="text-xs text-[var(--text-tertiary)]">Following</span>
+          <span className="text-xs text-(--text-tertiary)">Following</span>
         </button>
       </div>
 
@@ -85,13 +85,13 @@ export default function ProfileHeader({
       <div className="flex gap-3 w-full max-w-xs">
         <button
           onClick={onEditClick}
-          className="flex-1 py-2.5 border border-[var(--border)] text-[var(--text-primary)] rounded-full text-sm font-semibold hover:border-[var(--text-tertiary)] transition-colors"
+          className="flex-1 py-2.5 border border-(--border) text-(--text-primary) rounded-full text-sm font-semibold hover:border-(--text-tertiary) transition-colors"
         >
           Edit Profile
         </button>
         <button
           onClick={onSettingsClick}
-          className="w-10 h-10 rounded-full border border-[var(--border)] flex items-center justify-center hover:border-[var(--text-tertiary)] transition-colors flex-shrink-0"
+          className="w-10 h-10 rounded-full border border-(--border) flex items-center justify-center hover:border-(--text-tertiary) transition-colors shrink-0"
           aria-label="Settings"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

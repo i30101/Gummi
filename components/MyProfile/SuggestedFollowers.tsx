@@ -5,19 +5,19 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { MockUser } from "@/types";
 import { MOCK_USERS } from "@/lib/mock-users";
-import { getUserGumis } from "@/lib/user-products";
+import { getUserGummis } from "@/lib/user-products";
 
 type SuggestedFollowersProps = {
   onUserClick: (user: MockUser) => void;
 };
 
 function useSuggestions() {
-  const myGumis = getUserGumis("user-me");
-  const myIds = new Set(myGumis.map((p) => p.id));
+  const myGummis = getUserGummis("user-me");
+  const myIds = new Set(myGummis.map((p) => p.id));
 
   return MOCK_USERS.map((user) => ({
     user,
-    overlap: getUserGumis(user.id).filter((p) => myIds.has(p.id)).length,
+    overlap: getUserGummis(user.id).filter((p) => myIds.has(p.id)).length,
   }))
     .sort((a, b) => b.overlap - a.overlap)
     .slice(0, 6);
@@ -36,13 +36,13 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
   };
 
   return (
-    <section className="px-6 py-4 border-b border-[var(--border)]">
+    <section className="px-6 py-4 border-b border-(--border)">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-[var(--text-tertiary)] font-medium">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-(--text-tertiary) font-medium">
           Suggested for you
         </span>
-        <button className="text-xs text-[var(--accent)] hover:opacity-70 transition-opacity">
+        <button className="text-xs text-(--accent) hover:opacity-70 transition-opacity">
           See all
         </button>
       </div>
@@ -66,7 +66,7 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: idx * 0.05 }}
-              className="w-[160px] shrink-0 bg-[var(--card-bg)] rounded-xl border border-[var(--border)] p-4 flex flex-col items-center gap-1.5"
+              className="w-[160px] shrink-0 bg-(--card-bg) rounded-xl border border-(--border) p-4 flex flex-col items-center gap-1.5"
             >
               {/* Avatar */}
               <button
@@ -85,13 +85,13 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
               {/* Name */}
               <button
                 onClick={() => onUserClick(user)}
-                className="text-sm font-semibold text-[var(--text-primary)] text-center leading-tight hover:opacity-70 transition-opacity"
+                className="text-sm font-semibold text-(--text-primary) text-center leading-tight hover:opacity-70 transition-opacity"
               >
                 {user.name}
               </button>
 
               {/* Username */}
-              <p className="text-xs text-[var(--text-tertiary)]">@{user.username}</p>
+              <p className="text-xs text-(--text-tertiary)">@{user.username}</p>
 
               {/* Mutual friends */}
               {mutuals.length > 0 && (
@@ -100,7 +100,7 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
                     {mutuals.map((m) => (
                       <div
                         key={m.id}
-                        className="relative w-4 h-4 rounded-full overflow-hidden border border-[var(--card-bg)]"
+                        className="relative w-4 h-4 rounded-full overflow-hidden border border-(--card-bg)"
                       >
                         <Image
                           src={m.avatar}
@@ -112,7 +112,7 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
                       </div>
                     ))}
                   </div>
-                  <p className="text-[10px] text-[var(--text-tertiary)] leading-tight">
+                  <p className="text-[10px] text-(--text-tertiary) leading-tight">
                     {mutuals[0].name.split(" ")[0]}
                     {mutuals[1] ? `, ${mutuals[1].name.split(" ")[0]}` : ""}
                   </p>
@@ -121,9 +121,9 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
 
               {/* Similarity line */}
               <div className="flex items-center gap-1 mt-0.5">
-                <Image src="/gumi-icon.png" alt="" width={10} height={17} />
-                <span className="text-[11px] text-[var(--accent)]">
-                  {overlap} similar Gumis
+                <Image src="/gummi-icon.png" alt="" width={10} height={17} />
+                <span className="text-[11px] text-(--accent)">
+                  {overlap} similar Gummis
                 </span>
               </div>
 
@@ -132,8 +132,8 @@ export default function SuggestedFollowers({ onUserClick }: SuggestedFollowersPr
                 onClick={() => toggle(user.id)}
                 className={`mt-auto w-full py-2 rounded-full text-xs font-semibold transition-colors ${
                   isFollowed
-                    ? "border border-[var(--border)] text-[var(--text-secondary)]"
-                    : "bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]"
+                    ? "border border-(--border) text-(--text-secondary)"
+                    : "bg-(--accent) text-white hover:bg-(--accent-hover)"
                 }`}
               >
                 {isFollowed ? "Following" : "Follow"}

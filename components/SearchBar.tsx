@@ -28,8 +28,8 @@ export default function SearchBar({ value, onChange, onSubmit }: SearchBarProps)
       <div
         className={`flex items-center gap-2 px-4 py-2.5 rounded-full border transition-all duration-200 ${
           isFocused
-            ? "border-[var(--text-tertiary)] bg-white shadow-sm w-full"
-            : "border-[var(--border)] bg-[var(--bg-secondary)] w-full"
+            ? "border-(--text-tertiary) bg-white shadow-sm w-full"
+            : "border-(--border) bg-(--bg-secondary) w-full"
         }`}
       >
         <svg
@@ -40,7 +40,7 @@ export default function SearchBar({ value, onChange, onSubmit }: SearchBarProps)
           stroke="var(--text-tertiary)"
           strokeWidth="2"
           strokeLinecap="round"
-          className="flex-shrink-0"
+          className="shrink-0"
         >
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -53,13 +53,13 @@ export default function SearchBar({ value, onChange, onSubmit }: SearchBarProps)
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder="Search products..."
-          className="flex-1 bg-transparent outline-none text-sm text-[var(--text-primary)] placeholder:text-[var(--text-tertiary)]"
+          className="flex-1 bg-transparent outline-none text-sm text-(--text-primary) placeholder:text-(--text-tertiary)"
         />
         {value && (
           <button
             type="button"
             onClick={handleClear}
-            className="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--text-tertiary)]/20 flex items-center justify-center hover:bg-[var(--text-tertiary)]/30 transition-colors"
+            className="shrink-0 w-5 h-5 rounded-full bg-(--text-tertiary)/20 flex items-center justify-center hover:bg-(--text-tertiary)/30 transition-colors"
           >
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="3">
               <line x1="18" y1="6" x2="6" y2="18" />

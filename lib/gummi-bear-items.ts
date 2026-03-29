@@ -1,6 +1,6 @@
-import { GumiBearItem } from "@/types/gumi-bear";
+import { GummiBearItem } from "@/types/gummi-bear";
 
-export const GUMI_BEAR_ITEMS: GumiBearItem[] = [
+export const GUMI_BEAR_ITEMS: GummiBearItem[] = [
   // ─── COLORS (hue shift degrees) ───────────────────────
   { id: "color-default", name: "Cherry", category: "color", price: 0, rarity: "common", hue: 0, isDefault: true },
   { id: "color-coral", name: "Coral Sunset", category: "color", price: 0, rarity: "common", hue: 15, isDefault: true },
@@ -44,10 +44,10 @@ export const GUMI_BEAR_ITEMS: GumiBearItem[] = [
   { id: "hat-halo", name: "Halo", category: "headwear", price: 50, rarity: "legendary" },
 ];
 
-export function getItemsByCategory(category: GumiBearItem["category"]): GumiBearItem[] {
+export function getItemsByCategory(category: GummiBearItem["category"]): GummiBearItem[] {
   return GUMI_BEAR_ITEMS.filter((item) => item.category === category);
 }
 
-export function getItemById(id: string): GumiBearItem | undefined {
+export function getItemById(id: string): GummiBearItem | undefined {
   return GUMI_BEAR_ITEMS.find((item) => item.id === id);
 }

@@ -7,12 +7,12 @@ export const MOCK_USERS: MockUser[] = [
     username: "sophiac",
     avatar: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200&q=80",
     bio: "Fashion enthusiast. Coffee addict. Finding beauty in everyday things.",
-    gumiCount: 342,
+    gummiCount: 342,
     followers: 12400,
     following: 891,
     hasStory: true,
-    gumiHue: 270, // lavender
-    gumiOutfit: { headwear: "hat-flower" },
+    gummiHue: 270, // lavender
+    gummiOutfit: { headwear: "hat-flower" },
   },
   {
     id: "user-2",
@@ -20,11 +20,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "liampark",
     avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=200&q=80",
     bio: "Interior design nerd. Minimalist with maximalist taste.",
-    gumiCount: 218,
+    gummiCount: 218,
     followers: 8900,
     following: 445,
     hasStory: true,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
   {
     id: "user-3",
@@ -32,11 +32,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "oliviarose",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80",
     bio: "Skincare obsessed. Plant mom. Eternally browsing home decor.",
-    gumiCount: 567,
+    gummiCount: 567,
     followers: 23100,
     following: 632,
     hasStory: true,
-    gumiHue: 140, // emerald
+    gummiHue: 140, // emerald
   },
   {
     id: "user-4",
@@ -44,11 +44,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "noahkim",
     avatar: "https://images.unsplash.com/photo-1618077360395-f3068be8e001?w=200&q=80",
     bio: "Tech + design. Building things that look good and work well.",
-    gumiCount: 156,
+    gummiCount: 156,
     followers: 5600,
     following: 312,
     hasStory: false,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
   {
     id: "user-5",
@@ -56,12 +56,12 @@ export const MOCK_USERS: MockUser[] = [
     username: "emmaliu",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&q=80",
     bio: "Art director by day, pottery hobbyist by night.",
-    gumiCount: 423,
+    gummiCount: 423,
     followers: 15800,
     following: 528,
     hasStory: true,
-    gumiHue: 50, // golden honey
-    gumiOutfit: { accessory: "acc-glasses" },
+    gummiHue: 50, // golden honey
+    gummiOutfit: { accessory: "acc-glasses" },
   },
   {
     id: "user-6",
@@ -69,11 +69,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "avamtz",
     avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80",
     bio: "Sustainable fashion advocate. Thrift queen.",
-    gumiCount: 289,
+    gummiCount: 289,
     followers: 11200,
     following: 401,
     hasStory: true,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
   {
     id: "user-7",
@@ -81,11 +81,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "jamesw",
     avatar: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=200&q=80",
     bio: "Outdoor gear reviewer. Weekend warrior. Coffee snob.",
-    gumiCount: 198,
+    gummiCount: 198,
     followers: 7300,
     following: 267,
     hasStory: false,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
   {
     id: "user-8",
@@ -93,12 +93,12 @@ export const MOCK_USERS: MockUser[] = [
     username: "isabellat",
     avatar: "https://images.unsplash.com/photo-1596215143922-eedeaba0d91c?w=200&q=80",
     bio: "Beauty editor. Testing products so you don't have to.",
-    gumiCount: 612,
+    gummiCount: 612,
     followers: 34500,
     following: 789,
     hasStory: true,
-    gumiHue: 290, // purple haze
-    gumiOutfit: { headwear: "hat-crown" },
+    gummiHue: 290, // purple haze
+    gummiOutfit: { headwear: "hat-crown" },
   },
   {
     id: "user-9",
@@ -106,11 +106,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "lucasa",
     avatar: "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=200&q=80",
     bio: "Scandinavian design lover. Less is more.",
-    gumiCount: 134,
+    gummiCount: 134,
     followers: 4200,
     following: 198,
     hasStory: false,
-    gumiHue: 200, // ocean
+    gummiHue: 200, // ocean
   },
   {
     id: "user-10",
@@ -118,11 +118,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "charlotteng",
     avatar: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&q=80",
     bio: "Foodie. Kitchen gadget hoarder. Recipe developer.",
-    gumiCount: 345,
+    gummiCount: 345,
     followers: 19800,
     following: 567,
     hasStory: true,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
   {
     id: "user-11",
@@ -130,12 +130,12 @@ export const MOCK_USERS: MockUser[] = [
     username: "ethanb",
     avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&q=80",
     bio: "Sneakerhead turned fashion enthusiast.",
-    gumiCount: 267,
+    gummiCount: 267,
     followers: 9100,
     following: 345,
     hasStory: true,
-    gumiHue: 160, // mint
-    gumiOutfit: { clothing: "clothing-hoodie" },
+    gummiHue: 160, // mint
+    gummiOutfit: { clothing: "clothing-hoodie" },
   },
   {
     id: "user-12",
@@ -143,11 +143,11 @@ export const MOCK_USERS: MockUser[] = [
     username: "miaj",
     avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80",
     bio: "Wellness coach. Yoga + skincare + good vibes.",
-    gumiCount: 478,
+    gummiCount: 478,
     followers: 27600,
     following: 412,
     hasStory: true,
-    gumiHue: 0, // cherry (default red)
+    gummiHue: 0, // cherry (default red)
   },
 ];
 
@@ -158,15 +158,15 @@ export const CURRENT_USER: MockUser = {
   username: "tyler",
   avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&q=80",
   bio: "Discovering beautiful things.",
-  gumiCount: 89,
+  gummiCount: 89,
   followers: 2400,
   following: 156,
   hasStory: false,
-  gumiHue: 0,
+  gummiHue: 0,
 };
 
-// Get random friends who Gumied a product
-export function getRandomGumiFriends(count: number = 3): string[] {
+// Get random friends who Gummied a product
+export function getRandomGummiFriends(count: number = 3): string[] {
   const shuffled = [...MOCK_USERS].sort(() => Math.random() - 0.5);
   return shuffled.slice(0, Math.min(count, Math.floor(Math.random() * 4))).map((u) => u.id);
 }
