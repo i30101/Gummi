@@ -1,156 +1,123 @@
-/**
- * BearConfig.js — Gummi Bear 3D Lens Configuration
- *
- * Reads launchParams sent from the Gummi app and applies them to the 3D bear:
- *   - bear_hue   (string "0"-"360")  → hue-shifts the bear's body material
- *   - clothing   (string item ID)    → shows/hides clothing mesh children
- *   - accessory  (string item ID)    → shows/hides accessory mesh children
- *   - headwear   (string item ID)    → shows/hides headwear mesh children
- *   - color_name (string)            → used by UI label if present
- *
- * ─── GummyBear_V2.fbx notes ──────────────────────────────────────────────────
- * The FBX contains:
- *   - Single mesh object named "Mesh" (one-piece body, rigged with "Armature")
- *   - Two materials: "Material" (body) and "Material.001" (eyes/details)
- *   - Base diffuse color: #F90000 (R=0.978, G=0.0, B=0.0) — pure red
- *   - Skeleton: Armature + Bone hierarchy for posing/animation
- *
- * In Lens Studio after import:
- *   - Rename the root SceneObject to "BearRoot"
- *   - The mesh child will be named "Mesh" — set that as the @input bearBody
- *   - "Material" is the one to hue-shift (body color)
- *   - "Material.001" controls eye color — leave it alone or tint separately
- * ─────────────────────────────────────────────────────────────────────────────
- *
- * Scene hierarchy expected:
- *   BearRoot
- *   ├── Mesh              ← the imported FBX mesh (RenderMeshVisual, material = "Material")
- *   ├── Clothing
- *   │   ├── Clothing_TShirt
- *   │   ├── Clothing_Hoodie
- *   │   ├── Clothing_Dress
- *   │   ├── Clothing_Blazer
- *   │   ├── Clothing_Overalls
- *   │   ├── Clothing_Sweater
- *   │   ├── Clothing_Tuxedo
- *   │   └── Clothing_Cape
- *   ├── Accessories
- *   │   ├── Acc_Glasses
- *   │   ├── Acc_Sunglasses
- *   │   ├── Acc_Scarf
- *   │   ├── Acc_Bowtie
- *   │   ├── Acc_Headphones
- *   │   └── Acc_Wings
- *   └── Headwear
- *       ├── Hat_Beanie
- *       ├── Hat_Crown
- *       ├── Hat_FlowerCrown
- *       ├── Hat_Beret
- *       ├── Hat_TopHat
- *       ├── Hat_Cap
- *       └── Hat_Halo
- *
- * Attach this script to BearRoot.
- * In the Inspector, bind each @input to the matching SceneObject.
- */
+// BearConfig.js — self-contained bear color config
+// No @input dependencies, finds the mesh itself
 
-// @input SceneObject bearBody {"hint":"The 'Mesh' SceneObject from GummyBear_V2.fbx import"}
-// @input SceneObject clothingRoot {"hint":"Parent of all clothing meshes"}
-// @input SceneObject accessoryRoot {"hint":"Parent of all accessory meshes"}
-// @input SceneObject headwearRoot {"hint":"Parent of all headwear meshes"}
+print("[BearConfig] script loaded");
 
-// ColorUtils functions are global (defined in ColorUtils.js which runs first)
+function rgbToHsv(r, g, b) {
+  var max = Math.max(r, g, b);
+  var min = Math.min(r, g, b);
+  var delta = max - min;
+  var h = 0, s = max === 0 ? 0 : delta / max, v = max;
+  if (delta !== 0) {
+    if (max === r) h = ((g - b) / delta) % 6;
+    else if (max === g) h = (b - r) / delta + 2;
+    else h = (r - g) / delta + 4;
+    h = h * 60;
+    if (h < 0) h += 360;
+  }
+  return { h: h, s: s, v: v };
+}
 
-// ─── Item ID → scene child name mapping ──────────────────────────────────────
-
-/** Maps Gummi app item IDs to scene object child names under each root. */
-var CLOTHING_MAP = {
-  "clothing-tshirt":    "Clothing_TShirt",
-  "clothing-hoodie":    "Clothing_Hoodie",
-  "clothing-dress":     "Clothing_Dress",
-  "clothing-blazer":    "Clothing_Blazer",
-  "clothing-overalls":  "Clothing_Overalls",
-  "clothing-sweater":   "Clothing_Sweater",
-  "clothing-tuxedo":    "Clothing_Tuxedo",
-  "clothing-cape":      "Clothing_Cape",
-};
-
-var ACCESSORY_MAP = {
-  "acc-glasses":     "Acc_Glasses",
-  "acc-sunglasses":  "Acc_Sunglasses",
-  "acc-scarf":       "Acc_Scarf",
-  "acc-bowtie":      "Acc_Bowtie",
-  "acc-headphones":  "Acc_Headphones",
-  "acc-wings":       "Acc_Wings",
-};
-
-var HEADWEAR_MAP = {
-  "hat-beanie":   "Hat_Beanie",
-  "hat-crown":    "Hat_Crown",
-  "hat-flower":   "Hat_FlowerCrown",
-  "hat-beret":    "Hat_Beret",
-  "hat-tophat":   "Hat_TopHat",
-  "hat-cap":      "Hat_Cap",
-  "hat-halo":     "Hat_Halo",
-};
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-/**
- * Show only the child SceneObject matching `activeChildName`.
- * All other children of `root` are hidden.
- * If `activeChildName` is "" or null, all children are hidden.
- */
-function setActiveChild(root, activeChildName) {
-  if (!root) return;
-  var count = root.getChildrenCount();
-  for (var i = 0; i < count; i++) {
-    var child = root.getChild(i);
-    child.enabled = (activeChildName && child.name === activeChildName);
+function hsvToRgb(h, s, v) {
+  if (s === 0) return { r: v, g: v, b: v };
+  h = h % 360;
+  if (h < 0) h += 360;
+  var sector = Math.floor(h / 60);
+  var f = h / 60 - sector;
+  var p = v * (1 - s);
+  var q = v * (1 - f * s);
+  var t = v * (1 - (1 - f) * s);
+  switch (sector) {
+    case 0: return { r: v, g: t, b: p };
+    case 1: return { r: q, g: v, b: p };
+    case 2: return { r: p, g: v, b: t };
+    case 3: return { r: p, g: q, b: v };
+    case 4: return { r: t, g: p, b: v };
+    default: return { r: v, g: p, b: q };
   }
 }
 
-/**
- * Base color extracted from GummyBear_V2.fbx DiffuseColor property.
- * R=0.978, G=0.000, B=0.000 (#F90000) — nearly pure red.
- * All hue shifts are relative to this color.
- */
-var BASE_BEAR_COLOR = new vec4(0.978, 0.0, 0.0, 1.0);
+function findMeshInChildren(obj) {
+  for (var i = 0; i < obj.getChildrenCount(); i++) {
+    var child = obj.getChild(i);
+    var rmv = child.getComponent("Component.RenderMeshVisual");
+    if (rmv) return { obj: child, rmv: rmv };
+    var deeper = findMeshInChildren(child);
+    if (deeper) return deeper;
+  }
+  return null;
+}
 
-// ─── Main configuration function ─────────────────────────────────────────────
+var updateEvent = script.createEvent("UpdateEvent");
+var applied = false;
+var frameCount = 0;
 
-function applyBearConfig() {
-  // Read launchParams (sent from Gummi app via Camera Kit or Creative Kit)
-  var hueStr     = global.launchParams ? global.launchParams.getString("bear_hue")  : "0";
-  var clothingId = global.launchParams ? global.launchParams.getString("clothing")   : "";
-  var accessoryId= global.launchParams ? global.launchParams.getString("accessory")  : "";
-  var headwearId = global.launchParams ? global.launchParams.getString("headwear")   : "";
+updateEvent.bind(function() {
+  if (applied) return;
+  frameCount++;
+  // Wait a few frames for launchParams to be available
+  if (frameCount < 10) return;
+  applied = true;
 
-  var hueDegrees = parseFloat(hueStr) || 0;
+  // Try to read hue from launchParams
+  var hue = 0;
+  try {
+    if (global.launchParams) {
+      var hueStr = global.launchParams.getString("bear_hue");
+      print("[BearConfig] launchParams bear_hue raw: " + hueStr);
+      hue = parseFloat(hueStr) || 0;
+    } else {
+      print("[BearConfig] no global.launchParams");
+    }
+  } catch(e) {
+    print("[BearConfig] launchParams error: " + e);
+  }
 
-  // ── 1. Apply hue shift to bear body material ────────────────────────────
-  if (script.bearBody) {
-    var meshVisual = script.bearBody.getComponent("Component.RenderMeshVisual");
-    if (meshVisual) {
-      var mat = meshVisual.getMaterial(0);
-      if (mat) {
-        applyHueToMaterial(mat.mainPass, BASE_BEAR_COLOR, hueDegrees);
+  print("[BearConfig] applying hue=" + hue);
+
+  if (hue === 0) {
+    print("[BearConfig] hue is 0, no color shift needed");
+    return;
+  }
+
+  // Find the bear mesh — walk up to GummyBear root then search children
+  var parent = script.getSceneObject().getParent();
+  var target = parent ? parent : script.getSceneObject();
+  print("[BearConfig] searching for mesh in: " + target.name);
+
+  var result = findMeshInChildren(target);
+  if (!result) {
+    print("[BearConfig] ERROR: no RenderMeshVisual found");
+    return;
+  }
+
+  print("[BearConfig] found mesh: " + result.obj.name);
+  var matCount = result.rmv.getMaterialsCount();
+  print("[BearConfig] material count: " + matCount);
+
+  // Shift hue on all materials
+  var baseR = 0.978, baseG = 0.0, baseB = 0.0;
+  var hsv = rgbToHsv(baseR, baseG, baseB);
+  hsv.h = (hsv.h + hue) % 360;
+  if (hsv.h < 0) hsv.h += 360;
+  var rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+
+  for (var i = 0; i < matCount; i++) {
+    var mat = result.rmv.getMaterial(i);
+    try {
+      // Try mainPass.baseColor (LS5 PBR)
+      mat.mainPass.baseColor = new vec4(rgb.r, rgb.g, rgb.b, 1.0);
+      print("[BearConfig] set mainPass.baseColor on material " + i);
+    } catch(e1) {
+      try {
+        // Try direct baseColor
+        mat.baseColor = new vec4(rgb.r, rgb.g, rgb.b, 1.0);
+        print("[BearConfig] set baseColor on material " + i);
+      } catch(e2) {
+        print("[BearConfig] could not set color on material " + i + ": " + e2);
       }
     }
   }
 
-  // ── 2. Toggle outfit layers ─────────────────────────────────────────────
-  setActiveChild(script.clothingRoot,  CLOTHING_MAP[clothingId]  || null);
-  setActiveChild(script.accessoryRoot, ACCESSORY_MAP[accessoryId] || null);
-  setActiveChild(script.headwearRoot,  HEADWEAR_MAP[headwearId]   || null);
-
-  print("[BearConfig] hue=" + hueDegrees + " clothing=" + clothingId +
-        " accessory=" + accessoryId + " headwear=" + headwearId);
-}
-
-// ─── Entry point ──────────────────────────────────────────────────────────────
-
-var startEvent = script.createEvent("OnStartEvent");
-startEvent.bind(function() {
-  applyBearConfig();
+  print("[BearConfig] done — color set to hue " + hue);
 });

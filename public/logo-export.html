@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Gummi Logo Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f5f5f5;
+    font-family: system-ui;
+    gap: 30px;
+  }
+  canvas { border: 1px solid #ddd; max-width: 90vw; }
+  button {
+    padding: 16px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+  button:hover { background: #333; }
+</style>
+</head>
+<body>
+  <canvas id="logo" width="1800" height="1200"></canvas>
+  <button onclick="download()">Download Logo (1800x1200 PNG)</button>
+
+<script>
+const canvas = document.getElementById('logo');
+const ctx = canvas.getContext('2d');
+
+const img = new Image();
+img.src = '/gummi-icon.png';
+img.onload = async () => {
+  // Force font load before drawing
+  await document.fonts.load('700 400px "Cormorant Garamond"');
+  await document.fonts.ready;
+  draw();
+};
+
+function draw() {
+  const W = 1800, H = 1200;
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, W, H);
+
+  // Icon — match sidebar ratio: 28w x 48h, scaled up
+  const iconH = 400;
+  const iconW = (28 / 48) * iconH;
+
+  // Text — Cormorant Garamond 700, tracking-tight (letter-spacing: -0.025em)
+  ctx.font = '700 400px "Cormorant Garamond", serif';
+  ctx.letterSpacing = '-10px';
+  const tm = ctx.measureText('Gummi');
+  const textW = tm.width;
+
+  const gap = 30;
+  const totalW = iconW + gap + textW;
+  const startX = (W - totalW) / 2;
+  const centerY = H / 2;
+
+  // Drop shadow on icon
+  ctx.shadowColor = 'rgba(0,0,0,0.1)';
+  ctx.shadowBlur = 8;
+  ctx.shadowOffsetY = 4;
+  ctx.drawImage(img, startX, centerY - iconH / 2, iconW, iconH);
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+
+  // Measure actual text bounding box for precise vertical centering
+  ctx.fillStyle = '#1a1a1a';
+  ctx.textBaseline = 'alphabetic';
+  const metrics = ctx.measureText('Gummi');
+  const textVisualHeight = metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent;
+  const textY = centerY + (textVisualHeight / 2) - metrics.actualBoundingBoxDescent;
+  ctx.fillText('Gummi', startX + iconW + gap, textY);
+}
+
+function download() {
+  const a = document.createElement('a');
+  a.download = 'gummi-logo-1800x1200.png';
+  a.href = canvas.toDataURL('image/png');
+  a.click();
+}
+</script>
+</body>
+</html>
